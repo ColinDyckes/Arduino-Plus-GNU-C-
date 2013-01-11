@@ -17,7 +17,8 @@
 # etc...
 
 # program name should not be changed...
-PROGRAM    = ATmegaBOOT_168
+PROGRAM    = ATmegaBOOT_1284
+#PROGRAM    = iduino-bootloader
 
 # enter the parameters for the avrdude isp tool
 ISPTOOL	   = stk500v2
@@ -49,6 +50,7 @@ STK500-2 = $(STK500) -d$(MCU_TARGET) -ms -q -lCF -LCF -cUSB -I200kHz -s -wt
 
 
 OBJ        = $(PROGRAM).o
+#OPTIMIZE   =
 OPTIMIZE   = -O2
 
 DEFS       = 
@@ -65,7 +67,8 @@ override LDFLAGS       = -Wl,$(LDSECTION)
 OBJCOPY        = avr-objcopy
 OBJDUMP        = avr-objdump
 
-all:
+#all: mega diecimila iduino
+all: iduino
 
 lilypad: TARGET = lilypad
 lilypad: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>1' '-DNUM_LED_FLASHES=3'
@@ -195,6 +198,42 @@ mega_isp: HFUSE = DA
 mega_isp: LFUSE = FF
 mega_isp: EFUSE = F5
 mega_isp: isp
+
+iduino: TARGET = atmega128rfa1
+iduino: MCU_TARGET = atmega128rfa1
+iduino: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=57600
+iduino: AVR_FREQ = 16000000L 
+iduino: LDSECTION  = --section-start=.text=0x1F000
+iduino: $(PROGRAM)_atmega128rfa1.hex
+iduino: $(PROGRAM)_atmega128rfa1.elf
+#	cp $(PROGRAM)_atmega128rfa1.elf iduino-bootloader.elf
+#	cp $(PROGRAM).o iduino-bootloader.o
+
+mx2xxcb: TARGET = atmega1281
+mx2xxcb: MCU_TARGET = atmega1281
+mx2xxcb: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=57600
+mx2xxcb: AVR_FREQ = 7372800L 
+mx2xxcb: LDSECTION  = --section-start=.text=0x1F000
+mx2xxcb: $(PROGRAM)_atmega1281_73728.hex
+mx2xxcb: $(PROGRAM)_atmega1281_73728.elf
+
+mx2xxcc: TARGET = atmega1284p
+mx2xxcc: MCU_TARGET = atmega1284p
+mx2xxcc: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400
+mx2xxcc: AVR_FREQ =8000000L 
+mx2xxcc: LDSECTION  = --section-start=.text=0x1F000
+mx2xxcc: $(PROGRAM)_atmega1284_8M.hex
+mx2xxcc: $(PROGRAM)_atmega1284_8M.elf
+
+iduino_isp: iduino
+iduino_isp: TARGET = atmega128rfa1
+iduino_isp: MCU_TARGET = atmega128rfa1
+iduino_isp: HFUSE = DA
+iduino_isp: LFUSE = FF
+iduino_isp: EFUSE = F5
+iduino_isp: isp
+
+#iduino-bootloader: iduino
 
 isp: $(TARGET)
 	$(ISPFUSES)

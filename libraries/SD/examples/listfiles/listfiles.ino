@@ -76,7 +76,6 @@ void printDirectory(File dir, int numTabs) {
        Serial.print("\t\t");
        Serial.println(entry.size(), DEC);
      }
-     entry.close();
    }
 }
 

@@ -46,9 +46,12 @@ extern "C"{
 #define EXTERNAL 1
 #define INTERNAL 2
 #else  
-#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644P__)
+#if defined(__AVR_ATmega1280__) ||defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1284P__)
 #define INTERNAL1V1 2
 #define INTERNAL2V56 3
+#elif defined(__AVR_ATmega128RFA1__)
+#define INTERNAL1V5 2
+#define INTERNAL1V6 3
 #else
 #define INTERNAL 3
 #endif
@@ -102,10 +105,22 @@ int analogRead(uint8_t);
 void analogReference(uint8_t mode);
 void analogWrite(uint8_t, int);
 
-unsigned long millis(void);
-unsigned long micros(void);
+#ifdef CONTIKI
+#include <util/delay.h>
+extern "C" {
+extern unsigned long seconds;
+}
+#define delay(a) _delay_ms(a)
+#define delayMicroseconds(a) _delay_us(a)
+#define millis(...) seconds*128
+#define micros(...) seconds*1000*128
+#else
 void delay(unsigned long);
 void delayMicroseconds(unsigned int us);
+unsigned long millis(void);
+unsigned long micros(void);
+#endif
+
 unsigned long pulseIn(uint8_t pin, uint8_t state, unsigned long timeout);
 
 void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t val);
@@ -183,6 +198,8 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #define TIMER5B 16
 #define TIMER5C 17
 
+#define TIMER1C 18
+
 #ifdef __cplusplus
 } // extern "C"
 #endif
@@ -191,7 +208,7 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #include "WCharacter.h"
 #include "WString.h"
 #include "HardwareSerial.h"
-
+//#include "MxRadio.h"
 uint16_t makeWord(uint16_t w);
 uint16_t makeWord(byte h, byte l);
 

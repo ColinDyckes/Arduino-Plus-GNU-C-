@@ -463,6 +463,7 @@ uint8_t Sd2Card::setSckRate(uint8_t sckRateID) {
     SPSR |= (1 << SPI2X);
   }
   SPCR &= ~((1 <<SPR1) | (1 << SPR0));
+  //sckRateID=4;
   SPCR |= (sckRateID & 4 ? (1 << SPR1) : 0)
     | (sckRateID & 2 ? (1 << SPR0) : 0);
   return true;

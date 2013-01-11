@@ -21,7 +21,7 @@
 
   $Id$
 */
-
+#ifndef CONTIKI
 #include "wiring_private.h"
 
 // the prescaler is set so that timer0 ticks every 64 clock cycles, and the
@@ -209,7 +209,7 @@ void init()
 	sbi(TCCR0, CS01);
 	sbi(TCCR0, CS00);
 #elif defined(TCCR0B) && defined(CS01) && defined(CS00)
-	// this combination is for the standard 168/328/1280/2560
+	// this combination is for the standard 168/328/1280/2560 /128rfa1
 	sbi(TCCR0B, CS01);
 	sbi(TCCR0B, CS00);
 #elif defined(TCCR0A) && defined(CS01) && defined(CS00)
@@ -322,3 +322,4 @@ void init()
 	UCSR0B = 0;
 #endif
 }
+#endif //CONTIKI

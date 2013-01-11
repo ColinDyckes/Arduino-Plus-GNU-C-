@@ -1,5 +1,5 @@
 #include <Arduino.h>
-
+#ifndef CONTIKI
 int main(void)
 {
 	init();
@@ -17,4 +17,5 @@ int main(void)
         
 	return 0;
 }
+#endif
 
