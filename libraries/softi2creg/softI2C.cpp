@@ -1,4 +1,4 @@
-#include <Arduino.h>
+
 #include <softI2C.h>
 #include <wiring_private.h>
 #include <util/delay.h>

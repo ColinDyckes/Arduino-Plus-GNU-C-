@@ -146,16 +146,21 @@ __fuse_t __fuse __attribute__((section (".fuse"))) =
 #define LED      PINB7
 #elif defined __AVR_ATmega128RFA1__
 /* onboard LED for the iDuino is connected to pin PB1   */
-#define LED_DDR  DDRB
-#define LED_PORT PORTB
-#define LED_PIN  PINB
-#define LED      PINB1
+#define LED_DDR  DDRD
+#define LED_PORT PORTD
+#define LED_PIN  PIND
+#define LED      PIND7
 #elif defined __AVR_ATmega1281__
-/* onboard LED for the iDuino is connected to pin PA0   */
+/* onboard LED for the iDuino is connected to pin PA0
 #define LED_DDR  DDRA
 #define LED_PORT PORTA
 #define LED_PIN  PINA
 #define LED      PINA0
+*/
+#define LED_DDR  DDRG
+#define LED_PORT PORTG
+#define LED_PIN  PING
+#define LED      PING0
 
 #elif defined __AVR_ATmega1284P__
 #define LED_DDR  DDRA

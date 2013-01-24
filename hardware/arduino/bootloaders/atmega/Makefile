@@ -209,6 +209,14 @@ iduino: $(PROGRAM)_atmega128rfa1.elf
 #	cp $(PROGRAM)_atmega128rfa1.elf iduino-bootloader.elf
 #	cp $(PROGRAM).o iduino-bootloader.o
 
+isant900cb: TARGET = atmega1281
+isant900cb: MCU_TARGET = atmega1281
+isant900cb: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>1' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400
+isant900cb: AVR_FREQ = 8000000L 
+isant900cb: LDSECTION  = --section-start=.text=0x1F000
+isant900cb: $(PROGRAM)_atmega1281_8M.hex
+isant900cb: $(PROGRAM)_atmega1281_8M.elf
+
 mx2xxcb: TARGET = atmega1281
 mx2xxcb: MCU_TARGET = atmega1281
 mx2xxcb: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=57600
@@ -219,7 +227,8 @@ mx2xxcb: $(PROGRAM)_atmega1281_73728.elf
 
 mx2xxcc: TARGET = atmega1284p
 mx2xxcc: MCU_TARGET = atmega1284p
-mx2xxcc: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400
+#mx2xxcc: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400
+mx2xxcc: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>1' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400
 mx2xxcc: AVR_FREQ =8000000L 
 mx2xxcc: LDSECTION  = --section-start=.text=0x1F000
 mx2xxcc: $(PROGRAM)_atmega1284_8M.hex

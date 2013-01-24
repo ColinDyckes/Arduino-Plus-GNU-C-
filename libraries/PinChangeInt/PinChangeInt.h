@@ -148,8 +148,6 @@ Version 2.11 (beta) Mon Nov 12 09:33:06 CST 2012
 	#else
 		#define NO_PORTA_PINCHANGES
 	#endif
-	#endif
-
 	// if defined only D .OR. only C .OR. only B .OR. only A, then inline it
 	#if (   (defined(NO_PORTA_PINCHANGES) && defined(NO_PORTB_PINCHANGES) && defined(NO_PORTC_PINCHANGES)) || \
 			(defined(NO_PORTA_PINCHANGES) && defined(NO_PORTB_PINCHANGES) && defined(NO_PORTD_PINCHANGES)) || \
