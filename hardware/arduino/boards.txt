@@ -63,9 +63,9 @@ zigduino.build.variant=zigduino_r1
 ##############################################################
 
 mx212cb.name=mx212cb (atmega1281 rf212 73728)
-mx212cb.upload.protocol=arduino
+mx212cb.upload.protocol=mib510
 mx212cb.upload.maximum_size=126976
-mx212cb.upload.speed=57600
+mx212cb.upload.speed=115200
 mx212cb.bootloader.low_fuses=0xFF
 mx212cb.bootloader.high_fuses=0xD9
 mx212cb.bootloader.extended_fuses=0xFF

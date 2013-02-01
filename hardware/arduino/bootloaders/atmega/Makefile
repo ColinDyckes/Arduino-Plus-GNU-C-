@@ -201,7 +201,7 @@ mega_isp: isp
 
 iduino: TARGET = atmega128rfa1
 iduino: MCU_TARGET = atmega128rfa1
-iduino: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=57600
+iduino: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' '-DWATCHDOG_MODS' -DBAUD_RATE=57600
 iduino: AVR_FREQ = 16000000L 
 iduino: LDSECTION  = --section-start=.text=0x1F000
 iduino: $(PROGRAM)_atmega128rfa1.hex
@@ -228,7 +228,7 @@ mx2xxcb: $(PROGRAM)_atmega1281_73728.elf
 mx2xxcc: TARGET = atmega1284p
 mx2xxcc: MCU_TARGET = atmega1284p
 #mx2xxcc: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400
-mx2xxcc: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>1' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400
+mx2xxcc: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>1' '-DNUM_LED_FLASHES=5' -DBAUD_RATE=38400 
 mx2xxcc: AVR_FREQ =8000000L 
 mx2xxcc: LDSECTION  = --section-start=.text=0x1F000
 mx2xxcc: $(PROGRAM)_atmega1284_8M.hex

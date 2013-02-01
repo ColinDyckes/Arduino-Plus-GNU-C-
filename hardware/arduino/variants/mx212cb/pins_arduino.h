@@ -151,9 +151,9 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
 	PC	, // PC 6 ** 14 **
 	PC	, // PJ 7 ** 15 **
 
-	PA	, // PA 0 ** 16 ** 
-	PA	, // PA 1 ** 17 ** 
-	PA	, // PA 2 ** 18 ** 
+	PA	, // PA 0 ** 16 **  led1
+	PA	, // PA 1 ** 17 **  led2
+	PA	, // PA 2 ** 18 **  led3
 	PA	, // PA 3 ** 19 ** 
 	PA	, // PA 4 ** 20 ** 
 	PA	, // PA 5 ** 21 ** 

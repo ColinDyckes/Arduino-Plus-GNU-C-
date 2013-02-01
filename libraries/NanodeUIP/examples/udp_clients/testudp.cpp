@@ -37,7 +37,7 @@ PT_THREAD(handle_udp(void))
 	s.ticks = CLOCK_SECOND;
 
 	do {
-		uip_send((const void *)sendstr, 11);
+		uip_send((const void *)sendstr, strlen(sendstr));
 
 		/* Sending does not clear the NEWDATA flag.  The packet doesn't
        actually get sent until we yield at least once.  If we don't

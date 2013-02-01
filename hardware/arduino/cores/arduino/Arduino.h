@@ -105,15 +105,22 @@ int analogRead(uint8_t);
 void analogReference(uint8_t mode);
 void analogWrite(uint8_t, int);
 
-#ifdef CONTIKI
+#if defined(CONTIKI)
 #include <util/delay.h>
-extern "C" {
+
 extern unsigned long seconds;
-}
 #define delay(a) _delay_ms(a)
 #define delayMicroseconds(a) _delay_us(a)
 #define millis(...) seconds*128
 #define micros(...) seconds*1000*128
+#elif defined(IDUINO)
+#include <util/delay.h>
+extern unsigned long milliseconds; //milliseconds;
+#define delay(a) _delay_ms(a)
+#define delayMicroseconds(a) _delay_us(a)
+#define millis(...) milliseconds
+#define micros(...) milliseconds*1000
+
 #else
 void delay(unsigned long);
 void delayMicroseconds(unsigned int us);

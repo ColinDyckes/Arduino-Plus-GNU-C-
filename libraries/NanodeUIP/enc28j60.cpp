@@ -202,8 +202,9 @@ void enc28j60SpiInit() {
 	digitalWrite(SPI_SCK, LOW);
 
 
-	SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0);
-
+	//SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0);
+	//SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR1);
+	SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0) | _BV(SPR1);
 	SPSR |= _BV(SPI2X);
 }
 
