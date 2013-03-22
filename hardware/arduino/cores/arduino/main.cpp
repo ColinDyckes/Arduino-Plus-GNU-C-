@@ -1,7 +1,4 @@
 #include <Arduino.h>
-#include <avr/wdt.h>
-#include <util/delay.h>
-
 int main(void)
 {
 

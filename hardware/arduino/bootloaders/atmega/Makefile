@@ -201,7 +201,7 @@ mega_isp: isp
 
 iduino: TARGET = atmega128rfa1
 iduino: MCU_TARGET = atmega128rfa1
-iduino: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5' '-DWATCHDOG_MODS' -DBAUD_RATE=57600
+iduino: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5'  -DBAUD_RATE=57600 #'-DWATCHDOG_MODS'
 iduino: AVR_FREQ = 16000000L 
 iduino: LDSECTION  = --section-start=.text=0x1F000
 iduino: $(PROGRAM)_atmega128rfa1.hex

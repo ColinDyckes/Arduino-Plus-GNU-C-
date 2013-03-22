@@ -108,7 +108,7 @@ void analogWrite(uint8_t, int);
 #if defined(CONTIKI)
 #include <util/delay.h>
 
-extern unsigned long seconds;
+extern volatile unsigned long seconds;
 #define delay(a) _delay_ms(a)
 #define delayMicroseconds(a) _delay_us(a)
 #define millis(...) seconds*128
@@ -116,17 +116,20 @@ extern unsigned long seconds;
 #elif defined(IDUINO)
 #include <util/delay.h>
 
-extern unsigned long milliseconds; //milliseconds;
+extern volatile unsigned short milliseconds; //milliseconds;
+extern volatile unsigned long seconds; //seconds;
 #define delay(a) _delay_ms(a)
 #define delayMicroseconds(a) _delay_us(a)
-#define millis(...) milliseconds
-#define micros(...) milliseconds*1000
+#define millis(...) seconds*1000+milliseconds
+#define micros(...) (seconds*1000+milliseconds)*1000
 
 #else
 void delay(unsigned long);
 void delayMicroseconds(unsigned int us);
 unsigned long millis(void);
 unsigned long micros(void);
+void setup(void);
+void loop(void);
 #endif
 
 unsigned long pulseIn(uint8_t pin, uint8_t state, unsigned long timeout);
@@ -137,8 +140,7 @@ uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder);
 void attachInterrupt(uint8_t, void (*)(void), int mode);
 void detachInterrupt(uint8_t);
 
-void setup(void);
-void loop(void);
+
 
 // Get the bit location within the hardware port of the given virtual pin.
 // This comes from the pins_*.c file for the active board configuration.
@@ -216,7 +218,7 @@ extern const uint8_t PROGMEM digital_pin_to_timer_PGM[];
 #include "WCharacter.h"
 #include "WString.h"
 #include "HardwareSerial.h"
-//#include "MxRadio.h"
+
 uint16_t makeWord(uint16_t w);
 uint16_t makeWord(byte h, byte l);
 
