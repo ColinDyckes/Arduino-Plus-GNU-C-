@@ -76,7 +76,8 @@ const static uint8_t A5 = 19;
                                 ( ((p) == 12) ? 3 : \
                                 ( ((p) == 13) ? 1 : \
                                 ( ((p) == 20) ? 2 : \
-                                0 ) ) ) ) ) )
+                                0 ) ) ) ) ) ) ) )
+
 
 #ifdef ARDUINO_MAIN
 
@@ -115,8 +116,8 @@ const uint16_t PROGMEM port_to_output_PGM[] = {
 const uint16_t PROGMEM port_to_input_PGM[] = {
 	NOT_A_PIN,
 	NOT_A_PIN,
+	(uint16_t)&PINB,
 	NOT_A_PIN,
-	(uint16_t)&PINC,
 	(uint16_t)&PIND,
 	(uint16_t)&PINE,
 	(uint16_t)&PINF,
