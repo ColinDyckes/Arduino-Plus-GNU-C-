@@ -43,16 +43,17 @@ https://github.com/BlueVia/Official-Arduino
 #define __RXPIN__ 2
 #define __RXINT__ 3
 #elif defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
-#define __TXPIN__ 3
+//#define __TXPIN__ 3
+//#define __RXPIN__ 10
+#define __TXPIN__ 9
 #define __RXPIN__ 10
-//#define __TXPIN__ 10
-//#define __RXPIN__ 9
-#define __RXINT__ 4
+//#define __RXINT__ 4
+#define __RXINT__ 0
 #elif defined(__AVR_ATmega32U4__)
 #define __TXPIN__ 3
 #define __RXPIN__ 8
 #define __RXINT__ 3
-#elif defined(__AVR_ATmega128RFA1__)
+#elif defined(__AVR_ATmega128RFA1__) || defined(__AVR_ATmega256RFR2__)
 #define __TXPIN__ 10
 #define __RXPIN__ 9
 #define __RXINT__ 0 //mcu int4 pin6

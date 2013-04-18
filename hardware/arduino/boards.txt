@@ -44,8 +44,8 @@ iduinorf212.build.variant=iduinorf212_r1
 
 iduinoprorfr2.name=iduinoprorfr2_r1
 
-iduinoprorfr2.upload.protocol=arduinoo
-iduinoprorfr2.upload.maximum_size=126976
+iduinoprorfr2.upload.protocol=arduino
+iduinoprorfr2.upload.maximum_size=258048
 iduinoprorfr2.upload.speed=57600
 
 iduinoprorfr2.bootloader.low_fuses=0xFF
@@ -65,7 +65,7 @@ iduinoprorfr2.build.variant=iduinoprorfr2_r1
 iduinoprorf212.name=iduinoprorf212_r1
 
 iduinoprorf212.upload.protocol=arduino
-iduinoprorf212.upload.maximum_size=126976
+iduinoprorf212.upload.maximum_size=258048
 iduinoprorf212.upload.speed=57600
 
 iduinoprorf212.bootloader.low_fuses=0xFF
