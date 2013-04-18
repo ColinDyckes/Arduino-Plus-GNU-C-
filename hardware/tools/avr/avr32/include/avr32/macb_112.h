@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008-2009 Atmel Corporation
+ * Copyright (C) 2008-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : AP7000
- * Revision     : $Revision: 65231 $
- * Checkin Date : $Date: 2009-12-01 11:15:12 -0700 (Tue, 01 Dec 2009) $ 
+ * Revision     : $Revision: 74772 $
+ * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_MACB_112_H_INCLUDED
 #define AVR32_MACB_112_H_INCLUDED
+
+#define AVR32_MACB_H_VERSION 112
 
 #include "avr32/abi.h"
 
@@ -452,7 +454,6 @@
 #define AVR32_MACB_LCOL_MASK                                0x000000ff
 #define AVR32_MACB_LCOL_OFFSET                                       0
 #define AVR32_MACB_LCOL_SIZE                                         8
-#define AVR32_MACB_LINK_SIZE                                         1
 #define AVR32_MACB_LLB                                               1
 #define AVR32_MACB_LLB_MASK                                 0x00000002
 #define AVR32_MACB_LLB_OFFSET                                        1
@@ -646,10 +647,6 @@
 #define AVR32_MACB_NSR_IDLE_MASK                            0x00000004
 #define AVR32_MACB_NSR_IDLE_OFFSET                                   2
 #define AVR32_MACB_NSR_IDLE_SIZE                                     1
-#define AVR32_MACB_NSR_LINK                                          0
-#define AVR32_MACB_NSR_LINK_MASK                            0x00000001
-#define AVR32_MACB_NSR_LINK_OFFSET                                   0
-#define AVR32_MACB_NSR_LINK_SIZE                                     1
 #define AVR32_MACB_NSR_MDIO                                          1
 #define AVR32_MACB_NSR_MDIO_MASK                            0x00000002
 #define AVR32_MACB_NSR_MDIO_OFFSET                                   1
@@ -1079,7 +1076,6 @@ typedef struct avr32_macb_nsr_t {
     unsigned int                 :29;
     unsigned int idle            : 1;
     unsigned int mdio            : 1;
-    unsigned int link            : 1;
 } avr32_macb_nsr_t;
 
 
@@ -1112,7 +1108,6 @@ typedef struct avr32_macb_isr_t {
     unsigned int pfr             : 1;
     unsigned int hresp           : 1;
     unsigned int rovr            : 1;
-    unsigned int link            : 1;
     unsigned int                 : 1;
     unsigned int tcomp           : 1;
     unsigned int txerr           : 1;
@@ -1132,7 +1127,6 @@ typedef struct avr32_macb_ier_t {
     unsigned int pfr             : 1;
     unsigned int hresp           : 1;
     unsigned int rovr            : 1;
-    unsigned int link            : 1;
     unsigned int                 : 1;
     unsigned int tcomp           : 1;
     unsigned int txerr           : 1;
@@ -1152,7 +1146,6 @@ typedef struct avr32_macb_idr_t {
     unsigned int pfr             : 1;
     unsigned int hresp           : 1;
     unsigned int rovr            : 1;
-    unsigned int link            : 1;
     unsigned int                 : 1;
     unsigned int tcomp           : 1;
     unsigned int txerr           : 1;
@@ -1172,7 +1165,6 @@ typedef struct avr32_macb_imr_t {
     unsigned int pfr             : 1;
     unsigned int hresp           : 1;
     unsigned int rovr            : 1;
-    unsigned int link            : 1;
     unsigned int                 : 1;
     unsigned int tcomp           : 1;
     unsigned int txerr           : 1;

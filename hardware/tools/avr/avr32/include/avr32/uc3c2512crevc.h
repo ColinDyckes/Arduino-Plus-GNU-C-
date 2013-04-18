@@ -31,8 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3C2512CREVC
- * Revision     : $Revision: 66047 $
- * Checkin Date : $Date: 2009-12-12 23:25:50 -0700 (Sat, 12 Dec 2009) $
+ * Revision     : $Revision: 92336 $
+ * Checkin Date : $Date: 2011-03-23 14:41:59 +0100 (Wed, 23 Mar 2011) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3C2512CREVC_H_INCLUDED
@@ -175,7 +175,7 @@
 /* OCD */
 #include "avr32/ocd_s0_210.h"
 
-/* CORE */ 
+/* CORE */
 #define AVR32_CORE_OCD_DCCPU_READ_IRQ      33
 #define AVR32_CORE_OCD_DCEMU_DIRTY_IRQ     32
 #define AVR32_CORE_COMPARE_IRQ             0
@@ -183,7 +183,7 @@
 #define AVR32_CORE_SCAN_CLOCK_MSB          13
 
 
-/* OCD */ 
+/* OCD */
 
 /* Memories */
 #define AVR32_FLASH_ADDRESS                0x80000000
@@ -212,7 +212,6 @@
 #define AVR32_USB_SLAVE                    ((unsigned char *)AVR32_USB_SLAVE_ADDRESS)
 
 /* Interrupt Controller */
-#include "avr32/intc_102.h"
 #define AVR32_INTC_ADDRESS                 0xFFFF0000
 #define AVR32_INTC                         (*((volatile avr32_intc_t*)AVR32_INTC_ADDRESS))
 #define AVR32_INTC_NUM_INT_GRPS            42
@@ -259,11 +258,11 @@
 #define AVR32_INTC_NUM_IRQS_PER_GRP8       10
 #define AVR32_INTC_NUM_IRQS_PER_GRP9       1
 #define AVR32_INTC_NUM_NMI                 1
-
+#include "avr32/intc_102.h"
 
 /* ACIFA */
 
-/* ACIFA0 */ 
+/* ACIFA0 */
 #define AVR32_ACIFA0_ADDRESS               0xFFFF6000
 #define AVR32_ACIFA0                       (*((volatile avr32_acifa_t*)AVR32_ACIFA0_ADDRESS))
 #define AVR32_ACIFA0_IRQ                   1184
@@ -277,7 +276,7 @@
 
 /* ADCIFA */
 
-/* ADCIFA */ 
+/* ADCIFA */
 #define AVR32_ADCIFA_ADDRESS               0xFFFD2400
 #define AVR32_ADCIFA                       (*((volatile avr32_adcifa_t*)AVR32_ADCIFA_ADDRESS))
 #define AVR32_ADCIFA_SEQUENCER0_IRQ        1152
@@ -317,7 +316,7 @@
 
 /* AST */
 
-/* AST */ 
+/* AST */
 #define AVR32_AST_ADDRESS                  0xFFFF0C00
 #define AVR32_AST                          (*((volatile avr32_ast_t*)AVR32_AST_ADDRESS))
 #define AVR32_AST_ALARM_IRQ                448
@@ -336,7 +335,7 @@
 
 /* AW */
 
-/* AW */ 
+/* AW */
 #define AVR32_AW_ADDRESS                   0xFFFF7000
 #define AVR32_AW                           (*((volatile avr32_aw_t*)AVR32_AW_ADDRESS))
 #define AVR32_AW_IRQ                       1312
@@ -348,7 +347,7 @@
 
 /* CANIF */
 
-/* CANIF */ 
+/* CANIF */
 #define AVR32_CANIF_ADDRESS                0xFFFD1C00
 #define AVR32_CANIF                        (*((volatile avr32_canif_t*)AVR32_CANIF_ADDRESS))
 #define AVR32_CANIF_BUS_OFF_IRQ_0         256
@@ -393,7 +392,7 @@
 
 /* DACIFB */
 
-/* DACIFB0 */ 
+/* DACIFB0 */
 #define AVR32_DACIFB0_ADDRESS              0xFFFF6800
 #define AVR32_DACIFB0                      (*((volatile avr32_dacifb_t*)AVR32_DACIFB0_ADDRESS))
 #define AVR32_DACIFB0_CHA_DATA_EMPTY       1253
@@ -414,7 +413,7 @@
 
 /* EIC */
 
-/* EIC */ 
+/* EIC */
 #define AVR32_EIC_ADDRESS                  0xFFFF1400
 #define AVR32_EIC                          (*((volatile avr32_eic_t*)AVR32_EIC_ADDRESS))
 #define AVR32_EIC_IRQ_1                   480
@@ -479,7 +478,7 @@
 
 /* FLASHC */
 
-/* FLASHC */ 
+/* FLASHC */
 #define AVR32_FLASHC_ADDRESS              0xFFFE0000
 #define AVR32_FLASHC                      (*((volatile avr32_flashc_t*)AVR32_FLASHC_ADDRESS))
 #define AVR32_FLASHC_CALIBRATION_FIRST_WORD_ADDRESS    0x80800200
@@ -555,7 +554,7 @@
 
 /* FREQM */
 
-/* FREQM */ 
+/* FREQM */
 #define AVR32_FREQM_ADDRESS                0xFFFF1800
 #define AVR32_FREQM                        (*((volatile avr32_freqm_t*)AVR32_FREQM_ADDRESS))
 #define AVR32_FREQM_IRQ                    544
@@ -618,7 +617,7 @@
 
 /* GPIO */
 
-/* GPIO */ 
+/* GPIO */
 #define AVR32_GPIO_ADDRESS                 0xFFFF2000
 #define AVR32_GPIO                         (*((volatile avr32_gpio_t*)AVR32_GPIO_ADDRESS))
 #define AVR32_GPIO_IRQ_0                  576
@@ -654,7 +653,7 @@
 
 /* HMATRIX */
 
-/* HMATRIX */ 
+/* HMATRIX */
 #define AVR32_HMATRIX_ADDRESS              0xFFFE2000
 #define AVR32_HMATRIX                      (*((volatile avr32_hmatrix_t*)AVR32_HMATRIX_ADDRESS))
 #define AVR32_HMATRIX_MASTER_CANIF         8
@@ -684,7 +683,7 @@
 
 /* JTAG */
 
-/* JTAG */ 
+/* JTAG */
 #define AVR32_JTAG_TCK_PIN                0
 #define AVR32_JTAG_TDI_PIN                1
 #define AVR32_JTAG_TDO_PIN                2
@@ -694,7 +693,7 @@
 
 /* MDMA */
 
-/* MDMA */ 
+/* MDMA */
 #define AVR32_MDMA_ADDRESS                 0xFFFD1000
 #define AVR32_MDMA                         (*((volatile avr32_mdma_t*)AVR32_MDMA_ADDRESS))
 #define AVR32_MDMA_IRQ                     192
@@ -704,7 +703,7 @@
 
 /* PDCA */
 
-/* PDCA */ 
+/* PDCA */
 #define AVR32_PDCA_ADDRESS                 0xFFFD0000
 #define AVR32_PDCA                         (*((volatile avr32_pdca_t*)AVR32_PDCA_ADDRESS))
 #define AVR32_PDCA_IRQ_0                  96
@@ -758,7 +757,7 @@
 
 /* PEVC */
 
-/* PEVC */ 
+/* PEVC */
 #define AVR32_PEVC_ADDRESS                 0xFFFF5C00
 #define AVR32_PEVC                         (*((volatile avr32_pevc_t*)AVR32_PEVC_ADDRESS))
 #define AVR32_PEVC_OVERRUN_IRQ             1121
@@ -904,7 +903,7 @@
 
 /* PM */
 
-/* PM */ 
+/* PM */
 #define AVR32_PM_ADDRESS                   0xFFFF0400
 #define AVR32_PM                           (*((volatile avr32_pm_t*)AVR32_PM_ADDRESS))
 #define AVR32_PM_IRQ                       384
@@ -922,17 +921,9 @@
 #include "avr32/pm_410.h"
 
 
-/* PULLUP */
-
-/* PULLUP */ 
-#define AVR32_PULLUP_LPC_PULLUP_PIN       85
-#define AVR32_PULLUP_LPC_PULLUP_PIN       86
-
-
-
 /* PWM */
 
-/* PWM */ 
+/* PWM */
 #define AVR32_PWM_ADDRESS                  0xFFFF4C00
 #define AVR32_PWM                          (*((volatile avr32_pwm_t*)AVR32_PWM_ADDRESS))
 #define AVR32_PWM_IRQ                      960
@@ -994,7 +985,7 @@
 
 /* QDEC */
 
-/* QDEC0 */ 
+/* QDEC0 */
 #define AVR32_QDEC0_ADDRESS                0xFFFF5000
 #define AVR32_QDEC0                        (*((volatile avr32_qdec_t*)AVR32_QDEC0_ADDRESS))
 #define AVR32_QDEC0_IRQ                    992
@@ -1023,7 +1014,7 @@
 
 /* SAU */
 
-/* SAU */ 
+/* SAU */
 #define AVR32_SAU_ADDRESS                  0xFFFE2400
 #define AVR32_SAU                          (*((volatile avr32_sau_t*)AVR32_SAU_ADDRESS))
 #define AVR32_SAU_HSB_ADDRESS              0x90000000
@@ -1037,7 +1028,7 @@
 
 /* SCAN */
 
-/* SCAN */ 
+/* SCAN */
 #define AVR32_SCAN_CLOCKS_0_PIN            0
 #define AVR32_SCAN_CLOCKS_4_PIN            69
 #define AVR32_SCAN_CLOCKS_1_PIN            83
@@ -1087,7 +1078,7 @@
 
 /* SCIF */
 
-/* SCIF */ 
+/* SCIF */
 #define AVR32_SCIF_ADDRESS                 0xFFFF0800
 #define AVR32_SCIF                         (*((volatile avr32_scif_t*)AVR32_SCIF_ADDRESS))
 #define AVR32_SCIF_IRQ                     416
@@ -1142,7 +1133,7 @@
 
 /* SPI */
 
-/* SPI0 */ 
+/* SPI0 */
 #define AVR32_SPI0_ADDRESS                 0xFFFD1800
 #define AVR32_SPI0                         (*((volatile avr32_spi_t*)AVR32_SPI0_ADDRESS))
 #define AVR32_SPI0_IRQ                     736
@@ -1195,7 +1186,7 @@
 
 /* SSC */
 
-/* SSC */ 
+/* SSC */
 #define AVR32_SSC_ADDRESS                  0xFFFF4800
 #define AVR32_SSC                          (*((volatile avr32_ssc_t*)AVR32_SSC_ADDRESS))
 #define AVR32_SSC_IRQ                      928
@@ -1231,7 +1222,7 @@
 
 /* TC */
 
-/* TC0 */ 
+/* TC0 */
 #define AVR32_TC0_ADDRESS                  0xFFFD2000
 #define AVR32_TC0                          (*((volatile avr32_tc_t*)AVR32_TC0_ADDRESS))
 #define AVR32_TC0_IRQ0                     1056
@@ -1308,7 +1299,7 @@
 
 /* TWIM */
 
-/* TWIM0 */ 
+/* TWIM0 */
 #define AVR32_TWIM0_ADDRESS                0xFFFF3800
 #define AVR32_TWIM0                        (*((volatile avr32_twim_t*)AVR32_TWIM0_ADDRESS))
 #define AVR32_TWIM0_IRQ                    800
@@ -1316,7 +1307,7 @@
 #define AVR32_TWIM0_PDCA_ID_TX             19
 
 
-/* TWIM1 */ 
+/* TWIM1 */
 #define AVR32_TWIM1_ADDRESS                0xFFFF3C00
 #define AVR32_TWIM1                        (*((volatile avr32_twim_t*)AVR32_TWIM1_ADDRESS))
 #define AVR32_TWIM1_IRQ                    832
@@ -1357,7 +1348,7 @@
 
 /* TWIS */
 
-/* TWIS0 */ 
+/* TWIS0 */
 #define AVR32_TWIS0_ADDRESS                0xFFFF4000
 #define AVR32_TWIS0                        (*((volatile avr32_twis_t*)AVR32_TWIS0_ADDRESS))
 #define AVR32_TWIS0_IRQ                    864
@@ -1365,7 +1356,7 @@
 #define AVR32_TWIS0_PDCA_ID_TX             21
 
 
-/* TWIS1 */ 
+/* TWIS1 */
 #define AVR32_TWIS1_ADDRESS                0xFFFF4400
 #define AVR32_TWIS1                        (*((volatile avr32_twis_t*)AVR32_TWIS1_ADDRESS))
 #define AVR32_TWIS1_IRQ                    896
@@ -1377,7 +1368,7 @@
 
 /* USART */
 
-/* USART0 */ 
+/* USART0 */
 #define AVR32_USART0_ADDRESS               0xFFFF2800
 #define AVR32_USART0                       (*((volatile avr32_usart_t*)AVR32_USART0_ADDRESS))
 #define AVR32_USART0_IRQ                   608
@@ -1408,7 +1399,7 @@
 #define AVR32_USART0_TXD_0_1_FUNCTION      3
 
 
-/* USART1 */ 
+/* USART1 */
 #define AVR32_USART1_ADDRESS               0xFFFD1400
 #define AVR32_USART1                       (*((volatile avr32_usart_t*)AVR32_USART1_ADDRESS))
 #define AVR32_USART1_IRQ                   640
@@ -1455,7 +1446,7 @@
 #define AVR32_USART1_TXD_0_1_FUNCTION      0
 
 
-/* USART2 */ 
+/* USART2 */
 #define AVR32_USART2_ADDRESS               0xFFFF2C00
 #define AVR32_USART2                       (*((volatile avr32_usart_t*)AVR32_USART2_ADDRESS))
 #define AVR32_USART2_IRQ                   672
@@ -1488,7 +1479,7 @@
 
 /* USBB */
 
-/* USBB */ 
+/* USBB */
 #define AVR32_USBB_ADDRESS                  0xFFFE1000
 #define AVR32_USBB                          (*((volatile avr32_usbb_t*)AVR32_USBB_ADDRESS))
 #define AVR32_USBB_HSB_ADDRESS              0xFF000000
@@ -1540,7 +1531,7 @@
 
 /* WDT */
 
-/* WDT */ 
+/* WDT */
 #define AVR32_WDT_ADDRESS                  0xFFFF1000
 #define AVR32_WDT                          (*((volatile avr32_wdt_t*)AVR32_WDT_ADDRESS))
 

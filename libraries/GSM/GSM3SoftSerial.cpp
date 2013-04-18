@@ -45,11 +45,17 @@ https://github.com/BlueVia/Official-Arduino
 #elif defined(__AVR_ATmega2560__) || defined(__AVR_ATmega1280__)
 #define __TXPIN__ 3
 #define __RXPIN__ 10
+//#define __TXPIN__ 10
+//#define __RXPIN__ 9
 #define __RXINT__ 4
 #elif defined(__AVR_ATmega32U4__)
 #define __TXPIN__ 3
 #define __RXPIN__ 8
 #define __RXINT__ 3
+#elif defined(__AVR_ATmega128RFA1__)
+#define __TXPIN__ 10
+#define __RXPIN__ 9
+#define __RXINT__ 0 //mcu int4 pin6
 #endif
 
 #define __XON__ 0x11
@@ -294,6 +300,12 @@ void GSM3SoftSerial::setRX()
 //#define __RXINT__ 1
   attachInterrupt(__RXINT__, GSM3SoftSerial::handle_interrupt, FALLING);
 #endif
+
+#ifdef  __AVR_ATmega128RFA1__
+//#define __RXINT__ 0 mcu int4
+  attachInterrupt(__RXINT__, GSM3SoftSerial::handle_interrupt, FALLING);
+#endif
+
 	// This line comes from the High Middle Ages...
 	// attachInterrupt(__RXINT__, GSM3SoftSerial::handle_interrupt, FALLING);
 }

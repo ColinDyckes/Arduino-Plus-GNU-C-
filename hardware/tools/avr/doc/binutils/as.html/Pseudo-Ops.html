@@ -3,7 +3,7 @@
 <title>Pseudo Ops - Using as</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Using as">
-<meta name="generator" content="makeinfo 4.7">
+<meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="prev" href="Expressions.html#Expressions" title="Expressions">
 <link rel="next" href="Object-Attributes.html#Object-Attributes" title="Object Attributes">
@@ -11,17 +11,18 @@
 <!--
 This file documents the GNU Assembler "as".
 
-Copyright (C) 1991, 92, 93, 94, 95, 96, 97, 98, 99, 2000, 2001, 2002,
-2006, 2007 Free Software Foundation, Inc.
+Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999,
+2000, 2001, 2002, 2006, 2007, 2008, 2009, 2010, 2011 Free Software Foundation,
+Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.1
+under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled ``GNU Free Documentation License''.
 
-man end-->
+-->
 <meta http-equiv="Content-Style-Type" content="text/css">
 <style type="text/css"><!--
   pre.display { font-family:inherit }
@@ -30,22 +31,24 @@ man end-->
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc { font-variant:small-caps }
-  span.roman { font-family: serif; font-weight: normal; } 
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
+<a name="Pseudo-Ops"></a>
 <p>
-<a name="Pseudo-Ops"></a>Next:&nbsp;<a rel="next" accesskey="n" href="Object-Attributes.html#Object-Attributes">Object Attributes</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Object-Attributes.html#Object-Attributes">Object Attributes</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="Expressions.html#Expressions">Expressions</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="index.html#Top">Top</a>
-<hr><br>
+<hr>
 </div>
 
 <h2 class="chapter">7 Assembler Directives</h2>
 
-<p><a name="index-directives_002c-machine-independent-269"></a><a name="index-pseudo_002dops_002c-machine-independent-270"></a><a name="index-machine-independent-directives-271"></a>All assembler directives have names that begin with a period (<span class="samp">.</span>). 
+<p><a name="index-directives_002c-machine-independent-269"></a><a name="index-pseudo_002dops_002c-machine-independent-270"></a><a name="index-machine-independent-directives-271"></a>All assembler directives have names that begin with a period (&lsquo;<samp><span class="samp">.</span></samp>&rsquo;). 
 The rest of the name is letters, usually in lower case.
 
    <p>This chapter discusses directives that are available regardless of the
@@ -64,10 +67,8 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 <li><a accesskey="6" href="Asciz.html#Asciz">Asciz</a>:                        <code>.asciz "</code><var>string</var><code>"</code>... 
 <li><a accesskey="7" href="Balign.html#Balign">Balign</a>:                       <code>.balign </code><var>abs-expr</var><code> , </code><var>abs-expr</var>
 <li><a accesskey="8" href="Byte.html#Byte">Byte</a>:                         <code>.byte </code><var>expressions</var>
-<li><a accesskey="9" href="Comm.html#Comm">Comm</a>:                         <code>.comm </code><var>symbol</var><code> , </code><var>length</var>
-
-<li><a href="CFI-directives.html#CFI-directives">CFI directives</a>: 		<code>.cfi_startproc [simple]</code>, <code>.cfi_endproc</code>, etc.
-
+<li><a accesskey="9" href="CFI-directives.html#CFI-directives">CFI directives</a>: 		<code>.cfi_startproc [simple]</code>, <code>.cfi_endproc</code>, etc. 
+<li><a href="Comm.html#Comm">Comm</a>:                         <code>.comm </code><var>symbol</var><code> , </code><var>length</var> 
 <li><a href="Data.html#Data">Data</a>:                         <code>.data </code><var>subsection</var>
 
 <li><a href="Def.html#Def">Def</a>:                          <code>.def </code><var>name</var>
@@ -94,9 +95,7 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 <li><a href="Exitm.html#Exitm">Exitm</a>: 			<code>.exitm</code>
 <li><a href="Extern.html#Extern">Extern</a>:                       <code>.extern</code>
 <li><a href="Fail.html#Fail">Fail</a>: 			<code>.fail</code>
-
-<li><a href="File.html#File">File</a>:                         <code>.file </code><var>string</var>
-
+<li><a href="File.html#File">File</a>:                         <code>.file</code>
 <li><a href="Fill.html#Fill">Fill</a>:                         <code>.fill </code><var>repeat</var><code> , </code><var>size</var><code> , </code><var>value</var>
 <li><a href="Float.html#Float">Float</a>:                        <code>.float </code><var>flonums</var>
 <li><a href="Func.html#Func">Func</a>:                         <code>.func</code>
@@ -124,8 +123,10 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 <li><a href="Linkonce.html#Linkonce">Linkonce</a>: 			<code>.linkonce [</code><var>type</var><code>]</code>
 <li><a href="List.html#List">List</a>:                         <code>.list</code>
 <li><a href="Ln.html#Ln">Ln</a>:                           <code>.ln </code><var>line-number</var>
+<li><a href="Loc.html#Loc">Loc</a>:                          <code>.loc </code><var>fileno</var> <var>lineno</var>
+<li><a href="Loc_005fmark_005flabels.html#Loc_005fmark_005flabels">Loc_mark_labels</a>:              <code>.loc_mark_labels </code><var>enable</var>
 
-<li><a href="LNS-directives.html#LNS-directives">LNS directives</a>:               <code>.file</code>, <code>.loc</code>, etc.
+<li><a href="Local.html#Local">Local</a>:                        <code>.local </code><var>names</var>
 
 <li><a href="Long.html#Long">Long</a>:                         <code>.long </code><var>expressions</var>
 
@@ -134,6 +135,7 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 <li><a href="Noaltmacro.html#Noaltmacro">Noaltmacro</a>:                   <code>.noaltmacro</code>
 <li><a href="Nolist.html#Nolist">Nolist</a>:                       <code>.nolist</code>
 <li><a href="Octa.html#Octa">Octa</a>:                         <code>.octa </code><var>bignums</var>
+<li><a href="Offset.html#Offset">Offset</a>: 			<code>.offset </code><var>loc</var>
 <li><a href="Org.html#Org">Org</a>:                          <code>.org </code><var>new-lc</var><code>, </code><var>fill</var>
 <li><a href="P2align.html#P2align">P2align</a>:                      <code>.p2align </code><var>abs-expr</var><code>, </code><var>abs-expr</var><code>, </code><var>abs-expr</var>
 
@@ -165,7 +167,9 @@ See <a href="Machine-Dependencies.html#Machine-Dependencies">Machine Dependencie
 <li><a href="Size.html#Size">Size</a>:                         <code>.size [</code><var>name</var><code> , </code><var>expression</var><code>]</code>
 
 <li><a href="Skip.html#Skip">Skip</a>:                         <code>.skip </code><var>size</var><code> , </code><var>fill</var>
+
 <li><a href="Sleb128.html#Sleb128">Sleb128</a>: 			<code>.sleb128 </code><var>expressions</var>
+
 <li><a href="Space.html#Space">Space</a>:                        <code>.space </code><var>size</var><code> , </code><var>fill</var>
 
 <li><a href="Stab.html#Stab">Stab</a>:                         <code>.stabd, .stabn, .stabs</code>

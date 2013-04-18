@@ -3,7 +3,7 @@ OUTPUT_FORMAT("elf32-avr32", "elf32-avr32",
 	      "elf32-avr32")
 OUTPUT_ARCH(avr32:uc)
 ENTRY(_start)
-SEARCH_DIR("/c/WinAVR/avr32/lib");
+SEARCH_DIR("/home/tools/hudson/workspace/avr32-gnu-toolchain/avr32-gnu-toolchain-win32_x86/avr32/lib");
 /* Do we need any of these for elf?
    __DYNAMIC = 0;    */
 MEMORY
@@ -12,6 +12,8 @@ MEMORY
     CPUSRAM (wxa!ri) : ORIGIN = 0x00000004, LENGTH = 0x7FFC
     USERPAGE : ORIGIN = 0x80800000, LENGTH = 512
     FACTORYPAGE : ORIGIN = 0x80800200, LENGTH = 512
+    FLASHVAULT_FLASH_SIZE (r) : ORIGIN = 0x80800400, LENGTH = 8
+    FLASHVAULT_RAM_SIZE (r) : ORIGIN = 0x80800408, LENGTH = 8
 }
 SECTIONS
 {
@@ -197,5 +199,7 @@ SECTIONS
   } >CPUSRAM
   .userpage :  { *(.userpage .userpage.*)  } >USERPAGE AT>USERPAGE
   .factorypage :  { *(.factorypage .factorypage.*)  } >FACTORYPAGE AT>FACTORYPAGE
+  .flashvault_flash_size : { KEEP(*(.flashvault_flash_size .flashvault_flash_size.*)) } > FLASHVAULT_FLASH_SIZE
+  .flashvault_ram_size   : { KEEP(*(.flashvault_ram_size .flashvault_ram_size.*)) } > FLASHVAULT_RAM_SIZE
   /DISCARD/ : { *(.note.GNU-stack) }
 }

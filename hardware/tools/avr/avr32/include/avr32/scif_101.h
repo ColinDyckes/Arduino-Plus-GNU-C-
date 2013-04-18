@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3C0128C
- * Revision     : $Revision: 65138 $
- * Checkin Date : $Date: 2009-11-30 23:01:39 -0700 (Mon, 30 Nov 2009) $ 
+ * Revision     : $Revision: 83185 $
+ * Checkin Date : $Date: 2010-10-08 14:55:16 +0200 (Fri, 08 Oct 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_SCIF_101_H_INCLUDED
 #define AVR32_SCIF_101_H_INCLUDED
+
+#define AVR32_SCIF_H_VERSION 101
 
 #include "avr32/abi.h"
 
@@ -591,6 +593,14 @@
 #define AVR32_SCIF_OSCCTRL0_STARTUP_4096_RCOSC              0x00000004
 #define AVR32_SCIF_OSCCTRL0_STARTUP_64_RCOSC                0x00000001
 #define AVR32_SCIF_OSCCTRL0_STARTUP_8192_RCOSC              0x00000005
+#define AVR32_SCIF_OSCCTRL0_STARTUP_32768_RCOSC             0x00000007
+#define AVR32_SCIF_OSCCTRL0_STARTUP_4_RCOSC                 0x00000008
+#define AVR32_SCIF_OSCCTRL0_STARTUP_8_RCOSC                 0x00000009
+#define AVR32_SCIF_OSCCTRL0_STARTUP_16_RCOSC                0x0000000a
+#define AVR32_SCIF_OSCCTRL0_STARTUP_32_RCOSC                0x0000000b
+#define AVR32_SCIF_OSCCTRL0_STARTUP_256_RCOSC               0x0000000c
+#define AVR32_SCIF_OSCCTRL0_STARTUP_512_RCOSC               0x0000000d
+#define AVR32_SCIF_OSCCTRL0_STARTUP_1024_RCOSC              0x0000000e
 #define AVR32_SCIF_OSCCTRL1_GAIN_G0                         0x00000000
 #define AVR32_SCIF_OSCCTRL1_GAIN_G1                         0x00000001
 #define AVR32_SCIF_OSCCTRL1_GAIN_G2                         0x00000002
@@ -602,6 +612,14 @@
 #define AVR32_SCIF_OSCCTRL1_STARTUP_4096_RCOSC              0x00000004
 #define AVR32_SCIF_OSCCTRL1_STARTUP_64_RCOSC                0x00000001
 #define AVR32_SCIF_OSCCTRL1_STARTUP_8192_RCOSC              0x00000005
+#define AVR32_SCIF_OSCCTRL1_STARTUP_32768_RCOSC             0x00000007
+#define AVR32_SCIF_OSCCTRL1_STARTUP_4_RCOSC                 0x00000008
+#define AVR32_SCIF_OSCCTRL1_STARTUP_8_RCOSC                 0x00000009
+#define AVR32_SCIF_OSCCTRL1_STARTUP_16_RCOSC                0x0000000a
+#define AVR32_SCIF_OSCCTRL1_STARTUP_32_RCOSC                0x0000000b
+#define AVR32_SCIF_OSCCTRL1_STARTUP_256_RCOSC               0x0000000c
+#define AVR32_SCIF_OSCCTRL1_STARTUP_512_RCOSC               0x0000000d
+#define AVR32_SCIF_OSCCTRL1_STARTUP_1024_RCOSC              0x0000000e
 #define AVR32_SCIF_OSCCTRL32                                0x0000004c
 #define AVR32_SCIF_OSCCTRL32_MASK                           0x00070301
 #define AVR32_SCIF_OSCCTRL32_MODE                                    8

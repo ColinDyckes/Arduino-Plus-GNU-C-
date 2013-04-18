@@ -8,7 +8,7 @@
  *
  * General stdiodemo defines
  *
- * $Id: defines.h,v 1.2.2.1 2009/06/25 20:21:15 joerg_wunsch Exp $
+ * $Id: defines.h 2186 2010-09-22 10:25:15Z aboyapati $
  */
 
 /* CPU frequency */
@@ -21,7 +21,7 @@
 #define HD44780_RS A, 6
 #define HD44780_RW A, 4
 #define HD44780_E  A, 5
-/* The data bits have to be in ascending order. */
+/* The data bits have to be not only in ascending order but also consecutive. */
 #define HD44780_D4 A, 0
 
 /* Whether to read the busy flag, or fall back to

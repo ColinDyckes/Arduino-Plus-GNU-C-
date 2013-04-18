@@ -3,9 +3,9 @@ OUTPUT_FORMAT("elf32-avr","elf32-avr","elf32-avr")
 OUTPUT_ARCH(avr:106)
 MEMORY
 {
-  text      (rx)   : ORIGIN = 0, LENGTH = 1024K
-  data      (rw!x) : ORIGIN = 0x802000, LENGTH = 0xffa0
-  eeprom    (rw!x) : ORIGIN = 0x810000, LENGTH = 64K
+  text   (rx)   : ORIGIN = 0, LENGTH = 1024K
+  data   (rw!x) : ORIGIN = 0x802000, LENGTH = 0xffa0
+  eeprom (rw!x) : ORIGIN = 0x810000, LENGTH = 64K
   fuse      (rw!x) : ORIGIN = 0x820000, LENGTH = 1K
   lock      (rw!x) : ORIGIN = 0x830000, LENGTH = 1K
   signature (rw!x) : ORIGIN = 0x840000, LENGTH = 1K
@@ -149,7 +149,10 @@ SECTIONS
   .data	  : AT (ADDR (.text) + SIZEOF (.text))
   {
      PROVIDE (__data_start = .) ;
-    *(.data)
+    /* --gc-sections will delete empty .data. This leads to wrong start
+       addresses for subsequent sections because -Tdata= from the command
+       line will have no effect, see PR13697.  Thus, keep .data  */
+    KEEP (*(.data))
     *(.data*)
     *(.rodata)  /* We need to include .rodata here if gcc is used */
     *(.rodata*) /* with -fdata-sections.  */
@@ -179,7 +182,7 @@ SECTIONS
   }  > data
   .eeprom  :
   {
-    *(.eeprom*)
+    KEEP(*(.eeprom*))
      __eeprom_end = . ;
   }  > eeprom
   .fuse  :

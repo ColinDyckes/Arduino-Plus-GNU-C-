@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2006-2009 Atmel Corporation
+ * Copyright (C) 2006-2010 Atmel Corporation
  *
  * * Redistributions in binary form must reproduce the above copyright
  *   notice, this list of conditions and the following disclaimer in
@@ -24,8 +24,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3B1512
- * Revision     : $Revision: 65123 $
- * Checkin Date : $Date: 2009-11-30 11:39:02 -0700 (Mon, 30 Nov 2009) $
+ * Revision     : $Revision: 115080 $
+ * Checkin Date : $Date: 2012-05-04 12:40:09 +0200 (Fri, 04 May 2012) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3B1512_H_INCLUDED
@@ -73,7 +73,7 @@
 /* HSB clocks */
 #define AVR32_FLASHC_CLK_HSB               32
 #define AVR32_HMATRIX_CLK_HSB_PBA_BRIDGE   33
-#define AVR32_HMATRIX_CLK_HSB_PBA_BRIDGE   34
+#define AVR32_HMATRIX_CLK_HSB_PBB_BRIDGE   34
 #define AVR32_USBB_CLK_HSB                 35
 #define AVR32_PDCA_CLK_HSB                 36
 
@@ -93,6 +93,7 @@
 #define AVR32_PWM_CLK_PBA                  74
 #define AVR32_SSC_CLK_PBA                  75
 #define AVR32_TC_CLK_PBA                   76
+#define AVR32_ABDAC_CLK_PBA                77
 
 /* PBB clocks */
 #define AVR32_HMATRIX_CLK_PBB              96
@@ -110,13 +111,13 @@
 /* OCD */
 #include "avr32/ocd_s0_143.h"
 
-/* CORE */ 
+/* CORE */
 #define AVR32_CORE_COMPARE_IRQ             0
 #define AVR32_CORE_SCAN_CHAIN_MSB          9
 #define AVR32_CORE_SCAN_CLOCK_MSB          1
 
 
-/* OCD */ 
+/* OCD */
 
 /* Memories */
 #define AVR32_FLASH_ADDRESS                0x80000000
@@ -159,7 +160,7 @@
 
 /* ABDAC */
 
-/* ABDAC */ 
+/* ABDAC */
 #define AVR32_ABDAC_ADDRESS                0xFFFF4000
 #define AVR32_ABDAC                        (*((volatile avr32_abdac_t*)AVR32_ABDAC_ADDRESS))
 #define AVR32_ABDAC_IRQ                    576
@@ -188,7 +189,7 @@
 
 /* ADC */
 
-/* ADC */ 
+/* ADC */
 #define AVR32_ADC_ADDRESS                  0xFFFF3C00
 #define AVR32_ADC                          (*((volatile avr32_adc_t*)AVR32_ADC_ADDRESS))
 #define AVR32_ADC_IRQ                      480
@@ -234,7 +235,7 @@
 
 /* EIC */
 
-/* EIC */ 
+/* EIC */
 #define AVR32_EIC_ADDRESS                  0xFFFF0D80
 #define AVR32_EIC                          (*((volatile avr32_eic_t*)AVR32_EIC_ADDRESS))
 #define AVR32_EIC_IRQ_0                   32
@@ -345,7 +346,7 @@
 
 /* FREQM */
 
-/* FREQM */ 
+/* FREQM */
 #define AVR32_FREQM_ADDRESS                0xFFFF0D50
 #define AVR32_FREQM                        (*((volatile avr32_freqm_t*)AVR32_FREQM_ADDRESS))
 #define AVR32_FREQM_IRQ                    42
@@ -356,7 +357,7 @@
 
 /* GPIO */
 
-/* GPIO */ 
+/* GPIO */
 #define AVR32_GPIO_ADDRESS                 0xFFFF1000
 #define AVR32_GPIO                         (*((volatile avr32_gpio_t*)AVR32_GPIO_ADDRESS))
 #define AVR32_GPIO_IRQ_0                  64
@@ -384,7 +385,7 @@
 
 /* HMATRIX */
 
-/* HMATRIX */ 
+/* HMATRIX */
 #define AVR32_HMATRIX_ADDRESS              0xFFFE1000
 #define AVR32_HMATRIX                      (*((volatile avr32_hmatrix_t*)AVR32_HMATRIX_ADDRESS))
 #define AVR32_HMATRIX_MASTER_CPU_DATA      0
@@ -407,7 +408,7 @@
 
 /* JTAG */
 
-/* JTAG */ 
+/* JTAG */
 #define AVR32_JTAG_TDI_0_PIN               0
 #define AVR32_JTAG_TDO_0_PIN               1
 #define AVR32_JTAG_TMS_0_PIN               2
@@ -416,7 +417,7 @@
 
 /* PDCA */
 
-/* PDCA */ 
+/* PDCA */
 #define AVR32_PDCA_ADDRESS                 0xFFFF0000
 #define AVR32_PDCA                         (*((volatile avr32_pdca_t*)AVR32_PDCA_ADDRESS))
 #define AVR32_PDCA_IRQ_0                  96
@@ -446,7 +447,7 @@
 
 /* PLL */
 
-/* PLL0 */ 
+/* PLL0 */
 #define AVR32_PLL0_DN_0_PIN                13
 #define AVR32_PLL0_FDIV_0_PIN              15
 #define AVR32_PLL0_FDIV_TEST_0_PIN         16
@@ -455,7 +456,7 @@
 #define AVR32_PLL0_UP_0_PIN                14
 
 
-/* PLL1 */ 
+/* PLL1 */
 #define AVR32_PLL1_DN_0_PIN                5
 #define AVR32_PLL1_FDIV_0_PIN              7
 #define AVR32_PLL1_FDIV_TEST_0_PIN         8
@@ -467,12 +468,12 @@
 
 /* PM */
 
-/* PM */ 
+/* PM */
 #define AVR32_PM_ADDRESS                   0xFFFF0C00
 #define AVR32_PM                           (*((volatile avr32_pm_t*)AVR32_PM_ADDRESS))
 #define AVR32_PM_IRQ                       41
 #define AVR32_PM_CPU_MAX_FREQ              60000000
-#define AVR32_PM_GCLK_DAC                  4
+#define AVR32_PM_GCLK_ABDAC                4
 #define AVR32_PM_GCLK_MSB                  3
 #define AVR32_PM_GCLK_NUM                  5
 #define AVR32_PM_GCLK_USBB                 3
@@ -504,13 +505,13 @@
 
 /* PULLUP */
 
-/* PULLUP */ 
+/* PULLUP */
 
 
 
 /* PWM */
 
-/* PWM */ 
+/* PWM */
 #define AVR32_PWM_ADDRESS                  0xFFFF3000
 #define AVR32_PWM                          (*((volatile avr32_pwm_t*)AVR32_PWM_ADDRESS))
 #define AVR32_PWM_IRQ                      384
@@ -555,7 +556,7 @@
 
 /* RTC */
 
-/* RTC */ 
+/* RTC */
 #define AVR32_RTC_ADDRESS                  0xFFFF0D00
 #define AVR32_RTC                          (*((volatile avr32_rtc_t*)AVR32_RTC_ADDRESS))
 #define AVR32_RTC_IRQ                      40
@@ -565,7 +566,7 @@
 
 /* SPI */
 
-/* SPI */ 
+/* SPI */
 #define AVR32_SPI_ADDRESS                  0xFFFF2400
 #define AVR32_SPI                          (*((volatile avr32_spi_t*)AVR32_SPI_ADDRESS))
 #define AVR32_SPI_IRQ                      288
@@ -604,7 +605,7 @@
 
 /* SSC */
 
-/* SSC */ 
+/* SSC */
 #define AVR32_SSC_ADDRESS                  0xFFFF3400
 #define AVR32_SSC                          (*((volatile avr32_ssc_t*)AVR32_SSC_ADDRESS))
 #define AVR32_SSC_IRQ                      416
@@ -636,7 +637,7 @@
 
 /* TC */
 
-/* TC */ 
+/* TC */
 #define AVR32_TC_ADDRESS                   0xFFFF3800
 #define AVR32_TC                           (*((volatile avr32_tc_t*)AVR32_TC_ADDRESS))
 #define AVR32_TC_IRQ0                      448
@@ -675,7 +676,7 @@
 
 /* TWI */
 
-/* TWI */ 
+/* TWI */
 #define AVR32_TWI_ADDRESS                  0xFFFF2C00
 #define AVR32_TWI                          (*((volatile avr32_twi_t*)AVR32_TWI_ADDRESS))
 #define AVR32_TWI_IRQ                      352
@@ -695,7 +696,7 @@
 
 /* USART */
 
-/* USART0 */ 
+/* USART0 */
 #define AVR32_USART0_ADDRESS               0xFFFF1400
 #define AVR32_USART0                       (*((volatile avr32_usart_t*)AVR32_USART0_ADDRESS))
 #define AVR32_USART0_IRQ                   160
@@ -714,7 +715,7 @@
 #define AVR32_USART0_TXD_0_1_FUNCTION      2
 
 
-/* USART1 */ 
+/* USART1 */
 #define AVR32_USART1_ADDRESS               0xFFFF1800
 #define AVR32_USART1                       (*((volatile avr32_usart_t*)AVR32_USART1_ADDRESS))
 #define AVR32_USART1_IRQ                   192
@@ -750,7 +751,7 @@
 #define AVR32_USART1_TXD_0_2_FUNCTION      3
 
 
-/* USART2 */ 
+/* USART2 */
 #define AVR32_USART2_ADDRESS               0xFFFF1C00
 #define AVR32_USART2                       (*((volatile avr32_usart_t*)AVR32_USART2_ADDRESS))
 #define AVR32_USART2_IRQ                   224
@@ -772,13 +773,11 @@
 
 /* USBB */
 
-/* USBB */ 
+/* USBB */
 #define AVR32_USBB_ADDRESS                 0xFFFE0000
 #define AVR32_USBB                         (*((volatile avr32_usbb_t*)AVR32_USBB_ADDRESS))
-#define AVR32_USBB_SLAVE_SIZE              0x1000
-#define AVR32_USBB_SLAVE                   (*((volatile avr32_usbb_slave_t*)AVR32_USBB_SLAVE_ADDRESS))
 #define AVR32_USBB_IRQ                     544
-#define AVR32_USBB_EPT_NBR                 7
+#define AVR32_USBB_EPT_NUM                 7
 #define AVR32_USBB_ENABLE_TEST_0_PIN       22
 #define AVR32_USBB_EOPN_TEST_0_PIN         23
 #define AVR32_USBB_FS_TEST_0_PIN           5
@@ -810,7 +809,7 @@
 
 /* WDT */
 
-/* WDT */ 
+/* WDT */
 #define AVR32_WDT_ADDRESS                  0xFFFF0D30
 #define AVR32_WDT                          (*((volatile avr32_wdt_t*)AVR32_WDT_ADDRESS))
 #define AVR32_WDT_WDTEXTRST_MSB            1

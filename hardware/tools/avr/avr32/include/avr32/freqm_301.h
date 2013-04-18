@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,13 +30,15 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  * 
- * Model        : UC3L064T
- * Revision     : $Revision: 60652 $
- * Checkin Date : $Date: 2009-09-14 14:15:07 +0200 (Mon, 14 Sep 2009) $ 
+ * Model        : UC3L064
+ * Revision     : $Revision: 83412 $
+ * Checkin Date : $Date: 2010-10-13 19:20:07 +0200 (Wed, 13 Oct 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_FREQM_301_H_INCLUDED
 #define AVR32_FREQM_301_H_INCLUDED
+
+#define AVR32_FREQM_H_VERSION 301
 
 #include "avr32/abi.h"
 

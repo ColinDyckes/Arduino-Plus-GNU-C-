@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3L064
- * Revision     : $Revision: 62294 $
- * Checkin Date : $Date: 2008-12-16 13:03:18 +0100 (ti., 16 des. 2008) $ 
+ * Revision     : $Revision: 83412 $
+ * Checkin Date : $Date: 2010-10-13 19:20:07 +0200 (Wed, 13 Oct 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_PM_411_H_INCLUDED
 #define AVR32_PM_411_H_INCLUDED
+
+#define AVR32_PM_H_VERSION 411
 
 #include "avr32/abi.h"
 
@@ -169,6 +171,10 @@
 #define AVR32_PM_CPUMASK                                  0x00000020
 #define AVR32_PM_CPUMASK_MASK                             0x00000000
 #define AVR32_PM_CPUMASK_RESETVALUE                       0x00000000
+#define AVR32_PM_CPUMASK_SYSTIMER                                 16
+#define AVR32_PM_CPUMASK_SYSTIMER_MASK                    0x00010000
+#define AVR32_PM_CPUMASK_SYSTIMER_OFFSET                          16
+#define AVR32_PM_CPUMASK_SYSTIMER_SIZE                             1
 #define AVR32_PM_CPUSEL                                   0x00000004
 #define AVR32_PM_CPUSEL_CPUDIV                                     7
 #define AVR32_PM_CPUSEL_CPUDIV_MASK                       0x00000080

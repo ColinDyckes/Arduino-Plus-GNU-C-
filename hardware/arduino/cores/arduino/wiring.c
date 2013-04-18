@@ -209,7 +209,7 @@ void init()
 	sbi(TCCR0, CS01);
 	sbi(TCCR0, CS00);
 #elif defined(TCCR0B) && defined(CS01) && defined(CS00)
-	// this combination is for the standard 168/328/1280/2560 /128rfa1
+	// this combination is for the standard 168/328/1280/2560 /128rfa1//256rfr2
 	sbi(TCCR0B, CS01);
 	sbi(TCCR0B, CS00);
 #elif defined(TCCR0A) && defined(CS01) && defined(CS00)

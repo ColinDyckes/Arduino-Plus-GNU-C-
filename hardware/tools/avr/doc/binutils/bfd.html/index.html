@@ -3,16 +3,16 @@
 <title>Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.7">
+<meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007 Free Software Foundation, Inc.
+Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007, 2008 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.1 or
+under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with the
 Invariant Sections being "GNU General Public License" and "Funding
 Free Software", the Front-Cover texts being (a) (see below), and with
@@ -36,8 +36,9 @@ included in the section entitled "GNU Free Documentation License".
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc { font-variant:small-caps }
-  span.roman { font-family: serif; font-weight: normal; } 
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
@@ -104,6 +105,7 @@ included in the section entitled "GNU Free Documentation License".
 <li><a href="BFD-front-end.html#BFD-front-end">2.3.1.25 <code>struct bfd_iovec</code></a>
 <li><a href="BFD-front-end.html#BFD-front-end">2.3.1.26 <code>bfd_get_mtime</code></a>
 <li><a href="BFD-front-end.html#BFD-front-end">2.3.1.27 <code>bfd_get_size</code></a>
+<li><a href="BFD-front-end.html#BFD-front-end">2.3.1.28 <code>bfd_mmap</code></a>
 </li></ul>
 </li></ul>
 <li><a href="Memory-Usage.html#Memory-Usage">2.4 Memory Usage</a>
@@ -132,15 +134,16 @@ included in the section entitled "GNU Free Documentation License".
 <li><a href="section-prototypes.html#section-prototypes">2.6.5.8 <code>bfd_make_section_with_flags</code></a>
 <li><a href="section-prototypes.html#section-prototypes">2.6.5.9 <code>bfd_make_section</code></a>
 <li><a href="section-prototypes.html#section-prototypes">2.6.5.10 <code>bfd_set_section_flags</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.11 <code>bfd_map_over_sections</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.12 <code>bfd_sections_find_if</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.13 <code>bfd_set_section_size</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.14 <code>bfd_set_section_contents</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.15 <code>bfd_get_section_contents</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.16 <code>bfd_malloc_and_get_section</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.17 <code>bfd_copy_private_section_data</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.18 <code>bfd_generic_is_group_section</code></a>
-<li><a href="section-prototypes.html#section-prototypes">2.6.5.19 <code>bfd_generic_discard_group</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.11 <code>bfd_rename_section</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.12 <code>bfd_map_over_sections</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.13 <code>bfd_sections_find_if</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.14 <code>bfd_set_section_size</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.15 <code>bfd_set_section_contents</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.16 <code>bfd_get_section_contents</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.17 <code>bfd_malloc_and_get_section</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.18 <code>bfd_copy_private_section_data</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.19 <code>bfd_generic_is_group_section</code></a>
+<li><a href="section-prototypes.html#section-prototypes">2.6.5.20 <code>bfd_generic_discard_group</code></a>
 </li></ul>
 </li></ul>
 <li><a href="Symbols.html#Symbols">2.7 Symbols</a>
@@ -207,8 +210,9 @@ included in the section entitled "GNU Free Documentation License".
 <li><a href="howto-manager.html#howto-manager">2.10.2.4 <code>bfd_get_reloc_code_name</code></a>
 <li><a href="howto-manager.html#howto-manager">2.10.2.5 <code>bfd_generic_relax_section</code></a>
 <li><a href="howto-manager.html#howto-manager">2.10.2.6 <code>bfd_generic_gc_sections</code></a>
-<li><a href="howto-manager.html#howto-manager">2.10.2.7 <code>bfd_generic_merge_sections</code></a>
-<li><a href="howto-manager.html#howto-manager">2.10.2.8 <code>bfd_generic_get_relocated_section_contents</code></a>
+<li><a href="howto-manager.html#howto-manager">2.10.2.7 <code>bfd_generic_lookup_section_flags</code></a>
+<li><a href="howto-manager.html#howto-manager">2.10.2.8 <code>bfd_generic_merge_sections</code></a>
+<li><a href="howto-manager.html#howto-manager">2.10.2.9 <code>bfd_generic_get_relocated_section_contents</code></a>
 </li></ul>
 </li></ul>
 <li><a href="Core-Files.html#Core-Files">2.11 Core files</a>
@@ -217,8 +221,9 @@ included in the section entitled "GNU Free Documentation License".
 <ul>
 <li><a href="Core-Files.html#Core-Files">2.11.1.1 <code>bfd_core_file_failing_command</code></a>
 <li><a href="Core-Files.html#Core-Files">2.11.1.2 <code>bfd_core_file_failing_signal</code></a>
-<li><a href="Core-Files.html#Core-Files">2.11.1.3 <code>core_file_matches_executable_p</code></a>
-<li><a href="Core-Files.html#Core-Files">2.11.1.4 <code>generic_core_file_matches_executable_p</code></a>
+<li><a href="Core-Files.html#Core-Files">2.11.1.3 <code>bfd_core_file_pid</code></a>
+<li><a href="Core-Files.html#Core-Files">2.11.1.4 <code>core_file_matches_executable_p</code></a>
+<li><a href="Core-Files.html#Core-Files">2.11.1.5 <code>generic_core_file_matches_executable_p</code></a>
 </li></ul>
 </li></ul>
 <li><a href="Targets.html#Targets">2.12 Targets</a>
@@ -227,8 +232,9 @@ included in the section entitled "GNU Free Documentation License".
 <ul>
 <li><a href="bfd_005ftarget.html#bfd_005ftarget">2.12.1.1 <code>bfd_set_default_target</code></a>
 <li><a href="bfd_005ftarget.html#bfd_005ftarget">2.12.1.2 <code>bfd_find_target</code></a>
-<li><a href="bfd_005ftarget.html#bfd_005ftarget">2.12.1.3 <code>bfd_target_list</code></a>
-<li><a href="bfd_005ftarget.html#bfd_005ftarget">2.12.1.4 <code>bfd_seach_for_target</code></a>
+<li><a href="bfd_005ftarget.html#bfd_005ftarget">2.12.1.3 <code>bfd_get_target_info</code></a>
+<li><a href="bfd_005ftarget.html#bfd_005ftarget">2.12.1.4 <code>bfd_target_list</code></a>
+<li><a href="bfd_005ftarget.html#bfd_005ftarget">2.12.1.5 <code>bfd_seach_for_target</code></a>
 </li></ul>
 </li></ul>
 <li><a href="Architectures.html#Architectures">2.13 Architectures</a>
@@ -321,6 +327,9 @@ included in the section entitled "GNU Free Documentation License".
 <li><a href="Writing-the-symbol-table.html#Writing-the-symbol-table">2.17.3.3 Writing the symbol table</a>
 <li><a href="Writing-the-symbol-table.html#Writing-the-symbol-table">2.17.3.4 <code>bfd_link_split_section</code></a>
 <li><a href="Writing-the-symbol-table.html#Writing-the-symbol-table">2.17.3.5 <code>bfd_section_already_linked</code></a>
+<li><a href="Writing-the-symbol-table.html#Writing-the-symbol-table">2.17.3.6 <code>bfd_generic_define_common_symbol</code></a>
+<li><a href="Writing-the-symbol-table.html#Writing-the-symbol-table">2.17.3.7 <code>bfd_find_version_for_sym </code></a>
+<li><a href="Writing-the-symbol-table.html#Writing-the-symbol-table">2.17.3.8 <code>bfd_hide_sym_by_version</code></a>
 </li></ul>
 </li></ul>
 <li><a href="Hash-Tables.html#Hash-Tables">2.18 Hash Tables</a>
@@ -359,32 +368,24 @@ included in the section entitled "GNU Free Documentation License".
 <li><a href="coff.html#coff">3.3.2 How the coff backend works</a>
 <ul>
 <li><a href="coff.html#coff">3.3.2.1 File layout</a>
-<li><a href="coff.html#coff">3.3.2.2 Bit twiddling</a>
-<li><a href="coff.html#coff">3.3.2.3 Symbol reading</a>
-<li><a href="coff.html#coff">3.3.2.4 Symbol writing</a>
-<li><a href="coff.html#coff">3.3.2.5 <code>coff_symbol_type</code></a>
-<li><a href="coff.html#coff">3.3.2.6 <code>bfd_coff_backend_data</code></a>
-<li><a href="coff.html#coff">3.3.2.7 Writing relocations</a>
-<li><a href="coff.html#coff">3.3.2.8 Reading linenumbers</a>
-<li><a href="coff.html#coff">3.3.2.9 Reading relocations</a>
+<li><a href="coff.html#coff">3.3.2.2 Coff long section names</a>
+<li><a href="coff.html#coff">3.3.2.3 Bit twiddling</a>
+<li><a href="coff.html#coff">3.3.2.4 Symbol reading</a>
+<li><a href="coff.html#coff">3.3.2.5 Symbol writing</a>
+<li><a href="coff.html#coff">3.3.2.6 <code>coff_symbol_type</code></a>
+<li><a href="coff.html#coff">3.3.2.7 <code>bfd_coff_backend_data</code></a>
+<li><a href="coff.html#coff">3.3.2.8 Writing relocations</a>
+<li><a href="coff.html#coff">3.3.2.9 Reading linenumbers</a>
+<li><a href="coff.html#coff">3.3.2.10 Reading relocations</a>
 </li></ul>
 </li></ul>
 <li><a href="elf.html#elf">3.4 ELF backends</a>
-<ul>
-<ul>
-<li><a href="elf.html#elf">3.4.0.1 <code>bfd_elf_find_section</code></a>
-</li></ul>
-</li></ul>
 <li><a href="mmo.html#mmo">3.5 mmo backend</a>
 <ul>
 <li><a href="File-layout.html#File-layout">3.5.1 File layout</a>
 <li><a href="Symbol_002dtable.html#Symbol_002dtable">3.5.2 Symbol table format</a>
 <li><a href="mmo-section-mapping.html#mmo-section-mapping">3.5.3 mmo section mapping</a>
 </li></ul>
-</li></ul>
-<li><a name="toc_GNU-Free-Documentation-License" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">Appendix A GNU Free Documentation License</a>
-<ul>
-<li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">ADDENDUM: How to use this License for your documents</a>
 </li></ul>
 <li><a name="toc_BFD-Index" href="BFD-Index.html#BFD-Index">BFD Index</a>
 </li></ul>
@@ -393,11 +394,12 @@ included in the section entitled "GNU Free Documentation License".
 
 
 <div class="node">
+<a name="Top"></a>
 <p>
-<a name="Top"></a>Next:&nbsp;<a rel="next" accesskey="n" href="Overview.html#Overview">Overview</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Overview.html#Overview">Overview</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="../index.html#dir">(dir)</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
-<hr><br>
+<hr>
 </div>
 
 <ul class="menu">

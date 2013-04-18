@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: signature.h,v 1.1.2.2 2009/03/20 01:22:44 arcanum Exp $ */
+/* $Id: signature.h 2102 2010-03-16 22:52:39Z joerg_wunsch $ */
 
 /* avr/signature.h - Signature API */
 

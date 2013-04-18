@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id$ */
+/* $Id: flashvault.h 74279 2010-05-04 07:42:29Z pablaasmo $ */
 
 /* avr32/flashvault.h - Flashvault API */
 

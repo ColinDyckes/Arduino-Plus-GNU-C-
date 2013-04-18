@@ -3,7 +3,7 @@
 <title>Architectures - Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.7">
+<meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="BFD-front-end.html#BFD-front-end" title="BFD front end">
 <link rel="prev" href="Targets.html#Targets" title="Targets">
@@ -12,10 +12,10 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007 Free Software Foundation, Inc.
+Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007, 2008 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.1 or
+under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with the
 Invariant Sections being ``GNU General Public License'' and ``Funding
 Free Software'', the Front-Cover texts being (a) (see below), and with
@@ -39,17 +39,19 @@ included in the section entitled ``GNU Free Documentation License''.
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc { font-variant:small-caps }
-  span.roman { font-family: serif; font-weight: normal; } 
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
+<a name="Architectures"></a>
 <p>
-<a name="Architectures"></a>Next:&nbsp;<a rel="next" accesskey="n" href="Opening-and-Closing.html#Opening-and-Closing">Opening and Closing</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="Opening-and-Closing.html#Opening-and-Closing">Opening and Closing</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="Targets.html#Targets">Targets</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="BFD-front-end.html#BFD-front-end">BFD front end</a>
-<hr><br>
+<hr>
 </div>
 
 <h3 class="section">2.13 Architectures</h3>
@@ -65,7 +67,7 @@ without access to an open BFD.
    <p>The architecture information is provided by each architecture package. 
 The set of default architectures is selected by the macro
 <code>SELECT_ARCHITECTURES</code>.  This is normally set up in the
-<span class="file">config/</span><var>target</var><span class="file">.mt</span> file of your choice.  If the name is not
+<samp><span class="file">config/</span><var>target</var><span class="file">.mt</span></samp> file of your choice.  If the name is not
 defined, then all the architectures supported are included.
 
    <p>When BFD starts up, all the architectures are called with an
@@ -74,7 +76,7 @@ insert as many items into the list of architectures as it wants to;
 generally this would be one for each machine and one for the
 default case (an item with a machine field of 0).
 
-   <p>BFD's idea of an architecture is implemented in <span class="file">archures.c</span>.
+   <p>BFD's idea of an architecture is implemented in <samp><span class="file">archures.c</span></samp>.
 
 <h4 class="subsection">2.13.1 bfd_architecture</h4>
 
@@ -185,22 +187,36 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_mips9000              9000
      #define bfd_mach_mips10000             10000
      #define bfd_mach_mips12000             12000
+     #define bfd_mach_mips14000             14000
+     #define bfd_mach_mips16000             16000
      #define bfd_mach_mips16                16
      #define bfd_mach_mips5                 5
      #define bfd_mach_mips_loongson_2e      3001
      #define bfd_mach_mips_loongson_2f      3002
+     #define bfd_mach_mips_loongson_3a      3003
      #define bfd_mach_mips_sb1              12310201 /* octal 'SB', 01 */
      #define bfd_mach_mips_octeon           6501
+     #define bfd_mach_mips_xlr              887682   /* decimal 'XLR'  */
      #define bfd_mach_mipsisa32             32
      #define bfd_mach_mipsisa32r2           33
      #define bfd_mach_mipsisa64             64
      #define bfd_mach_mipsisa64r2           65
+     #define bfd_mach_mips_micromips        96
        bfd_arch_i386,      /* Intel 386 */
-     #define bfd_mach_i386_i386 1
-     #define bfd_mach_i386_i8086 2
-     #define bfd_mach_i386_i386_intel_syntax 3
-     #define bfd_mach_x86_64 64
-     #define bfd_mach_x86_64_intel_syntax 65
+     #define bfd_mach_i386_intel_syntax     (1 &lt;&lt; 0)
+     #define bfd_mach_i386_i8086            (1 &lt;&lt; 1)
+     #define bfd_mach_i386_i386             (1 &lt;&lt; 2)
+     #define bfd_mach_x86_64                (1 &lt;&lt; 3)
+     #define bfd_mach_x64_32                (1 &lt;&lt; 4)
+     #define bfd_mach_i386_i386_intel_syntax (bfd_mach_i386_i386 | bfd_mach_i386_intel_syntax)
+     #define bfd_mach_x86_64_intel_syntax   (bfd_mach_x86_64 | bfd_mach_i386_intel_syntax)
+     #define bfd_mach_x64_32_intel_syntax   (bfd_mach_x64_32 | bfd_mach_i386_intel_syntax)
+       bfd_arch_l1om,   /* Intel L1OM */
+     #define bfd_mach_l1om                  (1 &lt;&lt; 5)
+     #define bfd_mach_l1om_intel_syntax     (bfd_mach_l1om | bfd_mach_i386_intel_syntax)
+       bfd_arch_k1om,   /* Intel K1OM */
+     #define bfd_mach_k1om                  (1 &lt;&lt; 6)
+     #define bfd_mach_k1om_intel_syntax     (bfd_mach_k1om | bfd_mach_i386_intel_syntax)
        bfd_arch_we32k,     /* AT&amp;T WE32xxx */
        bfd_arch_tahoe,     /* CCI/Harris Tahoe */
        bfd_arch_i860,      /* Intel 860 */
@@ -219,11 +235,13 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_h8300sx  6
      #define bfd_mach_h8300sxn 7
        bfd_arch_pdp11,     /* DEC PDP-11 */
+       bfd_arch_plugin,
        bfd_arch_powerpc,   /* PowerPC */
      #define bfd_mach_ppc           32
      #define bfd_mach_ppc64         64
      #define bfd_mach_ppc_403       403
      #define bfd_mach_ppc_403gc     4030
+     #define bfd_mach_ppc_405       405
      #define bfd_mach_ppc_505       505
      #define bfd_mach_ppc_601       601
      #define bfd_mach_ppc_602       602
@@ -240,6 +258,8 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_ppc_7400      7400
      #define bfd_mach_ppc_e500      500
      #define bfd_mach_ppc_e500mc    5001
+     #define bfd_mach_ppc_e500mc64  5005
+     #define bfd_mach_ppc_titan     83
        bfd_arch_rs6000,    /* IBM RS/6000 */
      #define bfd_mach_rs6k          6000
      #define bfd_mach_rs6k_rs1      6001
@@ -313,11 +333,14 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_tic3x         30
      #define bfd_mach_tic4x         40
        bfd_arch_tic54x,    /* Texas Instruments TMS320C54X */
+       bfd_arch_tic6x,     /* Texas Instruments TMS320C6X */
        bfd_arch_tic80,     /* TI TMS320c80 (MVP) */
        bfd_arch_v850,      /* NEC V850 */
      #define bfd_mach_v850          1
      #define bfd_mach_v850e         'E'
      #define bfd_mach_v850e1        '1'
+     #define bfd_mach_v850e2        0x4532
+     #define bfd_mach_v850e2v3      0x45325633
        bfd_arch_arc,       /* ARC Cores */
      #define bfd_mach_arc_5         5
      #define bfd_mach_arc_6         6
@@ -346,10 +369,13 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_frvtomcat     499     /* fr500 prototype */
      #define bfd_mach_fr500         500
      #define bfd_mach_fr550         550
+       bfd_arch_moxie,       /* The moxie processor */
+     #define bfd_mach_moxie         1
        bfd_arch_mcore,
        bfd_arch_mep,
      #define bfd_mach_mep           1
      #define bfd_mach_mep_h1        0x6831
+     #define bfd_mach_mep_c5        0x6335
        bfd_arch_ia64,      /* HP/Intel ia64 */
      #define bfd_mach_ia64_elf64    64
      #define bfd_mach_ia64_elf32    32
@@ -375,6 +401,13 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_avr5          5
      #define bfd_mach_avr51         51
      #define bfd_mach_avr6          6
+     #define bfd_mach_avrxmega1 101
+     #define bfd_mach_avrxmega2 102
+     #define bfd_mach_avrxmega3 103
+     #define bfd_mach_avrxmega4 104
+     #define bfd_mach_avrxmega5 105
+     #define bfd_mach_avrxmega6 106
+     #define bfd_mach_avrxmega7 107
        bfd_arch_bfin,        /* ADI Blackfin */
      #define bfd_mach_bfin          1
        bfd_arch_cr16,       /* National Semiconductor CompactRISC (ie CR16). */
@@ -387,10 +420,14 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_cris_v0_v10   255
      #define bfd_mach_cris_v32      32
      #define bfd_mach_cris_v10_v32  1032
+       bfd_arch_rx,        /* Renesas RX.  */
+     #define bfd_mach_rx            0x75
        bfd_arch_s390,      /* IBM s390 */
      #define bfd_mach_s390_31       31
      #define bfd_mach_s390_64       64
        bfd_arch_score,     /* Sunplus score */
+     #define bfd_mach_score3         3
+     #define bfd_mach_score7         7
        bfd_arch_openrisc,  /* OpenRISC */
        bfd_arch_mmix,      /* Donald Knuth's educational processor.  */
        bfd_arch_xstormy16,
@@ -417,14 +454,18 @@ and 68020 and 68030 for Motorola 68020 and 68030.
      #define bfd_mach_xc16xs         3
        bfd_arch_xtensa,    /* Tensilica's Xtensa cores.  */
      #define bfd_mach_xtensa        1
-        bfd_arch_maxq,     /* Dallas MAXQ 10/20 */
-     #define bfd_mach_maxq10    10
-     #define bfd_mach_maxq20    20
        bfd_arch_z80,
      #define bfd_mach_z80strict      1 /* No undocumented opcodes.  */
      #define bfd_mach_z80            3 /* With ixl, ixh, iyl, and iyh.  */
      #define bfd_mach_z80full        7 /* All undocumented instructions.  */
      #define bfd_mach_r800           11 /* R800: successor with multiplication.  */
+       bfd_arch_lm32,      /* Lattice Mico32 */
+     #define bfd_mach_lm32      1
+       bfd_arch_microblaze,/* Xilinx MicroBlaze. */
+       bfd_arch_tilepro,   /* Tilera TILEPro */
+       bfd_arch_tilegx, /* Tilera TILE-Gx */
+     #define bfd_mach_tilepro   1
+     #define bfd_mach_tilegx    1
        bfd_arch_last
        };
 </pre>
@@ -458,7 +499,7 @@ within BFD.
      bfd_arch_info_type;
      
 </pre>
-   <p><a name="index-bfd_005fprintable_005fname-1319"></a>
+   <p><a name="index-bfd_005fprintable_005fname-1693"></a>
 
 <h5 class="subsubsection">2.13.2.1 <code>bfd_printable_name</code></h5>
 
@@ -469,7 +510,7 @@ within BFD.
 Return a printable string representing the architecture and machine
 from the pointer to the architecture info structure.
 
-   <p><a name="index-bfd_005fscan_005farch-1320"></a>
+   <p><a name="index-bfd_005fscan_005farch-1694"></a>
 
 <h5 class="subsubsection">2.13.2.2 <code>bfd_scan_arch</code></h5>
 
@@ -481,7 +522,7 @@ Figure out if BFD supports any cpu which could be described with
 the name <var>string</var>.  Return a pointer to an <code>arch_info</code>
 structure if a machine is found, otherwise NULL.
 
-   <p><a name="index-bfd_005farch_005flist-1321"></a>
+   <p><a name="index-bfd_005farch_005flist-1695"></a>
 
 <h5 class="subsubsection">2.13.2.3 <code>bfd_arch_list</code></h5>
 
@@ -492,7 +533,7 @@ structure if a machine is found, otherwise NULL.
 Return a freshly malloced NULL-terminated vector of the names
 of all the valid BFD architectures.  Do not modify the names.
 
-   <p><a name="index-bfd_005farch_005fget_005fcompatible-1322"></a>
+   <p><a name="index-bfd_005farch_005fget_005fcompatible-1696"></a>
 
 <h5 class="subsubsection">2.13.2.4 <code>bfd_arch_get_compatible</code></h5>
 
@@ -507,7 +548,7 @@ between the two architectures and machine types implied by
 the BFDs and returns a pointer to an <code>arch_info</code> structure
 describing the compatible machine.
 
-   <p><a name="index-bfd_005fdefault_005farch_005fstruct-1323"></a>
+   <p><a name="index-bfd_005fdefault_005farch_005fstruct-1697"></a>
 
 <h5 class="subsubsection">2.13.2.5 <code>bfd_default_arch_struct</code></h5>
 
@@ -519,7 +560,7 @@ structure, until the correct back end has determined the real
 architecture of the file.
 <pre class="example">     extern const bfd_arch_info_type bfd_default_arch_struct;
 </pre>
-   <p><a name="index-bfd_005fset_005farch_005finfo-1324"></a>
+   <p><a name="index-bfd_005fset_005farch_005finfo-1698"></a>
 
 <h5 class="subsubsection">2.13.2.6 <code>bfd_set_arch_info</code></h5>
 
@@ -529,7 +570,7 @@ architecture of the file.
    <p><strong>Description</strong><br>
 Set the architecture info of <var>abfd</var> to <var>arg</var>.
 
-   <p><a name="index-bfd_005fdefault_005fset_005farch_005fmach-1325"></a>
+   <p><a name="index-bfd_005fdefault_005fset_005farch_005fmach-1699"></a>
 
 <h5 class="subsubsection">2.13.2.7 <code>bfd_default_set_arch_mach</code></h5>
 
@@ -543,7 +584,7 @@ to <var>arch</var> and <var>mach</var>.  Find the correct
 pointer to a structure and insert it into the <code>arch_info</code>
 pointer.
 
-   <p><a name="index-bfd_005fget_005farch-1326"></a>
+   <p><a name="index-bfd_005fget_005farch-1700"></a>
 
 <h5 class="subsubsection">2.13.2.8 <code>bfd_get_arch</code></h5>
 
@@ -554,7 +595,7 @@ pointer.
 Return the enumerated type which describes the BFD <var>abfd</var>'s
 architecture.
 
-   <p><a name="index-bfd_005fget_005fmach-1327"></a>
+   <p><a name="index-bfd_005fget_005fmach-1701"></a>
 
 <h5 class="subsubsection">2.13.2.9 <code>bfd_get_mach</code></h5>
 
@@ -565,7 +606,7 @@ architecture.
 Return the long type which describes the BFD <var>abfd</var>'s
 machine.
 
-   <p><a name="index-bfd_005farch_005fbits_005fper_005fbyte-1328"></a>
+   <p><a name="index-bfd_005farch_005fbits_005fper_005fbyte-1702"></a>
 
 <h5 class="subsubsection">2.13.2.10 <code>bfd_arch_bits_per_byte</code></h5>
 
@@ -576,7 +617,7 @@ machine.
 Return the number of bits in one of the BFD <var>abfd</var>'s
 architecture's bytes.
 
-   <p><a name="index-bfd_005farch_005fbits_005fper_005faddress-1329"></a>
+   <p><a name="index-bfd_005farch_005fbits_005fper_005faddress-1703"></a>
 
 <h5 class="subsubsection">2.13.2.11 <code>bfd_arch_bits_per_address</code></h5>
 
@@ -587,7 +628,7 @@ architecture's bytes.
 Return the number of bits in one of the BFD <var>abfd</var>'s
 architecture's addresses.
 
-   <p><a name="index-bfd_005fdefault_005fcompatible-1330"></a>
+   <p><a name="index-bfd_005fdefault_005fcompatible-1704"></a>
 
 <h5 class="subsubsection">2.13.2.12 <code>bfd_default_compatible</code></h5>
 
@@ -598,7 +639,7 @@ architecture's addresses.
    <p><strong>Description</strong><br>
 The default function for testing for compatibility.
 
-   <p><a name="index-bfd_005fdefault_005fscan-1331"></a>
+   <p><a name="index-bfd_005fdefault_005fscan-1705"></a>
 
 <h5 class="subsubsection">2.13.2.13 <code>bfd_default_scan</code></h5>
 
@@ -610,7 +651,7 @@ The default function for testing for compatibility.
 The default function for working out whether this is an
 architecture hit and a machine hit.
 
-   <p><a name="index-bfd_005fget_005farch_005finfo-1332"></a>
+   <p><a name="index-bfd_005fget_005farch_005finfo-1706"></a>
 
 <h5 class="subsubsection">2.13.2.14 <code>bfd_get_arch_info</code></h5>
 
@@ -620,7 +661,7 @@ architecture hit and a machine hit.
    <p><strong>Description</strong><br>
 Return the architecture info struct in <var>abfd</var>.
 
-   <p><a name="index-bfd_005flookup_005farch-1333"></a>
+   <p><a name="index-bfd_005flookup_005farch-1707"></a>
 
 <h5 class="subsubsection">2.13.2.15 <code>bfd_lookup_arch</code></h5>
 
@@ -634,7 +675,7 @@ arguments <var>arch</var> and <var>machine</var>. A machine of 0 matches the
 machine/architecture structure which marks itself as the
 default.
 
-   <p><a name="index-bfd_005fprintable_005farch_005fmach-1334"></a>
+   <p><a name="index-bfd_005fprintable_005farch_005fmach-1708"></a>
 
 <h5 class="subsubsection">2.13.2.16 <code>bfd_printable_arch_mach</code></h5>
 
@@ -648,7 +689,7 @@ machine type.
 
    <p>This routine is depreciated.
 
-   <p><a name="index-bfd_005foctets_005fper_005fbyte-1335"></a>
+   <p><a name="index-bfd_005foctets_005fper_005fbyte-1709"></a>
 
 <h5 class="subsubsection">2.13.2.17 <code>bfd_octets_per_byte</code></h5>
 
@@ -660,7 +701,7 @@ Return the number of octets (8-bit quantities) per target byte
 (minimum addressable unit).  In most cases, this will be one, but some
 DSP targets have 16, 32, or even 48 bits per byte.
 
-   <p><a name="index-bfd_005farch_005fmach_005foctets_005fper_005fbyte-1336"></a>
+   <p><a name="index-bfd_005farch_005fmach_005foctets_005fper_005fbyte-1710"></a>
 
 <h5 class="subsubsection">2.13.2.18 <code>bfd_arch_mach_octets_per_byte</code></h5>
 

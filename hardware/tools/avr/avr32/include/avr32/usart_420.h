@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008 Atmel Corporation
+ * Copyright (C) 2008-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3000
- * Revision     : $Revision: 65024 $
- * Checkin Date : $Date: 2009-11-29 20:48:14 -0700 (Sun, 29 Nov 2009) $ 
+ * Revision     : $Revision: 74772 $
+ * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_USART_420_H_INCLUDED
 #define AVR32_USART_420_H_INCLUDED
+
+#define AVR32_USART_H_VERSION 420
 
 #include "avr32/abi.h"
 

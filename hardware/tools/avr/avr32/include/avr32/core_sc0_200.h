@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3L064T
- * Revision     : $Revision: 65230 $
- * Checkin Date : $Date: 2009-12-01 11:04:34 -0700 (Tue, 01 Dec 2009) $
+ * Revision     : $Revision: 74772 $
+ * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $
  *
  ****************************************************************************/
 #ifndef AVR32_CORE_SC0_200_H_INCLUDED
 #define AVR32_CORE_SC0_200_H_INCLUDED
+
+#define AVR32_CORE_SC0_H_VERSION 200
 
 #include "avr32/abi.h"
 
@@ -1319,6 +1321,31 @@
 #define AVR32_MPUPSR7_P9_OFFSET                                 9
 #define AVR32_MPUPSR7_P9_SIZE                                   1
 #define AVR32_MPUPSR7_RESETVALUE                       0x00000000
+
+#define AVR32_MSU_ADDRHI                               0x000003E0
+#define AVR32_MSU_ADDRHI_MASK                          0x0000000F
+#define AVR32_MSU_ADDRHI_RESETVALUE                    0x00000000
+#define AVR32_MSU_ADDRLO                               0x000003E4
+#define AVR32_MSU_ADDRLO_MASK                          0xFFFFFFFC
+#define AVR32_MSU_ADDRLO_RESETVALUE                    0x00000000
+#define AVR32_MSU_LENGTH                               0x000003E8
+#define AVR32_MSU_LENGTH_MASK                          0xFFFFFFFC
+#define AVR32_MSU_LENGTH_RESETVALUE                    0x00000000
+#define AVR32_MSU_CTRL                                 0x000003EC
+#define AVR32_MSU_CTRL_OP_MASK                         0x0000000F
+#define AVR32_MSU_CTRL_NTBC_MASK                       0x00000030
+#define AVR32_MSU_CTRL_RESETVALUE                      0x00000000
+#define AVR32_MSU_STATUS                               0x000003F0
+#define AVR32_MSU_STATUS_RESULT_MASK                   0x00000007
+#define AVR32_MSU_STATUS_WRAP_MASK                     0x00000008
+#define AVR32_MSU_STATUS_RESETVALUE                    0x00000000
+#define AVR32_MSU_DATA                                 0x000003F4
+#define AVR32_MSU_DATA_MASK                            0xFFFFFFFF
+#define AVR32_MSU_DATA_RESETVALUE                      0x00000000
+#define AVR32_MSU_TAIL                                 0x000003F8
+#define AVR32_MSU_TAIL_MASK                            0xFFFFFFFC
+#define AVR32_MSU_TAIL_RESETVALUE                      0x00000000
+
 #define AVR32_RAR_DBG                                  0x00000050
 #define AVR32_RAR_DBG_MASK                             0x00000000
 #define AVR32_RAR_DBG_RESETVALUE                       0x00000000

@@ -3,7 +3,7 @@
 <title>coff - Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.7">
+<meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="BFD-back-ends.html#BFD-back-ends" title="BFD back ends">
 <link rel="prev" href="aout.html#aout" title="aout">
@@ -12,10 +12,10 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007 Free Software Foundation, Inc.
+Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007, 2008 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.1 or
+under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with the
 Invariant Sections being ``GNU General Public License'' and ``Funding
 Free Software'', the Front-Cover texts being (a) (see below), and with
@@ -39,17 +39,19 @@ included in the section entitled ``GNU Free Documentation License''.
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc { font-variant:small-caps }
-  span.roman { font-family: serif; font-weight: normal; } 
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
+<a name="coff"></a>
 <p>
-<a name="coff"></a>Next:&nbsp;<a rel="next" accesskey="n" href="elf.html#elf">elf</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="elf.html#elf">elf</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="aout.html#aout">aout</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="BFD-back-ends.html#BFD-back-ends">BFD back ends</a>
-<hr><br>
+<hr>
 </div>
 
 <h3 class="section">3.3 coff backends</h3>
@@ -62,17 +64,17 @@ extra field.
    <p>Coff in all its varieties is implemented with a few common
 files and a number of implementation specific files. For
 example, The 88k bcs coff format is implemented in the file
-<span class="file">coff-m88k.c</span>. This file <code>#include</code>s
-<span class="file">coff/m88k.h</span> which defines the external structure of the
-coff format for the 88k, and <span class="file">coff/internal.h</span> which
-defines the internal structure. <span class="file">coff-m88k.c</span> also
+<samp><span class="file">coff-m88k.c</span></samp>. This file <code>#include</code>s
+<samp><span class="file">coff/m88k.h</span></samp> which defines the external structure of the
+coff format for the 88k, and <samp><span class="file">coff/internal.h</span></samp> which
+defines the internal structure. <samp><span class="file">coff-m88k.c</span></samp> also
 defines the relocations used by the 88k format
 See <a href="Relocations.html#Relocations">Relocations</a>.
 
    <p>The Intel i960 processor version of coff is implemented in
-<span class="file">coff-i960.c</span>. This file has the same structure as
-<span class="file">coff-m88k.c</span>, except that it includes <span class="file">coff/i960.h</span>
-rather than <span class="file">coff-m88k.h</span>.
+<samp><span class="file">coff-i960.c</span></samp>. This file has the same structure as
+<samp><span class="file">coff-m88k.c</span></samp>, except that it includes <samp><span class="file">coff/i960.h</span></samp>
+rather than <samp><span class="file">coff-m88k.h</span></samp>.
 
 <h4 class="subsection">3.3.1 Porting to a new version of coff</h4>
 
@@ -80,17 +82,17 @@ rather than <span class="file">coff-m88k.h</span>.
 implementations the version of coff which is most like the one
 you want to use.  For example, we'll say that i386 coff is
 the one you select, and that your coff flavour is called foo. 
-Copy <span class="file">i386coff.c</span> to <span class="file">foocoff.c</span>, copy
-<span class="file">../include/coff/i386.h</span> to <span class="file">../include/coff/foo.h</span>,
-and add the lines to <span class="file">targets.c</span> and <span class="file">Makefile.in</span>
+Copy <samp><span class="file">i386coff.c</span></samp> to <samp><span class="file">foocoff.c</span></samp>, copy
+<samp><span class="file">../include/coff/i386.h</span></samp> to <samp><span class="file">../include/coff/foo.h</span></samp>,
+and add the lines to <samp><span class="file">targets.c</span></samp> and <samp><span class="file">Makefile.in</span></samp>
 so that your new back end is used. Alter the shapes of the
-structures in <span class="file">../include/coff/foo.h</span> so that they match
+structures in <samp><span class="file">../include/coff/foo.h</span></samp> so that they match
 what you need. You will probably also have to add
-<code>#ifdef</code>s to the code in <span class="file">coff/internal.h</span> and
-<span class="file">coffcode.h</span> if your version of coff is too wild.
+<code>#ifdef</code>s to the code in <samp><span class="file">coff/internal.h</span></samp> and
+<samp><span class="file">coffcode.h</span></samp> if your version of coff is too wild.
 
    <p>You can verify that your new BFD backend works quite simply by
-building <span class="file">objdump</span> from the <span class="file">binutils</span> directory,
+building <samp><span class="file">objdump</span></samp> from the <samp><span class="file">binutils</span></samp> directory,
 and making sure that its version of what's going on and your
 host system's idea (assuming it has the pretty standard coff
 dump utility, usually called <code>att-dump</code> or just
@@ -109,35 +111,95 @@ further split into ones which are basically the same for all
 Coff targets except that they use the external symbol format
 or use different values for certain constants.
 
-   <p>The generic routines are in <span class="file">coffgen.c</span>.  These routines
+   <p>The generic routines are in <samp><span class="file">coffgen.c</span></samp>.  These routines
 work for any Coff target.  They use some hooks into the target
 specific code; the hooks are in a <code>bfd_coff_backend_data</code>
 structure, one of which exists for each target.
 
    <p>The essentially similar target-specific routines are in
-<span class="file">coffcode.h</span>.  This header file includes executable C code. 
+<samp><span class="file">coffcode.h</span></samp>.  This header file includes executable C code. 
 The various Coff targets first include the appropriate Coff
 header file, make any special defines that are needed, and
-then include <span class="file">coffcode.h</span>.
+then include <samp><span class="file">coffcode.h</span></samp>.
 
    <p>Some of the Coff targets then also have additional routines in
 the target source file itself.
 
-   <p>For example, <span class="file">coff-i960.c</span> includes
-<span class="file">coff/internal.h</span> and <span class="file">coff/i960.h</span>.  It then
+   <p>For example, <samp><span class="file">coff-i960.c</span></samp> includes
+<samp><span class="file">coff/internal.h</span></samp> and <samp><span class="file">coff/i960.h</span></samp>.  It then
 defines a few constants, such as <code>I960</code>, and includes
-<span class="file">coffcode.h</span>.  Since the i960 has complex relocation
-types, <span class="file">coff-i960.c</span> also includes some code to
+<samp><span class="file">coffcode.h</span></samp>.  Since the i960 has complex relocation
+types, <samp><span class="file">coff-i960.c</span></samp> also includes some code to
 manipulate the i960 relocs.  This code is not in
-<span class="file">coffcode.h</span> because it would not be used by any other
+<samp><span class="file">coffcode.h</span></samp> because it would not be used by any other
 target.
 
-<h5 class="subsubsection">3.3.2.2 Bit twiddling</h5>
+<h5 class="subsubsection">3.3.2.2 Coff long section names</h5>
+
+<p>In the standard Coff object format, section names are limited to
+the eight bytes available in the <code>s_name</code> field of the
+<code>SCNHDR</code> section header structure.  The format requires the
+field to be NUL-padded, but not necessarily NUL-terminated, so
+the longest section names permitted are a full eight characters.
+
+   <p>The Microsoft PE variants of the Coff object file format add
+an extension to support the use of long section names.  This
+extension is defined in section 4 of the Microsoft PE/COFF
+specification (rev 8.1).  If a section name is too long to fit
+into the section header's <code>s_name</code> field, it is instead
+placed into the string table, and the <code>s_name</code> field is
+filled with a slash ("/") followed by the ASCII decimal
+representation of the offset of the full name relative to the
+string table base.
+
+   <p>Note that this implies that the extension can only be used in object
+files, as executables do not contain a string table.  The standard
+specifies that long section names from objects emitted into executable
+images are to be truncated.
+
+   <p>However, as a GNU extension, BFD can generate executable images
+that contain a string table and long section names.  This
+would appear to be technically valid, as the standard only says
+that Coff debugging information is deprecated, not forbidden,
+and in practice it works, although some tools that parse PE files
+expecting the MS standard format may become confused; <samp><span class="file">PEview</span></samp> is
+one known example.
+
+   <p>The functionality is supported in BFD by code implemented under
+the control of the macro <code>COFF_LONG_SECTION_NAMES</code>.  If not
+defined, the format does not support long section names in any way. 
+If defined, it is used to initialise a flag,
+<code>_bfd_coff_long_section_names</code>, and a hook function pointer,
+<code>_bfd_coff_set_long_section_names</code>, in the Coff backend data
+structure.  The flag controls the generation of long section names
+in output BFDs at runtime; if it is false, as it will be by default
+when generating an executable image, long section names are truncated;
+if true, the long section names extension is employed.  The hook
+points to a function that allows the value of the flag to be altered
+at runtime, on formats that support long section names at all; on
+other formats it points to a stub that returns an error indication. 
+With input BFDs, the flag is set according to whether any long section
+names are detected while reading the section headers.  For a completely
+new BFD, the flag is set to the default for the target format.  This
+information can be used by a client of the BFD library when deciding
+what output format to generate, and means that a BFD that is opened
+for read and subsequently converted to a writeable BFD and modified
+in-place will retain whatever format it had on input.
+
+   <p>If <code>COFF_LONG_SECTION_NAMES</code> is simply defined (blank), or is
+defined to the value "1", then long section names are enabled by
+default; if it is defined to the value zero, they are disabled by
+default (but still accepted in input BFDs).  The header <samp><span class="file">coffcode.h</span></samp>
+defines a macro, <code>COFF_DEFAULT_LONG_SECTION_NAMES</code>, which is
+used in the backends to initialise the backend data structure fields
+appropriately; see the comments for further detail.
+
+<h5 class="subsubsection">3.3.2.3 Bit twiddling</h5>
 
 <p>Each flavour of coff supported in BFD has its own header file
 describing the external layout of the structures. There is also
 an internal description of the coff layout, in
-<span class="file">coff/internal.h</span>. A major function of the
+<samp><span class="file">coff/internal.h</span></samp>. A major function of the
 coff backend is swapping the bytes and twiddling the bits to
 translate the external form of the structures into the normal
 internal form. This is all performed in the
@@ -145,7 +207,7 @@ internal form. This is all performed in the
 elements are different sizes between different versions of
 coff; it is the duty of the coff version specific include file
 to override the definitions of various packing routines in
-<span class="file">coffcode.h</span>. E.g., the size of line number entry in coff is
+<samp><span class="file">coffcode.h</span></samp>. E.g., the size of line number entry in coff is
 sometimes 16 bits, and sometimes 32 bits. <code>#define</code>ing
 <code>PUT_LNSZ_LNNO</code> and <code>GET_LNSZ_LNNO</code> will select the
 correct one. No doubt, some day someone will find a version of
@@ -166,7 +228,7 @@ on the way out, making cross ports much safer.  Doing so also
 allows BFD (and thus the linker) to use the same header files
 as <code>gas</code>, which makes one avenue to disaster disappear.
 
-<h5 class="subsubsection">3.3.2.3 Symbol reading</h5>
+<h5 class="subsubsection">3.3.2.4 Symbol reading</h5>
 
 <p>The simple canonical form for symbols used by BFD is not rich
 enough to keep all the information available in a coff symbol
@@ -206,7 +268,7 @@ shares strings with the hidden internal symbol table.
    <p>Any linenumbers are read from the coff file too, and attached
 to the symbols which own the functions the linenumbers belong to.
 
-<h5 class="subsubsection">3.3.2.4 Symbol writing</h5>
+<h5 class="subsubsection">3.3.2.5 Symbol writing</h5>
 
 <p>Writing a symbol to a coff file which didn't come from a coff
 file will lose any debugging information. The <code>asymbol</code>
@@ -255,9 +317,9 @@ to a symbol into the index into the symbol table of the asymbol.
 symbols from their internal form into the coff way, calls the
 bit twiddlers, and writes out the table to the file.
 
-   <p><a name="index-coff_005fsymbol_005ftype-1397"></a>
+   <p><a name="index-coff_005fsymbol_005ftype-1774"></a>
 
-<h5 class="subsubsection">3.3.2.5 <code>coff_symbol_type</code></h5>
+<h5 class="subsubsection">3.3.2.6 <code>coff_symbol_type</code></h5>
 
 <p><strong>Description</strong><br>
 The hidden information for an <code>asymbol</code> is described in a
@@ -317,9 +379,9 @@ The hidden information for an <code>asymbol</code> is described in a
        bfd_boolean done_lineno;
      } coff_symbol_type;
 </pre>
-   <p><a name="index-bfd_005fcoff_005fbackend_005fdata-1398"></a>
+   <p><a name="index-bfd_005fcoff_005fbackend_005fdata-1775"></a>
 
-<h5 class="subsubsection">3.3.2.6 <code>bfd_coff_backend_data</code></h5>
+<h5 class="subsubsection">3.3.2.7 <code>bfd_coff_backend_data</code></h5>
 
 <pre class="example">     /* COFF symbol classifications.  */
      
@@ -380,7 +442,11 @@ The hidden information for an <code>asymbol</code> is described in a
        unsigned int _bfd_linesz;
        unsigned int _bfd_filnmlen;
        bfd_boolean _bfd_coff_long_filenames;
+     
        bfd_boolean _bfd_coff_long_section_names;
+       bfd_boolean (*_bfd_coff_set_long_section_names)
+         (bfd *, int);
+     
        unsigned int _bfd_coff_default_section_alignment_power;
        bfd_boolean _bfd_coff_force_symnames_in_strings;
        unsigned int _bfd_coff_debug_string_prefix_length;
@@ -517,6 +583,8 @@ The hidden information for an <code>asymbol</code> is described in a
        (coff_backend_info (abfd)-&gt;_bfd_coff_long_filenames)
      #define bfd_coff_long_section_names(abfd) \
        (coff_backend_info (abfd)-&gt;_bfd_coff_long_section_names)
+     #define bfd_coff_set_long_section_names(abfd, enable) \
+       ((coff_backend_info (abfd)-&gt;_bfd_coff_set_long_section_names) (abfd, enable))
      #define bfd_coff_default_section_alignment_power(abfd) \
        (coff_backend_info (abfd)-&gt;_bfd_coff_default_section_alignment_power)
      #define bfd_coff_swap_filehdr_in(abfd, i,o) \
@@ -607,8 +675,12 @@ The hidden information for an <code>asymbol</code> is described in a
      #define bfd_coff_print_pdata(a,p) \
        ((coff_backend_info (a)-&gt;_bfd_coff_print_pdata) (a, p))
      
+     /* Macro: Returns true if the bfd is a PE executable as opposed to a
+        PE object file.  */
+     #define bfd_pei_p(abfd) \
+       (CONST_STRNEQ ((abfd)-&gt;xvec-&gt;name, "pei-"))
 </pre>
-   <h5 class="subsubsection">3.3.2.7 Writing relocations</h5>
+   <h5 class="subsubsection">3.3.2.8 Writing relocations</h5>
 
 <p>To write relocations, the back end steps though the
 canonical relocation table and create an
@@ -620,7 +692,7 @@ from the howto field.  Then the <code>internal_reloc</code> is
 swapped into the shape of an <code>external_reloc</code> and written
 out to disk.
 
-<h5 class="subsubsection">3.3.2.8 Reading linenumbers</h5>
+<h5 class="subsubsection">3.3.2.9 Reading linenumbers</h5>
 
 <p>Creating the linenumber table is done by reading in the entire
 coff linenumber table, and creating another table for internal use.
@@ -640,7 +712,7 @@ pointing its...
 
    <p>How does this work ?
 
-<h5 class="subsubsection">3.3.2.9 Reading relocations</h5>
+<h5 class="subsubsection">3.3.2.10 Reading relocations</h5>
 
 <p>Coff relocations are easily transformed into the internal BFD form
 (<code>arelent</code>).

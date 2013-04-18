@@ -1,0 +1,15 @@
+diff -Naurp include/avr/sleep.h include/avr/sleep.h
+--- include/avr/sleep.h	2012-07-19 16:01:50.000000000 +0530
++++ include/avr/sleep.h	2012-07-19 16:01:59.000000000 +0530
+@@ -372,9 +372,11 @@
+ || defined(__AVR_ATmega324PA__) \
+ || defined(__AVR_ATmega325__) \
+ || defined(__AVR_ATmega325A__) \
++|| defined(__AVR_ATmega325P__) \
+ || defined(__AVR_ATmega325PA__) \
+ || defined(__AVR_ATmega3250__) \
+ || defined(__AVR_ATmega3250A__) \
++|| defined(__AVR_ATmega3250P__) \
+ || defined(__AVR_ATmega3250PA__) \
+ || defined(__AVR_ATmega328__) \
+ || defined(__AVR_ATmega328P__) \

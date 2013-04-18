@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom16u2.h,v 1.1.2.2 2009/07/17 17:09:31 arcanum Exp $ */
+/* $Id: iom16u2.h 2240 2011-05-09 22:18:18Z arcanum $ */
 
 /* avr/iom16u2.h - definitions for ATmega16U2 */
 
@@ -914,7 +914,7 @@
 #define TIMER1_OVF_vect      _VECTOR(18)  /* Timer/Counter1 Overflow */
 
 #define _VECTOR_SIZE 4 /* Size of individual vector. */
-#define _VECTORS_SIZE (38 * _VECTOR_SIZE)
+#define _VECTORS_SIZE (29 * _VECTOR_SIZE)
 
 
 /* Constants */

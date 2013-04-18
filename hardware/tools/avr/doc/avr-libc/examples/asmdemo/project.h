@@ -8,7 +8,7 @@
  *
  * Demo combining C and assembly source files.
  *
- * $Id: project.h,v 1.1 2006/08/29 19:45:06 joerg_wunsch Exp $
+ * $Id: project.h 1124 2006-08-29 19:45:06Z joerg_wunsch $
  */
 
 /*

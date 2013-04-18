@@ -29,7 +29,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: crc16.h,v 1.4 2007/01/23 15:32:48 joerg_wunsch Exp $ */
+/* $Id: crc16.h 2136 2010-06-08 12:03:38Z joerg_wunsch $ */
 
 #ifndef _UTIL_CRC16_H_
 #define _UTIL_CRC16_H_
@@ -322,9 +322,8 @@ _crc_ibutton_update(uint8_t __crc, uint8_t __data)
 		"	eor	%0, %4" "\n\t"
 		"	ldi	%1, 8" "\n\t"
 		"	ldi	%2, 0x8C" "\n\t"
-		"1:	bst	%0, 0" "\n\t"
-		"	lsr	%0" "\n\t"
-		"	brtc	2f" "\n\t"
+		"1:	lsr	%0" "\n\t"
+		"	brcc	2f" "\n\t"
 		"	eor	%0, %2" "\n\t"
 		"2:	dec	%1" "\n\t"
 		"	brne	1b" "\n\t"

@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3C0128C
- * Revision     : $Revision: 65878 $
- * Checkin Date : $Date: 2009-12-09 22:42:02 -0700 (Wed, 09 Dec 2009) $ 
+ * Revision     : $Revision: 74772 $
+ * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_PM_410_H_INCLUDED
 #define AVR32_PM_410_H_INCLUDED
+
+#define AVR32_PM_H_VERSION 410
 
 #include "avr32/abi.h"
 

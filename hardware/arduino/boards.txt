@@ -10,7 +10,7 @@ iduinorfa.bootloader.low_fuses=0xFF
 iduinorfa.bootloader.high_fuses=0xDA
 iduinorfa.bootloader.extended_fuses=0xF5
 iduinorfa.bootloader.path=atmega
-iduinorfa.bootloader.file=ATmegaBOOT_168_atmega128rfa1.hex
+iduinorfa.bootloader.file=ATmegaBOOT_atmega128rfa1_16M.hex
 iduinorfa.bootloader.unlock_bits=0x3F
 iduinorfa.bootloader.lock_bits=0x0F
 
@@ -30,7 +30,7 @@ iduinorf212.bootloader.low_fuses=0xFF
 iduinorf212.bootloader.high_fuses=0xDA
 iduinorf212.bootloader.extended_fuses=0xF5
 iduinorf212.bootloader.path=atmega
-iduinorf212.bootloader.file=ATmegaBOOT_168_atmega128rfa1.hex
+iduinorf212.bootloader.file=ATmegaBOOT_atmega128rfa1_16M.hex
 iduinorf212.bootloader.unlock_bits=0x3F
 iduinorf212.bootloader.lock_bits=0x0F
 
@@ -40,6 +40,47 @@ iduinorf212.build.core=arduino
 iduinorf212.build.variant=iduinorf212_r1
 ##############################################################
 
+
+
+iduinoprorfr2.name=iduinoprorfr2_r1
+
+iduinoprorfr2.upload.protocol=arduinoo
+iduinoprorfr2.upload.maximum_size=126976
+iduinoprorfr2.upload.speed=57600
+
+iduinoprorfr2.bootloader.low_fuses=0xFF
+iduinoprorfr2.bootloader.high_fuses=0xDA
+iduinoprorfr2.bootloader.extended_fuses=0xF5
+iduinoprorfr2.bootloader.path=atmega
+iduinoprorfr2.bootloader.file=ATmegaBOOT_atmega256rfr2_16M.hex
+iduinoprorfr2.bootloader.unlock_bits=0x3F
+iduinoprorfr2.bootloader.lock_bits=0x0F
+
+iduinoprorfr2.build.mcu=atmega256rfr2
+iduinoprorfr2.build.f_cpu=16000000L
+iduinoprorfr2.build.core=arduino
+iduinoprorfr2.build.variant=iduinoprorfr2_r1
+##############################################################
+
+iduinoprorf212.name=iduinoprorf212_r1
+
+iduinoprorf212.upload.protocol=arduino
+iduinoprorf212.upload.maximum_size=126976
+iduinoprorf212.upload.speed=57600
+
+iduinoprorf212.bootloader.low_fuses=0xFF
+iduinoprorf212.bootloader.high_fuses=0xDA
+iduinoprorf212.bootloader.extended_fuses=0xF5
+iduinoprorf212.bootloader.path=atmega
+iduinoprorf212.bootloader.file=ATmegaBOOT_atmega256rfr2_16M.hex
+iduinoprorf212.bootloader.unlock_bits=0x3F
+iduinoprorf212.bootloader.lock_bits=0x0F
+
+iduinoprorf212.build.mcu=atmega256rfr2
+iduinoprorf212.build.f_cpu=16000000L
+iduinoprorf212.build.core=arduino
+iduinoprorf212.build.variant=iduinoprorf212_r1
+##############################################################
 zigduino.name=Zigduino_r1
 
 zigduino.upload.protocol=arduino
@@ -201,3 +242,26 @@ mx231cc.build.mcu=atmega1284p
 mx231cc.build.f_cpu=8000000L
 mx231cc.build.core=arduino
 mx231cc.build.variant=mx231cc
+
+##############################################################
+
+mega2560.name=Arduino Mega 2560 or Mega ADK
+
+mega2560.upload.protocol=wiring
+mega2560.upload.maximum_size=258048
+mega2560.upload.speed=115200
+
+mega2560.bootloader.low_fuses=0xFF
+mega2560.bootloader.high_fuses=0xD8
+mega2560.bootloader.extended_fuses=0xFD
+mega2560.bootloader.path=stk500v2
+mega2560.bootloader.file=stk500boot_v2_mega2560.hex
+mega2560.bootloader.unlock_bits=0x3F
+mega2560.bootloader.lock_bits=0x0F
+
+mega2560.build.mcu=atmega2560
+mega2560.build.f_cpu=16000000L
+mega2560.build.core=arduino
+mega2560.build.variant=mega
+
+##############################################################

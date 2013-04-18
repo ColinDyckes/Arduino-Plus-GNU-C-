@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008 Atmel Corporation
+ * Copyright (C) 2008-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3A0512
- * Revision     : $Revision: 62595 $
- * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $ 
+ * Revision     : $Revision: 74772 $
+ * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_FLASHC_200_H_INCLUDED
 #define AVR32_FLASHC_200_H_INCLUDED
+
+#define AVR32_FLASHC_H_VERSION 200
 
 #include "avr32/abi.h"
 

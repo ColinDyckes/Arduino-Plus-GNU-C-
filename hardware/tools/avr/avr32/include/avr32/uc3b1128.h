@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2006-2009 Atmel Corporation
+ * Copyright (C) 2006-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,8 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3B1128
- * Revision     : $Revision: 62595 $
- * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $
+ * Revision     : $Revision: 74373 $
+ * Checkin Date : $Date: 2010-05-06 07:18:58 +0200 (Thu, 06 May 2010) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3B1128_H_INCLUDED
@@ -418,6 +418,8 @@
 #define AVR32_PM_PLL_VCO_RANGE1_MIN_FREQ   80000000
 #define AVR32_PM_RCOSC_CALIBRATION_BITS    10
 #define AVR32_PM_RCOSC_FREQUENCY           115200
+#define AVR32_PM_GCLK_GCLK0                0
+#define AVR32_PM_GCLK_GCLK1                1
 #define AVR32_PM_GCLK_0_PIN                3
 #define AVR32_PM_GCLK_0_FUNCTION           1
 #define AVR32_PM_GCLK_1_PIN                4

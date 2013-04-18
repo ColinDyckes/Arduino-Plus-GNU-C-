@@ -23,7 +23,7 @@
  * PWM signal, and timer 0 to generate the outgoing PWM.  In that
  * case, no additional assembly code is needed.
  *
- * $Id: asmdemo.c,v 1.1 2006/08/29 19:45:06 joerg_wunsch Exp $
+ * $Id: asmdemo.c 1124 2006-08-29 19:45:06Z joerg_wunsch $
  */
 
 /*

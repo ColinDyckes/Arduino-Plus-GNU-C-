@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: common.h,v 1.3.4.4 2009/03/02 23:36:17 arcanum Exp $ */
+/* $Id: common.h 2102 2010-03-16 22:52:39Z joerg_wunsch $ */
 
 
 #ifndef _AVR_COMMON_H

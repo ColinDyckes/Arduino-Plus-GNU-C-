@@ -3,7 +3,7 @@
 <title>typedef arelent - Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.7">
+<meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Relocations.html#Relocations" title="Relocations">
 <link rel="prev" href="Relocations.html#Relocations" title="Relocations">
@@ -12,10 +12,10 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007 Free Software Foundation, Inc.
+Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007, 2008 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.1 or
+under the terms of the GNU Free Documentation License, Version 1.3 or
 any later version published by the Free Software Foundation; with the
 Invariant Sections being ``GNU General Public License'' and ``Funding
 Free Software'', the Front-Cover texts being (a) (see below), and with
@@ -39,17 +39,19 @@ included in the section entitled ``GNU Free Documentation License''.
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc { font-variant:small-caps }
-  span.roman { font-family: serif; font-weight: normal; } 
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
+<a name="typedef-arelent"></a>
 <p>
-<a name="typedef-arelent"></a>Next:&nbsp;<a rel="next" accesskey="n" href="howto-manager.html#howto-manager">howto manager</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="howto-manager.html#howto-manager">howto manager</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="Relocations.html#Relocations">Relocations</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Relocations.html#Relocations">Relocations</a>
-<hr><br>
+<hr>
 </div>
 
 <h4 class="subsection">2.10.1 typedef arelent</h4>
@@ -289,10 +291,7 @@ information that libbfd needs to know to tie up a back end's data.
            when doing overflow checking.  */
        unsigned int bitsize;
      
-       /*  Notes that the relocation is relative to the location in the
-           data section of the addend.  The relocation function will
-           subtract from the relocation value the address of the location
-           being relocated.  */
+       /*  The relocation is relative to the field being relocated.  */
        bfd_boolean pc_relative;
      
        /*  The bit position of the reloc value in the destination.
@@ -355,7 +354,7 @@ information that libbfd needs to know to tie up a back end's data.
      };
      
 </pre>
-   <p><a name="index-The-HOWTO-Macro-80"></a>
+   <p><a name="index-The-HOWTO-Macro-82"></a>
 
 <h5 class="subsubsection">2.10.1.3 <code>The HOWTO Macro</code></h5>
 
@@ -397,7 +396,7 @@ Helper routine to turn a symbol into a relocation value.
        }
      
 </pre>
-   <p><a name="index-bfd_005fget_005freloc_005fsize-81"></a>
+   <p><a name="index-bfd_005fget_005freloc_005fsize-83"></a>
 
 <h5 class="subsubsection">2.10.1.4 <code>bfd_get_reloc_size</code></h5>
 
@@ -408,7 +407,7 @@ Helper routine to turn a symbol into a relocation value.
 For a reloc_howto_type that operates on a fixed number of bytes,
 this returns the number of bytes operated on.
 
-   <p><a name="index-arelent_005fchain-82"></a>
+   <p><a name="index-arelent_005fchain-84"></a>
 
 <h5 class="subsubsection">2.10.1.5 <code>arelent_chain</code></h5>
 
@@ -422,7 +421,7 @@ How relocs are tied together in an <code>asection</code>:
      arelent_chain;
      
 </pre>
-   <p><a name="index-bfd_005fcheck_005foverflow-83"></a>
+   <p><a name="index-bfd_005fcheck_005foverflow-85"></a>
 
 <h5 class="subsubsection">2.10.1.6 <code>bfd_check_overflow</code></h5>
 
@@ -441,7 +440,7 @@ Perform overflow checking on <var>relocation</var> which has
 <var>addrsize</var> significant bits.  The result is either of
 <code>bfd_reloc_ok</code> or <code>bfd_reloc_overflow</code>.
 
-   <p><a name="index-bfd_005fperform_005frelocation-84"></a>
+   <p><a name="index-bfd_005fperform_005frelocation-86"></a>
 
 <h5 class="subsubsection">2.10.1.7 <code>bfd_perform_relocation</code></h5>
 
@@ -470,7 +469,7 @@ types with addends were invented to solve just this problem.
 The <var>error_message</var> argument is set to an error message if
 this return <code>bfd_reloc_dangerous</code>.
 
-   <p><a name="index-bfd_005finstall_005frelocation-85"></a>
+   <p><a name="index-bfd_005finstall_005frelocation-87"></a>
 
 <h5 class="subsubsection">2.10.1.8 <code>bfd_install_relocation</code></h5>
 

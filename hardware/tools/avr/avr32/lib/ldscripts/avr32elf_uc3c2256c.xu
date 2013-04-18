@@ -137,4 +137,6 @@ SECTIONS
   }
   .userpage :  { *(.userpage .userpage.*)  } >USERPAGE AT>USERPAGE
   .factorypage :  { *(.factorypage .factorypage.*)  } >FACTORYPAGE AT>FACTORYPAGE
+  .flashvault_flash_size : { KEEP(*(.flashvault_flash_size .flashvault_flash_size.*)) } > FLASHVAULT_FLASH_SIZE
+  .flashvault_ram_size   : { KEEP(*(.flashvault_ram_size .flashvault_ram_size.*)) } > FLASHVAULT_RAM_SIZE
 }

@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: fuse.h,v 1.3.2.6 2009/07/14 17:24:31 arcanum Exp $ */
+/* $Id: fuse.h 2107 2010-03-20 18:00:47Z arcanum $ */
 
 /* avr/fuse.h - Fuse API */
 
@@ -260,9 +260,14 @@ typedef struct
 
 #endif
 
-#ifndef FUSES
-#define FUSES __fuse_t __fuse FUSEMEM
+#if !defined(FUSES)
+  #if defined(__AVR_XMEGA__)
+    #define FUSES NVM_FUSES_t __fuse FUSEMEM
+  #else
+    #define FUSES __fuse_t __fuse FUSEMEM
+  #endif
 #endif
+
 
 #endif /* !__ASSEMBLER__ */
 

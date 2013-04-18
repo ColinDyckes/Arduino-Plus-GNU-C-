@@ -218,6 +218,7 @@ void SoftwareSerial::recv()
 
   // If RX line is high, then we don't see any start bit
   // so interrupt is probably not for us
+
   if (_inverse_logic ? rx_pin_read() : !rx_pin_read())
   {
     // Wait approximately 1/2 of a bit width to "center" the sample
@@ -286,6 +287,8 @@ void SoftwareSerial::tx_pin_write(uint8_t pin_state)
 uint8_t SoftwareSerial::rx_pin_read()
 {
   return *_receivePortRegister & _receiveBitMask;
+
+
 }
 
 //

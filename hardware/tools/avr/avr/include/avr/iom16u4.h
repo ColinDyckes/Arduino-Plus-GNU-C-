@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom16u4.h,v 1.1.2.2 2009/02/19 21:10:54 arcanum Exp $ */
+/* $Id: iom16u4.h 2185 2010-09-22 07:06:35Z aboyapati $ */
 
 /* avr/iom16u4.h - definitions for ATmega16U4 */
 
@@ -561,7 +561,7 @@
 #define ADTS0 0
 #define ADTS1 1
 #define ADTS2 2
-#define ADTS3 4
+#define ADTS3 3
 #define MUX5 5
 #define ACME 6
 #define ADHSM 7

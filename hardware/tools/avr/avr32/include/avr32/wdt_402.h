@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3L064
- * Revision     : $Revision: 62294 $
- * Checkin Date : $Date: 2008-12-16 13:03:18 +0100 (ti., 16 des. 2008) $ 
+ * Revision     : $Revision: 83412 $
+ * Checkin Date : $Date: 2010-10-13 19:20:07 +0200 (Wed, 13 Oct 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_WDT_402_H_INCLUDED
 #define AVR32_WDT_402_H_INCLUDED
+
+#define AVR32_WDT_H_VERSION 402
 
 #include "avr32/abi.h"
 
@@ -174,7 +176,7 @@
 #define AVR32_WDT_TBAN_SIZE                                         5
 #define AVR32_WDT_VERSION                                  0x000003fc
 #define AVR32_WDT_VERSION_MASK                             0x00000000
-#define AVR32_WDT_VERSION_RESETVALUE                       0x00000000
+#define AVR32_WDT_VERSION_RESETVALUE                       0x00000402
 #define AVR32_WDT_WDTCLR                                            0
 #define AVR32_WDT_WDTCLR_MASK                              0x00000001
 #define AVR32_WDT_WDTCLR_OFFSET                                     0

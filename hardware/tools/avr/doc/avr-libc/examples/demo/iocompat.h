@@ -8,7 +8,7 @@
  *
  * IO feature compatibility definitions for various AVRs.
  *
- * $Id: iocompat.h,v 1.6.2.1 2008/03/17 22:08:46 joerg_wunsch Exp $
+ * $Id: iocompat.h 1638 2008-03-17 21:52:00Z joerg_wunsch $
  */
 
 #if !defined(IOCOMPAT_H)

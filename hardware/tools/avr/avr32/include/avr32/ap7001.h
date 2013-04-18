@@ -32,7 +32,7 @@
  *
  * Model        : AP7001
  * Revision     : $Revision: 62595 $
- * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $
+ * Checkin Date : $Date: 2009-10-21 13:31:31 +0200 (Wed, 21 Oct 2009) $
  *
  ****************************************************************************/
 #ifndef AVR32_AP7001_H_INCLUDED

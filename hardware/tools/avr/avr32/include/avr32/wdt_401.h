@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3C0128C
- * Revision     : $Revision: 65141 $
- * Checkin Date : $Date: 2009-11-30 23:24:24 -0700 (Mon, 30 Nov 2009) $ 
+ * Revision     : $Revision: 74772 $
+ * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_WDT_401_H_INCLUDED
 #define AVR32_WDT_401_H_INCLUDED
+
+#define AVR32_WDT_H_VERSION 401
 
 #include "avr32/abi.h"
 

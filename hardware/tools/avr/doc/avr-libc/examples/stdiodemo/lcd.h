@@ -8,7 +8,7 @@
  *
  * Stdio demo, upper layer of LCD driver.
  *
- * $Id: lcd.h,v 1.1 2005/12/28 21:38:59 joerg_wunsch Exp $
+ * $Id: lcd.h 1008 2005-12-28 21:38:59Z joerg_wunsch $
  */
 
 /*

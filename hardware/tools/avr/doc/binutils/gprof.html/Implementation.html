@@ -3,7 +3,7 @@
 <title>Implementation - GNU gprof</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="GNU gprof">
-<meta name="generator" content="makeinfo 4.7">
+<meta name="generator" content="makeinfo 4.13">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Details.html#Details" title="Details">
 <link rel="next" href="File-Format.html#File-Format" title="File Format">
@@ -11,16 +11,17 @@
 <!--
 This file documents the gprof profiler of the GNU system.
 
-Copyright (C) 1988, 92, 97, 98, 99, 2000, 2001, 2003, 2007 Free Software Foundation, Inc.
+Copyright (C) 1988, 1992, 1997, 1998, 1999, 2000, 2001, 2003,
+2007, 2008, 2009 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.1
+under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled ``GNU Free Documentation License''.
 
-man end-->
+-->
 <meta http-equiv="Content-Style-Type" content="text/css">
 <style type="text/css"><!--
   pre.display { font-family:inherit }
@@ -29,16 +30,18 @@ man end-->
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc { font-variant:small-caps }
-  span.roman { font-family: serif; font-weight: normal; } 
+  span.sc    { font-variant:small-caps }
+  span.roman { font-family:serif; font-weight:normal; } 
+  span.sansserif { font-family:sans-serif; font-weight:normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
+<a name="Implementation"></a>
 <p>
-<a name="Implementation"></a>Next:&nbsp;<a rel="next" accesskey="n" href="File-Format.html#File-Format">File Format</a>,
+Next:&nbsp;<a rel="next" accesskey="n" href="File-Format.html#File-Format">File Format</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Details.html#Details">Details</a>
-<hr><br>
+<hr>
 </div>
 
 <h3 class="section">9.1 Implementation of Profiling</h3>
@@ -47,7 +50,7 @@ Up:&nbsp;<a rel="up" accesskey="u" href="Details.html#Details">Details</a>
 so that when it is called, it will stash away some information about where
 it was called from.  From this, the profiler can figure out what function
 called it, and can count how many times it was called.  This change is made
-by the compiler when your program is compiled with the <span class="samp">-pg</span> option,
+by the compiler when your program is compiled with the &lsquo;<samp><span class="samp">-pg</span></samp>&rsquo; option,
 which causes every function to call <code>mcount</code>
 (or <code>_mcount</code>, or <code>__mcount</code>, depending on the OS and compiler)
 as one of its first operations.
@@ -75,8 +78,8 @@ of <code>mcount</code> is used for performance reasons.
 
    <p>Number-of-calls information for library routines is collected by using a
 special version of the C library.  The programs in it are the same as in
-the usual C library, but they were compiled with <span class="samp">-pg</span>.  If you
-link your program with <span class="samp">gcc ... -pg</span>, it automatically uses the
+the usual C library, but they were compiled with &lsquo;<samp><span class="samp">-pg</span></samp>&rsquo;.  If you
+link your program with &lsquo;<samp><span class="samp">gcc ... -pg</span></samp>&rsquo;, it automatically uses the
 profiling version of the library.
 
    <p>Profiling also involves watching your program as it runs, and keeping a
@@ -118,13 +121,13 @@ On Linux systems, a special profiling startup file <code>gcrt0.o</code>,
 which invokes <code>monstartup</code> before <code>main</code>,
 is used instead of the default <code>crt0.o</code>. 
 Use of this special startup file is one of the effects
-of using <span class="samp">gcc ... -pg</span> to link. 
+of using &lsquo;<samp><span class="samp">gcc ... -pg</span></samp>&rsquo; to link. 
 On SPARC systems, no special startup files are used. 
 Rather, the <code>mcount</code> routine, when it is invoked for
 the first time (typically when <code>main</code> is called),
 calls <code>monstartup</code>.
 
-   <p>If the compiler's <span class="samp">-a</span> option was used, basic-block counting
+   <p>If the compiler's &lsquo;<samp><span class="samp">-a</span></samp>&rsquo; option was used, basic-block counting
 is also enabled.  Each object file is then compiled with a static array
 of counts, initially zero. 
 In the executable code, every time a new basic-block begins
@@ -137,7 +140,7 @@ along with the number of times it was executed.
 
    <p>The profiling library also includes a function (<code>mcleanup</code>) which is
 typically registered using <code>atexit()</code> to be called as the
-program exits, and is responsible for writing the file <span class="file">gmon.out</span>. 
+program exits, and is responsible for writing the file <samp><span class="file">gmon.out</span></samp>. 
 Profiling is turned off, various headers are output, and the histogram
 is written, followed by the call-graph arcs and the basic-block counts.
 

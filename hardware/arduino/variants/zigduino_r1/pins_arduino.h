@@ -39,7 +39,7 @@
 #define analogInputToDigitalPin(p)  ((p < 6) ? (p) + 14 : -1)
 #define digitalPinHasPWM(p)         ((p) == 3 ||(p) == 4 ||(p) == 6 ||(p) == 8 ||(p) == 9 ||(p) == 10 ||(p) == 11)
 
-const static uint8_t SS   = 10;
+//const static uint8_t SS   = 10;
 const static uint8_t MOSI = 20;
 const static uint8_t MISO = 12;
 const static uint8_t SCK  = 13;
@@ -61,8 +61,8 @@ const static uint8_t A5 = 19;
 
 #define digitalPinToPCICR(p)    ( (((p) >= 7) && ((p) <= 13)) || \
                                   ((p) == 20) ? (&PCICR) : ((uint8_t *)0) )
-
-#define digitalPinToPCICRbit(p) ( ((p) == 7) ? 1 : 0 ) 
+								  
+#define digitalPinToPCICRbit(p) ( ((p) == 7) ? 1 : 0 )
 
 #define digitalPinToPCMSK(p)    ( ((((p) >= 8) && ((p) <= 13)) || ((p) == 20)) ? (&PCMSK0) : \
                                 ( ((p) == 7) ? (&PCMSK1) : \
@@ -76,7 +76,7 @@ const static uint8_t A5 = 19;
                                 ( ((p) == 12) ? 3 : \
                                 ( ((p) == 13) ? 1 : \
                                 ( ((p) == 20) ? 2 : \
-                                0 ) ) ) ) ) ) ) )
+                                0 ) ) ) ) ) )
 
 #ifdef ARDUINO_MAIN
 

@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2006-2009 Atmel Corporation
+ * Copyright (C) 2006-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,8 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3L016
- * Revision     : $Revision: 66750 $
- * Checkin Date : $Date: 2009-12-18 10:07:22 -0700 (Fri, 18 Dec 2009) $
+ * Revision     : $Revision: 116561 $
+ * Checkin Date : $Date: 2012-06-06 12:17:05 +0200 (Wed, 06 Jun 2012) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3L016_H_INCLUDED
@@ -49,7 +49,7 @@
 #define AVR32_FLASHCDW_NUM                 1
 #define AVR32_FREQM_NUM                    1
 #define AVR32_GPIO_NUM                     1
-#define AVR32_HMATRIX_NUM                  1
+#define AVR32_HMATRIXB_NUM                 1
 #define AVR32_JTAG_NUM                     1
 #define AVR32_PDCA_NUM                     1
 #define AVR32_PM_NUM                       1
@@ -79,7 +79,8 @@
 #define AVR32_PM_NUM_CLKS_PER_GRP3         3
 
 /* CPU clocks */
-#define AVR32_OCD_CLK_CPU                  1
+#define AVR32_OCD_CLK_CPU                  0
+#define AVR32_CORE_CLK_CPU_COUNT           16
 
 /* HSB clocks */
 #define AVR32_PDCA_CLK_HSB                 32
@@ -110,11 +111,12 @@
 #define AVR32_TWIS1_CLK_PBA                81
 #define AVR32_PWMA_CLK_PBA                 82
 #define AVR32_TC0_CLK_PBA                  83
-#define AVR32_TC1_CLK_PBA                  83
-#define AVR32_ADCIFB_CLK_PBA               84
-#define AVR32_ACIFB_CLK_PBA                85
-#define AVR32_CAT_CLK_PBA                  86
-#define AVR32_AW_CLK_PBA                   87
+#define AVR32_TC1_CLK_PBA                  84
+#define AVR32_ADCIFB_CLK_PBA               85
+#define AVR32_ACIFB_CLK_PBA                86
+#define AVR32_CAT_CLK_PBA                  87
+#define AVR32_GLOC_CLK_PBA                 88
+#define AVR32_AW_CLK_PBA                   89
 
 /* PBB clocks */
 #define AVR32_FLASHC_CLK_PBB               96
@@ -135,9 +137,9 @@
 #define AVR32_PM_GCLK_ACIFB                4
 
 /* Core */
-#include "avr32/core_sc0_200.h"
+#include "avr32/core_sc0_2101.h"
 /* OCD */
-#include "avr32/ocd_s0_200.h"
+#include "avr32/ocd_s0_210.h"
 
 /* CORE */
 #define AVR32_CORE_OCD_DCCPU_READ_IRQ      33
@@ -196,7 +198,7 @@
 #define AVR32_INTC_NUM_IRQS_PER_GRP8       1
 #define AVR32_INTC_NUM_IRQS_PER_GRP9       1
 #define AVR32_INTC_NUM_NMI                 1
-#include "avr32/intc_101.h"
+#include "avr32/intc_102.h"
 
 
 /* ACIFB */
@@ -333,7 +335,7 @@
 /* AW */
 
 /* AW */
-#define AVR32_AW_ADDRESS                   0xFFFF6C00
+#define AVR32_AW_ADDRESS                   0xFFFF7000
 #define AVR32_AW                           (*((volatile avr32_aw_t*)AVR32_AW_ADDRESS))
 #define AVR32_AW_IRQ                       960
 #define AVR32_AW_PDCA_ID_RX                13
@@ -367,6 +369,7 @@
 #define AVR32_CAT_CSA_16_PIN               43
 #define AVR32_CAT_CSA_15_PIN               44
 
+#define AVR32_CAT_CSA_0_FUNCTION           7
 #define AVR32_CAT_CSA_1_FUNCTION           7
 #define AVR32_CAT_CSA_2_FUNCTION           7
 #define AVR32_CAT_CSA_3_FUNCTION           7
@@ -402,6 +405,7 @@
 #define AVR32_CAT_CSB_15_PIN               41
 #define AVR32_CAT_CSB_16_PIN               42
 
+#define AVR32_CAT_CSB_0_FUNCTION           7
 #define AVR32_CAT_CSB_1_FUNCTION           7
 #define AVR32_CAT_CSB_2_FUNCTION           7
 #define AVR32_CAT_CSB_3_FUNCTION           7
@@ -444,7 +448,8 @@
 #define AVR32_CAT_SYNC_0_2_FUNCTION        5
 #define AVR32_CAT_SYNC_0_3_FUNCTION        5
 #define AVR32_CAT_SYNC_0_4_FUNCTION        6
-
+#define AVR32_CAT_VDIVEN_0_PIN             43
+#define AVR32_CAT_VDIVEN_0_FUNCTION        5
 
 #include "avr32/cat_200.h"
 
@@ -472,6 +477,18 @@
 #define AVR32_EIC_EXTINT_3_1_PIN           41
 #define AVR32_EIC_EXTINT_4_1_PIN           42
 #define AVR32_EIC_EXTINT_5_1_PIN           43
+#define AVR32_EIC_EXTINT_0_0_FUNCTION      6
+#define AVR32_EIC_EXTINT_1_0_FUNCTION      6
+#define AVR32_EIC_EXTINT_2_0_FUNCTION      6
+#define AVR32_EIC_EXTINT_3_0_FUNCTION      6
+#define AVR32_EIC_EXTINT_4_0_FUNCTION      6
+#define AVR32_EIC_EXTINT_5_0_FUNCTION      6
+#define AVR32_EIC_EXTINT_0_1_FUNCTION      6
+#define AVR32_EIC_EXTINT_1_1_FUNCTION      6
+#define AVR32_EIC_EXTINT_2_1_FUNCTION      6
+#define AVR32_EIC_EXTINT_3_1_FUNCTION      6
+#define AVR32_EIC_EXTINT_4_1_FUNCTION      6
+#define AVR32_EIC_EXTINT_5_1_FUNCTION      6
 
 #include "avr32/eic_301.h"
 
@@ -520,7 +537,7 @@
 #define AVR32_FLASHCDW_FWS_1_MAX_FREQ           30000000
 #define AVR32_FLASHCDW_HSEN_FWS_0_MAX_FREQ      25000000
 #define AVR32_FLASHCDW_HSEN_FWS_1_MAX_FREQ      50000000
-#define AVR32_FLASHCDW_PAGES_PR_REGION     64
+#define AVR32_FLASHCDW_PAGES_PR_REGION     4
 #define AVR32_FLASHCDW_PAGE_SIZE           256
 #define AVR32_FLASHCDW_USER_PAGE_ADDRESS   0x80800000
 #define AVR32_FLASHCDW_USER_PAGE           ((volatile unsigned char*) AVR32_FLASHCDW_USER_PAGE_ADDRESS)
@@ -549,11 +566,8 @@
 #define AVR32_FLASHCDW_FLASH_OBS_8_PIN     33
 #define AVR32_FLASHCDW_FLASH_OBS_12_PIN    34
 #define AVR32_FLASHCDW_FLASH_OBS_19_PIN    35
-#define AVR32_FLASHCDW_LATDEL_0_0_PIN      6
-#define AVR32_FLASHCDW_LATDEL_0_1_PIN      37
-#define AVR32_FLASHCDW_LATDELCLK_0_0_PIN   9
-#define AVR32_FLASHCDW_LATDELCLK_0_1_PIN   33
-#define AVR32_FLASHCDW_LATDELMATCH_0_PIN   7
+#define AVR32_FLASHCDW_LATDEL_0_PIN        17
+#define AVR32_FLASHCDW_LATDELCLK_0_PIN     18
 #define AVR32_FLASHCDW_VMARGIN_0_PIN       6
 #define AVR32_FLASHCDW_VMDIV_0_PIN         42
 
@@ -591,6 +605,39 @@
 #include "avr32/freqm_301.h"
 
 
+/* GLOC */
+
+/* GLOC */
+#define AVR32_GLOC_ADDRESS                 0xFFFF6C00
+#define AVR32_GLOC                         (*((volatile avr32_gloc_t*)AVR32_GLOC_ADDRESS))
+#define AVR32_GLOC_GCLK_NUM                5
+#define AVR32_GLOC_INPUT_PINS_MSB          7
+#define AVR32_GLOC_LUTS                    2
+#define AVR32_GLOC_OUTPUT_PINS_MSB         1
+#define AVR32_GLOC_IN_7_0_PIN              13
+#define AVR32_GLOC_IN_7_0_FUNCTION         1
+#define AVR32_GLOC_IN_6_0_PIN              15
+#define AVR32_GLOC_IN_6_0_FUNCTION         3
+#define AVR32_GLOC_IN_5_0_PIN              16
+#define AVR32_GLOC_IN_5_0_FUNCTION         3
+#define AVR32_GLOC_IN_4_0_PIN              18
+#define AVR32_GLOC_IN_4_0_FUNCTION         3
+#define AVR32_GLOC_IN_3_0_PIN              20
+#define AVR32_GLOC_IN_3_0_FUNCTION         3
+#define AVR32_GLOC_IN_2_0_PIN              38
+#define AVR32_GLOC_IN_2_0_FUNCTION         3
+#define AVR32_GLOC_IN_1_0_PIN              39
+#define AVR32_GLOC_IN_1_0_FUNCTION         3
+#define AVR32_GLOC_IN_0_0_PIN              40
+#define AVR32_GLOC_IN_0_0_FUNCTION         3
+#define AVR32_GLOC_OUT_0_0_PIN             13
+#define AVR32_GLOC_OUT_0_0_FUNCTION        0
+#define AVR32_GLOC_OUT_1_0_PIN             42
+#define AVR32_GLOC_OUT_1_0_FUNCTION        3
+
+#include "avr32/gloc_100.h"
+
+
 /* GPIO */
 
 /* GPIO */
@@ -617,25 +664,25 @@
 #include "avr32/gpio_211.h"
 
 
-/* HMATRIX */
+/* HMATRIXB */
 
 /* HMATRIX */
-#define AVR32_HMATRIX_ADDRESS              0xFFFE0400
-#define AVR32_HMATRIX                      (*((volatile avr32_hmatrix_t*)AVR32_HMATRIX_ADDRESS))
-#define AVR32_HMATRIX_MASTER_CPU_DATA      0
-#define AVR32_HMATRIX_MASTER_CPU_INSN      1
-#define AVR32_HMATRIX_MASTER_CPU_SAB       2
-#define AVR32_HMATRIX_MASTER_SAU           4
-#define AVR32_HMATRIX_MASTER_NUM           5
-#define AVR32_HMATRIX_MASTER_PDCA          3
-#define AVR32_HMATRIX_SLAVE_FLASH          0
-#define AVR32_HMATRIX_SLAVE_NUM            5
-#define AVR32_HMATRIX_SLAVE_PBA            1
-#define AVR32_HMATRIX_SLAVE_PBB            2
-#define AVR32_HMATRIX_SLAVE_SRAM           3
-#define AVR32_HMATRIX_SLAVE_SAU            4
+#define AVR32_HMATRIXB_ADDRESS             0xFFFE0400
+#define AVR32_HMATRIXB                     (*((volatile avr32_hmatrixb_t*)AVR32_HMATRIXB_ADDRESS))
+#define AVR32_HMATRIXB_MASTER_CPU_DATA     0
+#define AVR32_HMATRIXB_MASTER_CPU_INSN     1
+#define AVR32_HMATRIXB_MASTER_CPU_SAB      2
+#define AVR32_HMATRIXB_MASTER_SAU          3
+#define AVR32_HMATRIXB_MASTER_NUM          5
+#define AVR32_HMATRIXB_MASTER_PDCA         4
+#define AVR32_HMATRIXB_SLAVE_FLASH         0
+#define AVR32_HMATRIXB_SLAVE_NUM           5
+#define AVR32_HMATRIXB_SLAVE_PBA           1
+#define AVR32_HMATRIXB_SLAVE_PBB           2
+#define AVR32_HMATRIXB_SLAVE_SRAM          3
+#define AVR32_HMATRIXB_SLAVE_SAU           4
 
-#include "avr32/hmatrix_230.h"
+#include "avr32/hmatrixb_130.h"
 
 
 /* JTAG */
@@ -768,6 +815,8 @@
 #define AVR32_PM_WCAUSE_TWI1_OFFSET        4
 #define AVR32_PM_WCAUSE_TWI1_SIZE          1
 
+
+
 #include "avr32/pm_411.h"
 
 
@@ -811,9 +860,9 @@
 #define AVR32_PULLUP_OUTPUT_ONE_0_0_PIN    5
 #define AVR32_PULLUP_OUTPUT_ONE_0_1_PIN    7
 #define AVR32_PULLUP_OUTPUT_ONE_0_2_PIN    17
-#define AVR32_PULLUP_OUTPUT_ONE_0_3_PIN    20
-#define AVR32_PULLUP_OUTPUT_ONE_0_4_PIN    21
-#define AVR32_PULLUP_OUTPUT_ONE_0_5_PIN    36
+#define AVR32_PULLUP_OUTPUT_ONE_0_3_PIN    21
+#define AVR32_PULLUP_OUTPUT_ONE_0_4_PIN    36
+#define AVR32_PULLUP_OUTPUT_ONE_0_5_PIN    37
 
 
 
@@ -909,6 +958,7 @@
 /* SAU */
 #define AVR32_SAU_ADDRESS                  0xFFFE0800
 #define AVR32_SAU                          (*((volatile avr32_sau_t*)AVR32_SAU_ADDRESS))
+#define AVR32_SAU_HSB_ADDRESS              0x90000000
 #define AVR32_SAU_HSB_SIZE                 0x400
 #define AVR32_SAU_HSB                      (*((volatile avr32_sau_hsb_t*)AVR32_SAU_HSB_ADDRESS))
 #define AVR32_SAU_IRQ                      96
@@ -1201,7 +1251,7 @@
 #define AVR32_TWIM1_PDCA_ID_RX             7
 #define AVR32_TWIM1_PDCA_ID_TX             18
 
-#include "avr32/twim_100.h"
+#include "avr32/twim_101.h"
 
 
 /* TWIMS */
@@ -1213,6 +1263,7 @@
 #define AVR32_TWIMS0_TWALM_0_0_PIN         36
 #define AVR32_TWIMS0_TWALM_0_0_FUNCTION    3
 #define AVR32_TWIMS0_TWALM_0_1_PIN         1
+#define AVR32_TWIMS0_TWALM_0_1_FUNCTION    6
 #define AVR32_TWIMS0_TWCK_0_0_PIN          4
 #define AVR32_TWIMS0_TWCK_0_0_FUNCTION     1
 #define AVR32_TWIMS0_TWCK_0_1_PIN          20
@@ -1226,6 +1277,7 @@
 #define AVR32_TWIMS0_TWD_0_1_PIN           21
 #define AVR32_TWIMS0_TWD_0_1_FUNCTION      1
 #define AVR32_TWIMS0_TWD_0_2_PIN           5
+#define AVR32_TWIMS0_TWD_0_2_FUNCTION      6
 
 
 /* TWIMS1 */
@@ -1241,6 +1293,7 @@
 #define AVR32_TWIMS1_TWCK_0_0_PIN          5
 #define AVR32_TWIMS1_TWCK_0_0_FUNCTION     1
 #define AVR32_TWIMS1_TWCK_0_1_PIN          36
+#define AVR32_TWIMS1_TWCK_0_1_FUNCTION     6
 #define AVR32_TWIMS1_TWD_0_PIN             17
 #define AVR32_TWIMS1_TWD_0_FUNCTION        3
 
@@ -1263,7 +1316,7 @@
 #define AVR32_TWIS1_PDCA_ID_RX             9
 #define AVR32_TWIS1_PDCA_ID_TX             20
 
-#include "avr32/twis_110.h"
+#include "avr32/twis_112.h"
 
 
 /* USART */
@@ -1276,7 +1329,9 @@
 #define AVR32_USART0_PDCA_ID_RX            3
 #define AVR32_USART0_PDCA_ID_TX            14
 #define AVR32_USART0_CLK_0_0_PIN           2
+#define AVR32_USART0_CLK_0_0_FUNCTION      6
 #define AVR32_USART0_CLK_0_1_PIN           3
+#define AVR32_USART0_CLK_0_1_FUNCTION      6
 #define AVR32_USART0_CTS_0_0_PIN           3
 #define AVR32_USART0_CTS_0_0_FUNCTION      0
 #define AVR32_USART0_CTS_0_1_PIN           22

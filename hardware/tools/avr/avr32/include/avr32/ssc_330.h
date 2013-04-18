@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009 Atmel Corporation
+ * Copyright (C) 2009-2010 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,12 +31,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3C0128C
- * Revision     : $Revision: 67490 $
- * Checkin Date : $Date: 2010-01-06 09:23:43 -0700 (Wed, 06 Jan 2010) $ 
+ * Revision     : $Revision: 74772 $
+ * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_SSC_330_H_INCLUDED
 #define AVR32_SSC_330_H_INCLUDED
+
+#define AVR32_SSC_H_VERSION 330
 
 #include "avr32/abi.h"
 

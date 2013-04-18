@@ -26,7 +26,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: alloca.h,v 1.2 2007/12/18 13:34:15 dmix Exp $	*/
+/* $Id: alloca.h 1508 2007-12-18 13:36:50Z dmix $	*/
 
 #ifndef	_ALLOCA_H
 #define _ALLOCA_H  1

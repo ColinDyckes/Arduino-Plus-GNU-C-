@@ -17,7 +17,7 @@
 # etc...
 
 # program name should not be changed...
-PROGRAM    = ATmegaBOOT_1284
+PROGRAM    = ATmegaBOOT
 #PROGRAM    = iduino-bootloader
 
 # enter the parameters for the avrdude isp tool
@@ -204,10 +204,18 @@ iduino: MCU_TARGET = atmega128rfa1
 iduino: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5'  -DBAUD_RATE=57600 #'-DWATCHDOG_MODS'
 iduino: AVR_FREQ = 16000000L 
 iduino: LDSECTION  = --section-start=.text=0x1F000
-iduino: $(PROGRAM)_atmega128rfa1.hex
-iduino: $(PROGRAM)_atmega128rfa1.elf
+iduino: $(PROGRAM)_atmega128rfa1_16M.hex
+iduino: $(PROGRAM)_atmega128rfa1_16M.elf
 #	cp $(PROGRAM)_atmega128rfa1.elf iduino-bootloader.elf
 #	cp $(PROGRAM).o iduino-bootloader.o
+
+iduinopro: TARGET = _atmega256rfr2
+iduinopro: MCU_TARGET = atmega256rfr2
+iduinopro: CFLAGS += '-DMAX_TIME_COUNT=F_CPU>>4' '-DNUM_LED_FLASHES=5'  -DBAUD_RATE=57600 #'-DWATCHDOG_MODS'
+iduinopro: AVR_FREQ = 16000000L 
+iduinopro: LDSECTION  = --section-start=.text=0x1F000
+iduinopro: $(PROGRAM)_atmega256rfr2_16M.hex
+iduinopro: $(PROGRAM)_atmega256rfr2_16M.elf
 
 isant900cb: TARGET = atmega1281
 isant900cb: MCU_TARGET = atmega1281
