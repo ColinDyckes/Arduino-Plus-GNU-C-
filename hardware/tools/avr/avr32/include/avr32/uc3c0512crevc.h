@@ -31,8 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3C0512CREVC
- * Revision     : $Revision: 84896 $
- * Checkin Date : $Date: 2010-11-08 13:33:09 +0100 (Mon, 08 Nov 2010) $
+ * Revision     : $Revision: 66047 $
+ * Checkin Date : $Date: 2009-12-12 23:25:50 -0700 (Sat, 12 Dec 2009) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3C0512CREVC_H_INCLUDED
@@ -229,6 +229,7 @@
 #define AVR32_USBB_SLAVE                   ((unsigned char *)AVR32_USBB_SLAVE_ADDRESS)
 
 /* Interrupt Controller */
+#include "avr32/intc_102.h"
 #define AVR32_INTC_ADDRESS                 0xFFFF0000
 #define AVR32_INTC                         (*((volatile avr32_intc_t*)AVR32_INTC_ADDRESS))
 #define AVR32_INTC_NUM_INT_GRPS            42
@@ -275,7 +276,7 @@
 #define AVR32_INTC_NUM_IRQS_PER_GRP8       10
 #define AVR32_INTC_NUM_IRQS_PER_GRP9       1
 #define AVR32_INTC_NUM_NMI                 1
-#include "avr32/intc_102.h"
+
 
 /* ACIFA */
 

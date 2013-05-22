@@ -30,7 +30,7 @@
 
 /* avr/iom644.h - definitions for ATmega644 */
 
-/* $Id: iom644.h 2115 2010-04-05 23:19:53Z arcanum $ */
+/* $Id: iom644.h,v 1.2.2.6 2009/02/11 18:05:29 arcanum Exp $ */
 
 #ifndef _AVR_IOM644_H_
 #define _AVR_IOM644_H_ 1
@@ -39,7 +39,6 @@
 
 /* Constants */
 #define SPM_PAGESIZE 256
-#define RAMSTART     (0x100)
 #define RAMEND       0x10FF
 #define XRAMEND      RAMEND
 #define E2END        0x7FF

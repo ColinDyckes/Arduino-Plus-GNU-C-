@@ -1,5 +1,5 @@
 #
-# $Id: Makefile 233 2002-12-18 22:35:38Z joerg_wunsch $
+# $Id: Makefile,v 1.1 2002/12/18 22:35:38 joerg_wunsch Exp $
 #
 CC= avr-gcc
 #MCU=atmega8

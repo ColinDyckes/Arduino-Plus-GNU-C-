@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2006-2010 Atmel Corporation
+ * Copyright (C) 2006-2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -85,20 +85,15 @@
 
 /* CPU clocks */
 #define AVR32_OCD_CLK_CPU                  1
-#define AVR32_CORE_CLK_CPU_COUNT           16
 
 /* HSB clocks */
 #define AVR32_FLASHC_CLK_HSB               32
 #define AVR32_HMATRIX_CLK_HSB_PBA_BRIDGE   33
 #define AVR32_HMATRIX_CLK_HSB_PBB_BRIDGE   34
 #define AVR32_USBB_CLK_HSB                 35
-#define AVR32_PDCA_CLK_HSB                 36
-#define AVR32_EBI_CLK_HSB                  37
-#define AVR32_HMATRIX_CLK_HSB_PBC_BRIDGE   38
-#define AVR32_DMACA_CLK_HSB                39
-#define AVR32_BUSMON_CLK_HSB               40
-#define AVR32_HRAMC0_CLK_HSB               41
-#define AVR32_HRAMC1_CLK_HSB               42
+#define AVR32_MACB_CLK_HSB                 36
+#define AVR32_PDCA_CLK_HSB                 37
+#define AVR32_EBI_CLK_HSB                  38
 
 /* PBA clocks */
 #define AVR32_INTC_CLK_PBA                 64
@@ -110,29 +105,22 @@
 #define AVR32_ADC_CLK_PBA                  68
 #define AVR32_SPI0_CLK_PBA                 69
 #define AVR32_SPI1_CLK_PBA                 70
-#define AVR32_TWIM0_CLK_PBA                71
-#define AVR32_TWIM1_CLK_PBA                72
-#define AVR32_TWIS0_CLK_PBA                73
-#define AVR32_TWIS1_CLK_PBA                74
-#define AVR32_USART0_CLK_PBA               75
-#define AVR32_USART1_CLK_PBA               76
-#define AVR32_USART2_CLK_PBA               77
-#define AVR32_USART3_CLK_PBA               78
-#define AVR32_SSC_CLK_PBA                  79
-#define AVR32_TC0_CLK_PBA                  80
-#define AVR32_TC1_CLK_PBA                  81
-#define AVR32_ABDAC_CLK_PBA                82
+#define AVR32_TWI_CLK_PBA                  71
+#define AVR32_USART0_CLK_PBA               72
+#define AVR32_USART1_CLK_PBA               73
+#define AVR32_USART2_CLK_PBA               74
+#define AVR32_USART3_CLK_PBA               75
+#define AVR32_PWM_CLK_PBA                  76
+#define AVR32_SSC_CLK_PBA                  77
+#define AVR32_TC_CLK_PBA                   78
+
 /* PBB clocks */
 #define AVR32_HMATRIX_CLK_PBB              96
 #define AVR32_USBB_CLK_PBB                 97
 #define AVR32_FLASHC_CLK_PBB               98
-#define AVR32_SMC_CLK_PBB                  99
-#define AVR32_SDRAMC_CLK_PBB               100
-#define AVR32_ECCHRS_CLK_PBB               101
-#define AVR32_MCI_CLK_PBB                  102
-#define AVR32_BUSMON_CLK_PBB               103
-#define AVR32_MSI_CLK_PBB                  104
-#define AVR32_AES_CLK_PBB                  105
+#define AVR32_MACB_CLK_PBB                 99
+#define AVR32_SMC_CLK_PBB                  100
+#define AVR32_SDRAMC_CLK_PBB               101
 
 /* Generic clocks */
 #define AVR32_PM_GCLK_GCLK0                0
@@ -931,7 +919,7 @@
 #define AVR32_PM                           (*((volatile avr32_pm_t*)AVR32_PM_ADDRESS))
 #define AVR32_PM_IRQ                       41
 #define AVR32_PM_GCLK_MSB                  3
-#define AVR32_PM_GCLK_NUM                  6
+#define AVR32_PM_GCLK_NUM                  9
 #define AVR32_PM_GPLP_NUM                  8
 #define AVR32_PM_CPU_MAX_FREQ              72000000
 #define AVR32_PM_HSB_MAX_FREQ              72000000
@@ -965,7 +953,7 @@
 #define AVR32_PM_XOUT1_0_PIN               50
 #define AVR32_PM_XOUT32_0_PIN              46
 
-#include "avr32/pm_240.h"
+#include "avr32/pm_231.h"
 
 
 /* RTC */
@@ -1402,7 +1390,7 @@
 #define AVR32_USBB_VAVBUSVLD_TEST_0_PIN     13
 #define AVR32_USBB_VBUSDISCHARGE_TEST_0_PIN 15
 #define AVR32_USBB_VBUSPULSING_TEST_0_PIN   16
-#define AVR32_USBB_EPT_NUM                  8
+#define AVR32_USBB_EPT_NUM                  7
 
 #include "avr32/usbb_320.h"
 

@@ -3,19 +3,19 @@
 <title>Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.13">
+<meta name="generator" content="makeinfo 4.7">
 <link title="Top" rel="start" href="#Top">
 <link href="http://www.gnu.org/software/texinfo/" rel="generator-home" title="Texinfo Homepage">
 <!--
 This file documents the GNU linker LD
 (GNU Binutils)
-version 2.22.
+version 2.19.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991, 92, 93, 94, 95, 96, 97, 98, 99, 2000,
+2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3
+under the terms of the GNU Free Documentation License, Version 1.1
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
@@ -28,9 +28,8 @@ section entitled "GNU Free Documentation License".-->
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  span.sc { font-variant:small-caps }
+  span.roman { font-family: serif; font-weight: normal; } 
 --></style>
 </head>
 <body>
@@ -44,9 +43,8 @@ section entitled "GNU Free Documentation License".-->
 <li><a href="Options.html#Options">2.1 Command Line Options</a>
 <ul>
 <li><a href="Options.html#Options">2.1.1 Options Specific to i386 PE Targets</a>
-<li><a href="Options.html#Options">2.1.2 Options specific to C6X uClinux targets</a>
-<li><a href="Options.html#Options">2.1.3 Options specific to Motorola 68HC11 and 68HC12 targets</a>
-<li><a href="Options.html#Options">2.1.4 Options specific to Motorola 68K target</a>
+<li><a href="Options.html#Options">2.1.2 Options specific to Motorola 68HC11 and 68HC12 targets</a>
+<li><a href="Options.html#Options">2.1.3 Options specific to Motorola 68K target</a>
 </li></ul>
 <li><a href="Environment.html#Environment">2.2 Environment Variables</a>
 </li></ul>
@@ -60,8 +58,7 @@ section entitled "GNU Free Documentation License".-->
 <li><a href="Entry-Point.html#Entry-Point">3.4.1 Setting the Entry Point</a>
 <li><a href="File-Commands.html#File-Commands">3.4.2 Commands Dealing with Files</a>
 <li><a href="Format-Commands.html#Format-Commands">3.4.3 Commands Dealing with Object File Formats</a>
-<li><a href="REGION_005fALIAS.html#REGION_005fALIAS">3.4.4 Assign alias names to memory regions</a>
-<li><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">3.4.5 Other Linker Script Commands</a>
+<li><a href="Miscellaneous-Commands.html#Miscellaneous-Commands">3.4.4 Other Linker Script Commands</a>
 </li></ul>
 <li><a href="Assignments.html#Assignments">3.5 Assigning Values to Symbols</a>
 <ul>
@@ -92,10 +89,9 @@ section entitled "GNU Free Documentation License".-->
 <li><a href="Output-Section-LMA.html#Output-Section-LMA">3.6.8.2 Output Section LMA</a>
 <li><a href="Forced-Output-Alignment.html#Forced-Output-Alignment">3.6.8.3 Forced Output Alignment</a>
 <li><a href="Forced-Input-Alignment.html#Forced-Input-Alignment">3.6.8.4 Forced Input Alignment</a>
-<li><a href="Output-Section-Constraint.html#Output-Section-Constraint">3.6.8.5 Output Section Constraint</a>
-<li><a href="Output-Section-Region.html#Output-Section-Region">3.6.8.6 Output Section Region</a>
-<li><a href="Output-Section-Phdr.html#Output-Section-Phdr">3.6.8.7 Output Section Phdr</a>
-<li><a href="Output-Section-Fill.html#Output-Section-Fill">3.6.8.8 Output Section Fill</a>
+<li><a href="Output-Section-Region.html#Output-Section-Region">3.6.8.5 Output Section Region</a>
+<li><a href="Output-Section-Phdr.html#Output-Section-Phdr">3.6.8.6 Output Section Phdr</a>
+<li><a href="Output-Section-Fill.html#Output-Section-Fill">3.6.8.7 Output Section Fill</a>
 </li></ul>
 <li><a href="Overlay-Description.html#Overlay-Description">3.6.9 Overlay Description</a>
 </li></ul>
@@ -105,36 +101,35 @@ section entitled "GNU Free Documentation License".-->
 <li><a href="Expressions.html#Expressions">3.10 Expressions in Linker Scripts</a>
 <ul>
 <li><a href="Constants.html#Constants">3.10.1 Constants</a>
-<li><a href="Symbolic-Constants.html#Symbolic-Constants">3.10.2 Symbolic Constants</a>
-<li><a href="Symbols.html#Symbols">3.10.3 Symbol Names</a>
-<li><a href="Orphan-Sections.html#Orphan-Sections">3.10.4 Orphan Sections</a>
-<li><a href="Location-Counter.html#Location-Counter">3.10.5 The Location Counter</a>
-<li><a href="Operators.html#Operators">3.10.6 Operators</a>
-<li><a href="Evaluation.html#Evaluation">3.10.7 Evaluation</a>
-<li><a href="Expression-Section.html#Expression-Section">3.10.8 The Section of an Expression</a>
-<li><a href="Builtin-Functions.html#Builtin-Functions">3.10.9 Builtin Functions</a>
+<li><a href="Symbols.html#Symbols">3.10.2 Symbol Names</a>
+<li><a href="Orphan-Sections.html#Orphan-Sections">3.10.3 Orphan Sections</a>
+<li><a href="Location-Counter.html#Location-Counter">3.10.4 The Location Counter</a>
+<li><a href="Operators.html#Operators">3.10.5 Operators</a>
+<li><a href="Evaluation.html#Evaluation">3.10.6 Evaluation</a>
+<li><a href="Expression-Section.html#Expression-Section">3.10.7 The Section of an Expression</a>
+<li><a href="Builtin-Functions.html#Builtin-Functions">3.10.8 Builtin Functions</a>
 </li></ul>
 <li><a href="Implicit-Linker-Scripts.html#Implicit-Linker-Scripts">3.11 Implicit Linker Scripts</a>
 </li></ul>
 <li><a name="toc_Machine-Dependent" href="Machine-Dependent.html#Machine-Dependent">4 Machine Dependent Features</a>
 <ul>
-<li><a href="H8_002f300.html#H8_002f300">4.1 <samp><span class="command">ld</span></samp> and the H8/300</a>
-<li><a href="i960.html#i960">4.2 <samp><span class="command">ld</span></samp> and the Intel 960 Family</a>
-<li><a href="M68HC11_002f68HC12.html#M68HC11_002f68HC12">4.3 <samp><span class="command">ld</span></samp> and the Motorola 68HC11 and 68HC12 families</a>
+<li><a href="H8_002f300.html#H8_002f300">4.1 <span class="command">ld</span> and the H8/300</a>
+<li><a href="i960.html#i960">4.2 <span class="command">ld</span> and the Intel 960 Family</a>
+<li><a href="M68HC11_002f68HC12.html#M68HC11_002f68HC12">4.3 <span class="command">ld</span> and the Motorola 68HC11 and 68HC12 families</a>
 <ul>
 <li><a href="M68HC11_002f68HC12.html#M68HC11_002f68HC12">4.3.1 Linker Relaxation</a>
 <li><a href="M68HC11_002f68HC12.html#M68HC11_002f68HC12">4.3.2 Trampoline Generation</a>
 </li></ul>
-<li><a href="ARM.html#ARM">4.4 <samp><span class="command">ld</span></samp> and the ARM family</a>
-<li><a href="HPPA-ELF32.html#HPPA-ELF32">4.5 <samp><span class="command">ld</span></samp> and HPPA 32-bit ELF Support</a>
-<li><a href="M68K.html#M68K">4.6 <samp><span class="command">ld</span></samp> and the Motorola 68K family</a>
+<li><a href="ARM.html#ARM">4.4 <span class="command">ld</span> and the ARM family</a>
+<li><a href="HPPA-ELF32.html#HPPA-ELF32">4.5 <span class="command">ld</span> and HPPA 32-bit ELF Support</a>
+<li><a href="M68K.html#M68K">4.6 <span class="command">ld</span> and the Motorola 68K family</a>
 <li><a href="MMIX.html#MMIX">4.7 <code>ld</code> and MMIX</a>
 <li><a href="MSP430.html#MSP430">4.8 <code>ld</code> and MSP430</a>
-<li><a href="PowerPC-ELF32.html#PowerPC-ELF32">4.9 <samp><span class="command">ld</span></samp> and PowerPC 32-bit ELF Support</a>
-<li><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">4.10 <samp><span class="command">ld</span></samp> and PowerPC64 64-bit ELF Support</a>
-<li><a href="SPU-ELF.html#SPU-ELF">4.11 <samp><span class="command">ld</span></samp> and SPU ELF Support</a>
-<li><a href="TI-COFF.html#TI-COFF">4.12 <samp><span class="command">ld</span></samp>'s Support for Various TI COFF Versions</a>
-<li><a href="WIN32.html#WIN32">4.13 <samp><span class="command">ld</span></samp> and WIN32 (cygwin/mingw)</a>
+<li><a href="PowerPC-ELF32.html#PowerPC-ELF32">4.9 <span class="command">ld</span> and PowerPC 32-bit ELF Support</a>
+<li><a href="PowerPC64-ELF64.html#PowerPC64-ELF64">4.10 <span class="command">ld</span> and PowerPC64 64-bit ELF Support</a>
+<li><a href="SPU-ELF.html#SPU-ELF">4.11 <span class="command">ld</span> and SPU ELF Support</a>
+<li><a href="TI-COFF.html#TI-COFF">4.12 <span class="command">ld</span>'s Support for Various TI COFF Versions</a>
+<li><a href="WIN32.html#WIN32">4.13 <span class="command">ld</span> and WIN32 (cygwin/mingw)</a>
 <li><a href="Xtensa.html#Xtensa">4.14 <code>ld</code> and Xtensa Processors</a>
 </li></ul>
 <li><a name="toc_BFD" href="BFD.html#BFD">5 BFD</a>
@@ -152,6 +147,9 @@ section entitled "GNU Free Documentation License".-->
 </li></ul>
 <li><a name="toc_MRI" href="MRI.html#MRI">Appendix A MRI Compatible Script Files</a>
 <li><a name="toc_GNU-Free-Documentation-License" href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">Appendix B GNU Free Documentation License</a>
+<ul>
+<li><a href="GNU-Free-Documentation-License.html#GNU-Free-Documentation-License">ADDENDUM: How to use this License for your documents</a>
+</li></ul>
 <li><a name="toc_LD-Index" href="LD-Index.html#LD-Index">LD Index</a>
 </li></ul>
 </div>
@@ -160,22 +158,21 @@ section entitled "GNU Free Documentation License".-->
 
 <!-- FIXME: Talk about importance of *order* of args, cmds to linker! -->
 <div class="node">
-<a name="Top"></a>
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Overview.html#Overview">Overview</a>,
+<a name="Top"></a>Next:&nbsp;<a rel="next" accesskey="n" href="Overview.html#Overview">Overview</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="../index.html#dir">(dir)</a>
-<hr>
+<hr><br>
 </div>
 
 <h2 class="unnumbered">LD</h2>
 
 <p>This file documents the <span class="sc">gnu</span> linker ld
 (GNU Binutils)
-version 2.22.
+version 2.19.
 
    <p>This document is distributed under the terms of the GNU Free
-Documentation License version 1.3.  A copy of the license is included
-in the section entitled &ldquo;GNU Free Documentation License&rdquo;.
+Documentation License.  A copy of the license is included in the
+section entitled &ldquo;GNU Free Documentation License&rdquo;.
 
 <ul class="menu">
 <li><a accesskey="1" href="Overview.html#Overview">Overview</a>:                     Overview

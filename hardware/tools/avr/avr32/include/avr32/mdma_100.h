@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009-2010 Atmel Corporation
+ * Copyright (C) 2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3C0128C
- * Revision     : $Revision: 74772 $
- * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
+ * Revision     : $Revision: 66025 $
+ * Checkin Date : $Date: 2009-12-11 20:41:14 -0700 (Fri, 11 Dec 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_MDMA_100_H_INCLUDED
 #define AVR32_MDMA_100_H_INCLUDED
-
-#define AVR32_MDMA_H_VERSION 100
 
 #include "avr32/abi.h"
 

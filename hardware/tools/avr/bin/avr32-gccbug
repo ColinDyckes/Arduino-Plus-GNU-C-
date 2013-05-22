@@ -345,11 +345,11 @@ SEND-PR: support             I need help with gcc.
 `[ -n "$MACHINE" ] && echo Machine: $MACHINE`
 	$ENVIRONMENT_C
 host: i686-pc-mingw32
-build: x86_64-pc-linux-gnu
+build: i686-pc-mingw32
 target: avr32-unknown-none
 __EOF__
       cat >> $file << \__EOF__
-configured with: /home/tools/hudson/workspace/avr32-gnu-toolchain/src/gcc/configure --target=avr32 --host=i686-pc-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/tools/hudson/workspace/avr32-gnu-toolchain/avr32-gnu-toolchain-win32_x86 --enable-languages=c,c++ --disable-nls --disable-libssp --disable-libstdcxx-pch --with-dwarf2 --enable-version-specific-runtime-libs --disable-shared --enable-doc --with-mpfr-lib=/home/tools/hudson/workspace/avr32-gnu-toolchain/avr32-gnu-toolchain-win32_x86/lib --with-mpfr-include=/home/tools/hudson/workspace/avr32-gnu-toolchain/avr32-gnu-toolchain-win32_x86/include --with-gmp=/home/tools/hudson/workspace/avr32-gnu-toolchain/avr32-gnu-toolchain-win32_x86 --enable-__cxa_atexit --disable-shared --with-newlib --enable-win32-registry=avr32toolchain --enable-sjlj-exceptions --with-pkgversion=AVR_32_bit_GNU_Toolchain_3.4.1_348 --with-bugurl=http://www.atmel.com/avr
+configured with: ../gcc-4.3.2/configure --target=avr32 --prefix=/c/WinAVR --datadir=/c/WinAVR/doc/gcc --with-pkgversion='WinAVR 20100110' --with-bugurl='URL:http://sourceforge.net/tracker/?atid=520074&group_id=68108&func=browse' --with-gmp=/usr/local --with-mpfr=/usr/local --with-dwarf2 --with-newlib --with-headers=/c/avrdev/newlib/newlib-1.16.0/newlib/libc/include --enable-languages=c,c++ --enable-win32-registry=WinAVR-20100110 --enable-doc --enable-sjlj-exceptions --enable-version-specific-runtime-libs --disable-libssp --disable-nls --disable-libstdcxx-pch
 __EOF__
       cat >> $file << __EOF__
 >Description:

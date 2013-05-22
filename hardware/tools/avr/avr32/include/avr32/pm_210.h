@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008-2010 Atmel Corporation
+ * Copyright (C) 2008-2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3000ES
- * Revision     : $Revision: 74808 $
- * Checkin Date : $Date: 2010-05-16 22:06:32 +0200 (Sun, 16 May 2010) $ 
+ * Revision     : $Revision: 62595 $
+ * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_PM_210_H_INCLUDED
 #define AVR32_PM_210_H_INCLUDED
-
-#define AVR32_PM_H_VERSION 210
 
 #include "avr32/abi.h"
 
@@ -848,7 +846,7 @@
 #define AVR32_GC_USES_PLL1                             0x00000001
 #define AVR32_PLL_USES_OSC0                            0x00000000
 #define AVR32_PLL_USES_OSC1                            0x00000001
-#define AVR32_PM_SMODE_DEEPSTOP                        0x00000004
+#define AVR32_PM_SMODE_DEEP_STOP                       0x00000004
 #define AVR32_PM_SMODE_FROZEN                          0x00000001
 #define AVR32_PM_SMODE_IDLE                            0x00000000
 #define AVR32_PM_SMODE_STANDBY                         0x00000002
@@ -1308,7 +1306,6 @@ typedef struct avr32_pm_t {
 
 #if !defined (DEPRECATED_DISABLE)
 
-#define AVR32_PM_SMODE_DEEP_STOP                       0x00000004
 #define AVR32_PM_SMODE_SHUTDOWN                        0x00000004
 
 #endif

@@ -33,7 +33,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 
-  $Id: stdio.h 2135 2010-06-08 11:28:03Z joerg_wunsch $
+  $Id: stdio.h,v 1.29.2.1 2008/02/23 08:59:27 dmix Exp $
 */
 
 #ifndef _STDIO_H_
@@ -229,7 +229,7 @@
     arguments of variadic functions on the stack (as opposed to passing
     them in registers for functions that take a fixed number of
     parameters), the ability to pass one parameter less by implying
-    \c stdin or stdout will also save some execution time.
+    \c stdin will also save some execution time.
 */
 
 #if !defined(__DOXYGEN__)
@@ -644,7 +644,7 @@ extern int	putchar(int __c);
 
 /**
    The function \c printf performs formatted output to stream
-   \c stdout.  See \c vfprintf() for details.
+   \c stderr.  See \c vfprintf() for details.
 */
 extern int	printf(const char *__fmt, ...);
 

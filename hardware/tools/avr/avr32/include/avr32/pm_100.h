@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008-2010 Atmel Corporation
+ * Copyright (C) 2008-2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : AP7000
- * Revision     : $Revision: 74772 $
- * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $
+ * Revision     : $Revision: 62595 $
+ * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $
  *
  ****************************************************************************/
 #ifndef AVR32_PM_100_H_INCLUDED
 #define AVR32_PM_100_H_INCLUDED
-
-#define AVR32_PM_H_VERSION 100
 
 #include "avr32/abi.h"
 

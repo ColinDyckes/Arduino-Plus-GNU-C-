@@ -31,8 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3L064REVB
- * Revision     : $Revision: 74279 $
- * Checkin Date : $Date: 2010-05-04 09:42:29 +0200 (Tue, 04 May 2010) $
+ * Revision     : $Revision: 65946 $
+ * Checkin Date : $Date: 2009-12-10 11:35:57 -0700 (Thu, 10 Dec 2009) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3L064REVB_H_INCLUDED

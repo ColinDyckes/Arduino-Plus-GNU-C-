@@ -3,7 +3,7 @@ OUTPUT_FORMAT("elf32-avr32", "elf32-avr32",
 	      "elf32-avr32")
 OUTPUT_ARCH(avr32:uc)
 ENTRY(_start)
-SEARCH_DIR("/home/tools/hudson/workspace/avr32-gnu-toolchain/avr32-gnu-toolchain-win32_x86/avr32/lib");
+SEARCH_DIR("/c/WinAVR/avr32/lib");
 /* Do we need any of these for elf?
    __DYNAMIC = 0;    */
 MEMORY

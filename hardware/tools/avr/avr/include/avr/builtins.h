@@ -1,5 +1,4 @@
-/* Copyright (c) 2008 Anatoly Sokolov
-   Copyright (c) 2010 Joerg Wunsch
+/* Copyright (c) 2008 Anatoly Sokolv
    All rights reserved.
 
    Redistribution and use in source and binary forms, with or without
@@ -29,85 +28,74 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: builtins.h.in 2103 2010-03-17 05:16:10Z joerg_wunsch $ */
+/* $Id:$ */
 
 /*
-   avr/builtins.h - Intrinsic functions built into the compiler
+   avr/builtins.h - 
  */
  
 #ifndef _AVR_BUILTINS_H_
 #define _AVR_BUILTINS_H_
 
-#ifndef __HAS_DELAY_CYCLES
-#define __HAS_DELAY_CYCLES 1
-#endif
-
 /** \file */
 /** \defgroup avr_builtins <avr/builtins.h>: GCC builtins
     \code #include <avr/builtins.h> \endcode
 
-    This header file declares AVR builtins.
-    All the functions documented here are built into the
-    compiler, and cause it to emit the corresponding assembly
-    code instructions.
-*/
+    This header file declares avr builtins.  */
 
-/**
+/** 
     \ingroup avr_builtins
 
     Enables interrupts by setting the global interrupt mask.  */
 extern void __builtin_avr_sei(void);
 
-/**
+/** 
     \ingroup avr_builtins
 
     Disables all interrupts by clearing the global interrupt mask.  */
 extern void __builtin_avr_cli(void);
 
-/**
+/** 
     \ingroup avr_builtins
 
-    Emits a \c SLEEP instruction.  */
+    TODO.  */
 
 extern void __builtin_avr_sleep(void);
 
-/**
+/** 
     \ingroup avr_builtins
 
-    Emits a WDR (watchdog reset) instruction.  */
+    TODO.  */
 extern void __builtin_avr_wdr(void);
 
-/**
+/** 
     \ingroup avr_builtins
 
-    Emits a SWAP (nibble swap) instruction on __b.  */
+    TODO.  */
 extern unsigned char __builtin_avr_swap(unsigned char __b);
 
-/**
+/** 
     \ingroup avr_builtins
 
-    Emits an FMUL (fractional multiply unsigned) instruction.  */
+    TODO.  */
 extern unsigned int __builtin_avr_fmul(unsigned char __a, unsigned char __b);
 
-/**
+/** 
     \ingroup avr_builtins
 
-    Emits an FMUL (fractional multiply signed) instruction.  */
+    TODO.  */
 extern int __builtin_avr_fmuls(char __a, char __b);
 
-/**
+/** 
     \ingroup avr_builtins
 
-    Emits an FMUL (fractional multiply signed with unsigned) instruction.  */
+    TODO.  */
 extern int __builtin_avr_fmulsu(char __a, unsigned char __b);
 
-#if __HAS_DELAY_CYCLES || defined(__DOXYGEN__)
-/**
+/** 
     \ingroup avr_builtins
 
-    Emits a sequence of instructions causing the CPU to spend
-    \c __n cycles on it.  */
+    TODO.  */
 extern void __builtin_avr_delay_cycles(unsigned long __n);
-#endif
 
 #endif /* _AVR_BUILTINS_H_ */

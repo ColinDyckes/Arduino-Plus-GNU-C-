@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009-2010 Atmel Corporation
+ * Copyright (C) 2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3L064T
- * Revision     : $Revision: 74772 $
- * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
+ * Revision     : $Revision: 60652 $
+ * Checkin Date : $Date: 2009-09-14 14:15:07 +0200 (Mon, 14 Sep 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_AST_300_H_INCLUDED
 #define AVR32_AST_300_H_INCLUDED
-
-#define AVR32_AST_H_VERSION 300
 
 #include "avr32/abi.h"
 
@@ -66,8 +64,7 @@
 
 
 #define AVR32_AST_1KHZCLK                                  0x00000004
-#define AVR32_AST_32KHZCLK                                 0x00000001  /* Deprecated. */
-#define AVR32_AST_32_KHZ_CLOCK                             0x00000001
+#define AVR32_AST_32KHZCLK                                 0x00000001
 #define AVR32_AST_ADD                                               5
 #define AVR32_AST_ADD_MASK                                 0x00000020
 #define AVR32_AST_ADD_OFFSET                                        5
@@ -156,16 +153,13 @@
 #define AVR32_AST_CLOCK_CEN_SIZE                                    1
 #define AVR32_AST_CLOCK_CSSEL                                       8
 #define AVR32_AST_CLOCK_CSSEL_1KHZCLK                      0x00000004
-#define AVR32_AST_CLOCK_CSSEL_32KHZCLK                     0x00000001  /* Deprecated */
-#define AVR32_AST_CLOCK_CSSEL_32_KHZ_CLOCK                 0x00000001
+#define AVR32_AST_CLOCK_CSSEL_32KHZCLK                     0x00000001
 #define AVR32_AST_CLOCK_CSSEL_GCLK                         0x00000003
 #define AVR32_AST_CLOCK_CSSEL_MASK                         0x00000700
 #define AVR32_AST_CLOCK_CSSEL_OFFSET                                8
-#define AVR32_AST_CLOCK_CSSEL_PBCLOCK                      0x00000002  /* Deprecated. */
-#define AVR32_AST_CLOCK_CSSEL_PB_CLOCK                     0x00000002
+#define AVR32_AST_CLOCK_CSSEL_PBCLOCK                      0x00000002
 #define AVR32_AST_CLOCK_CSSEL_SIZE                                  3
-#define AVR32_AST_CLOCK_CSSEL_SLOWCLOCK                    0x00000000  /* Deprecated. */
-#define AVR32_AST_CLOCK_CSSEL_SLOW_CLOCK                   0x00000000
+#define AVR32_AST_CLOCK_CSSEL_SLOWCLOCK                    0x00000000
 #define AVR32_AST_CLOCK_MASK                               0x00000701
 #define AVR32_AST_CLOCK_RESETVALUE                         0x00000000
 #define AVR32_AST_CR                                       0x00000000
@@ -197,16 +191,13 @@
 #define AVR32_AST_CR_RESETVALUE                            0x00000000
 #define AVR32_AST_CSSEL                                             8
 #define AVR32_AST_CSSEL_1KHZCLK                            0x00000004
-#define AVR32_AST_CSSEL_32KHZCLK                           0x00000001  /* Deprecated. */
-#define AVR32_AST_CSSEL_32_KHZ_CLOCK                       0x00000001
+#define AVR32_AST_CSSEL_32KHZCLK                           0x00000001
 #define AVR32_AST_CSSEL_GCLK                               0x00000003
 #define AVR32_AST_CSSEL_MASK                               0x00000700
 #define AVR32_AST_CSSEL_OFFSET                                      8
-#define AVR32_AST_CSSEL_PBCLOCK                            0x00000002  /* Deprecated. */
-#define AVR32_AST_CSSEL_PB_CLOCK                           0x00000002
+#define AVR32_AST_CSSEL_PBCLOCK                            0x00000002
 #define AVR32_AST_CSSEL_SIZE                                        3
-#define AVR32_AST_CSSEL_SLOWCLOCK                          0x00000000  /* Deprecated. */
-#define AVR32_AST_CSSEL_SLOW_CLOCK                         0x00000000
+#define AVR32_AST_CSSEL_SLOWCLOCK                          0x00000000
 #define AVR32_AST_CV                                       0x00000004
 #define AVR32_AST_CV_MASK                                  0xffffffff
 #define AVR32_AST_CV_RESETVALUE                            0x00000000
@@ -499,8 +490,7 @@
 #define AVR32_AST_PARAMETER_PIR1WA_OFFSET                          15
 #define AVR32_AST_PARAMETER_PIR1WA_SIZE                             1
 #define AVR32_AST_PARAMETER_RESETVALUE                     0x00000000
-#define AVR32_AST_PBCLOCK                                  0x00000002  /* Deprecated. */
-#define AVR32_AST_PB_CLOCK                                 0x00000002
+#define AVR32_AST_PBCLOCK                                  0x00000002
 #define AVR32_AST_PCLR                                              1
 #define AVR32_AST_PCLR_MASK                                0x00000002
 #define AVR32_AST_PCLR_OFFSET                                       1
@@ -586,8 +576,7 @@
 #define AVR32_AST_SEC_MASK                                 0x0000003f
 #define AVR32_AST_SEC_OFFSET                                        0
 #define AVR32_AST_SEC_SIZE                                          6
-#define AVR32_AST_SLOWCLOCK                                0x00000000  /* Deprecated. */
-#define AVR32_AST_SLOW_CLOCK                               0x00000000
+#define AVR32_AST_SLOWCLOCK                                0x00000000
 #define AVR32_AST_SR                                       0x00000008
 #define AVR32_AST_SR_ALARM0                                         8
 #define AVR32_AST_SR_ALARM0_MASK                           0x00000100

@@ -3,7 +3,7 @@
 <title>Output Section Discarding - Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.13">
+<meta name="generator" content="makeinfo 4.7">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="SECTIONS.html#SECTIONS" title="SECTIONS">
 <link rel="prev" href="Output-Section-Keywords.html#Output-Section-Keywords" title="Output Section Keywords">
@@ -12,13 +12,13 @@
 <!--
 This file documents the GNU linker LD
 (GNU Binutils)
-version 2.22.
+version 2.19.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991, 92, 93, 94, 95, 96, 97, 98, 99, 2000,
+2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3
+under the terms of the GNU Free Documentation License, Version 1.1
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
@@ -31,30 +31,28 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  span.sc { font-variant:small-caps }
+  span.roman { font-family: serif; font-weight: normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
-<a name="Output-Section-Discarding"></a>
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Output-Section-Attributes.html#Output-Section-Attributes">Output Section Attributes</a>,
+<a name="Output-Section-Discarding"></a>Next:&nbsp;<a rel="next" accesskey="n" href="Output-Section-Attributes.html#Output-Section-Attributes">Output Section Attributes</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="Output-Section-Keywords.html#Output-Section-Keywords">Output Section Keywords</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="SECTIONS.html#SECTIONS">SECTIONS</a>
-<hr>
+<hr><br>
 </div>
 
 <h4 class="subsection">3.6.7 Output Section Discarding</h4>
 
-<p><a name="index-discarding-sections-436"></a><a name="index-sections_002c-discarding-437"></a><a name="index-removing-sections-438"></a>The linker will not create output sections with no contents.  This is
+<p><a name="index-discarding-sections-400"></a><a name="index-sections_002c-discarding-401"></a><a name="index-removing-sections-402"></a>The linker will not create output sections with no contents.  This is
 for convenience when referring to input sections that may or may not
 be present in any of the input files.  For example:
 <pre class="smallexample">     .foo : { *(.foo) }
 </pre>
-   <p class="noindent">will only create a &lsquo;<samp><span class="samp">.foo</span></samp>&rsquo; section in the output file if there is a
-&lsquo;<samp><span class="samp">.foo</span></samp>&rsquo; section in at least one input file, and if the input
+   <p class="noindent">will only create a <span class="samp">.foo</span> section in the output file if there is a
+<span class="samp">.foo</span> section in at least one input file, and if the input
 sections are not all empty.  Other link script directives that allocate
 space in an output section will also create the output section.
 
@@ -64,9 +62,9 @@ symbols in the output section.  In that case the linker will obey
 the address assignments, possibly advancing dot even though the
 section is discarded.
 
-   <p><a name="index-g_t_002fDISCARD_002f-439"></a>The special output section name &lsquo;<samp><span class="samp">/DISCARD/</span></samp>&rsquo; may be used to discard
+   <p><a name="index-_002fDISCARD_002f-403"></a>The special output section name <span class="samp">/DISCARD/</span> may be used to discard
 input sections.  Any input sections which are assigned to an output
-section named &lsquo;<samp><span class="samp">/DISCARD/</span></samp>&rsquo; are not included in the output file.
+section named <span class="samp">/DISCARD/</span> are not included in the output file.
 
    </body></html>
 

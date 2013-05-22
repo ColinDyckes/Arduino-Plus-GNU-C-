@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009-2010 Atmel Corporation
+ * Copyright (C) 2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3L064T
- * Revision     : $Revision: 74772 $
- * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $
+ * Revision     : $Revision: 60652 $
+ * Checkin Date : $Date: 2009-09-14 14:15:07 +0200 (Mon, 14 Sep 2009) $
  *
  ****************************************************************************/
 #ifndef AVR32_TC_2231_H_INCLUDED
 #define AVR32_TC_2231_H_INCLUDED
-
-#define AVR32_TC_H_VERSION 2231
 
 #include "avr32/abi.h"
 
@@ -848,6 +846,21 @@
 #define AVR32_TC_ETRGS_MASK                               0x00000080
 #define AVR32_TC_ETRGS_OFFSET                                      7
 #define AVR32_TC_ETRGS_SIZE                                        1
+#define AVR32_TC_FEATURES                                 0x000000f8
+#define AVR32_TC_FEATURES_BRPBHSB                                  9
+#define AVR32_TC_FEATURES_BRPBHSB_MASK                    0x00000200
+#define AVR32_TC_FEATURES_BRPBHSB_OFFSET                           9
+#define AVR32_TC_FEATURES_BRPBHSB_SIZE                             1
+#define AVR32_TC_FEATURES_CTRSIZE                                  0
+#define AVR32_TC_FEATURES_CTRSIZE_MASK                    0x000000ff
+#define AVR32_TC_FEATURES_CTRSIZE_OFFSET                           0
+#define AVR32_TC_FEATURES_CTRSIZE_SIZE                             8
+#define AVR32_TC_FEATURES_MASK                            0x000003ff
+#define AVR32_TC_FEATURES_RESETVALUE                      0x00000000
+#define AVR32_TC_FEATURES_UPDNIMPL                                 8
+#define AVR32_TC_FEATURES_UPDNIMPL_MASK                   0x00000100
+#define AVR32_TC_FEATURES_UPDNIMPL_OFFSET                          8
+#define AVR32_TC_FEATURES_UPDNIMPL_SIZE                            1
 #define AVR32_TC_IDR0                                     0x00000028
 #define AVR32_TC_IDR0_COVFS                                        0
 #define AVR32_TC_IDR0_COVFS_MASK                          0x00000001
@@ -1691,6 +1704,15 @@ typedef struct avr32_tc_bmr_t {
 
 
 
+typedef struct avr32_tc_features_t {
+    unsigned int                 :22;
+    unsigned int brpbhsb         : 1;
+    unsigned int updnimpl        : 1;
+    unsigned int ctrsize         : 8;
+} avr32_tc_features_t;
+
+
+
 typedef struct avr32_tc_version_t {
     unsigned int                 :12;
     unsigned int variant         : 4;
@@ -1771,7 +1793,10 @@ typedef struct avr32_tc_t {
           unsigned int                   :32       ;//0x00ec
           unsigned int                   :32       ;//0x00f0
           unsigned int                   :32       ;//0x00f4
-          unsigned int                   :32       ;//0x00f8
+  union {
+    const unsigned long                  features  ;//0x00f8
+    const avr32_tc_features_t            FEATURES  ;
+  };
   union {
     const unsigned long                  version   ;//0x00fc
     const avr32_tc_version_t             VERSION   ;

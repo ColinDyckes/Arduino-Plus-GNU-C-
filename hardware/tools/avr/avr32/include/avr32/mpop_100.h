@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008-2010 Atmel Corporation
+ * Copyright (C) 2008 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,16 +29,14 @@
  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- *
+ * 
  * Model        : AP7200
- * Revision     : $Revision: 92339 $
- * Checkin Date : $Date: 2011-03-23 15:10:57 +0100 (Wed, 23 Mar 2011) $
+ * Revision     : $Revision: 62595 $
+ * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_MPOP_100_H_INCLUDED
 #define AVR32_MPOP_100_H_INCLUDED
-
-#define AVR32_MPOP_H_VERSION 100
 
 #include "avr32/abi.h"
 
@@ -780,6 +778,7 @@
 #define AVR32_MPOP_R_MASK                                   0x00ff0000
 #define AVR32_MPOP_R_OFFSET                                         16
 #define AVR32_MPOP_R_SIZE                                            8
+#define AVR32_MPOP_SLAVE                                    0x00000000
 #define AVR32_MPOP_SOP                                               4
 #define AVR32_MPOP_SOP_MASK                                 0x00000010
 #define AVR32_MPOP_SOP_OFFSET                                        4

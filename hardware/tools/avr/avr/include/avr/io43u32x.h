@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io43u32x.h 1873 2009-02-11 17:53:39Z arcanum $ */
+/* $Id: io43u32x.h,v 1.5.4.1 2009/02/11 18:05:23 arcanum Exp $ */
 
 /* avr/io43u32x.h - definitions for AT43USB32x */
 

@@ -3,7 +3,7 @@
 <title>Line-by-line - GNU gprof</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="GNU gprof">
-<meta name="generator" content="makeinfo 4.13">
+<meta name="generator" content="makeinfo 4.7">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="Output.html#Output" title="Output">
 <link rel="prev" href="Call-Graph.html#Call-Graph" title="Call Graph">
@@ -12,17 +12,16 @@
 <!--
 This file documents the gprof profiler of the GNU system.
 
-Copyright (C) 1988, 1992, 1997, 1998, 1999, 2000, 2001, 2003,
-2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1988, 92, 97, 98, 99, 2000, 2001, 2003, 2007 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3
+under the terms of the GNU Free Documentation License, Version 1.1
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
 section entitled ``GNU Free Documentation License''.
 
--->
+man end-->
 <meta http-equiv="Content-Style-Type" content="text/css">
 <style type="text/css"><!--
   pre.display { font-family:inherit }
@@ -31,25 +30,22 @@ section entitled ``GNU Free Documentation License''.
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  span.sc { font-variant:small-caps }
+  span.roman { font-family: serif; font-weight: normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
-<a name="Line-by-line"></a>
-<a name="Line_002dby_002dline"></a>
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Annotated-Source.html#Annotated-Source">Annotated Source</a>,
+<a name="Line_002dby_002dline"></a>Next:&nbsp;<a rel="next" accesskey="n" href="Annotated-Source.html#Annotated-Source">Annotated Source</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="Call-Graph.html#Call-Graph">Call Graph</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="Output.html#Output">Output</a>
-<hr>
+<hr><br>
 </div>
 
 <h3 class="section">5.3 Line-by-line Profiling</h3>
 
-<p><code>gprof</code>'s &lsquo;<samp><span class="samp">-l</span></samp>&rsquo; option causes the program to perform
+<p><code>gprof</code>'s <span class="samp">-l</span> option causes the program to perform
 <dfn>line-by-line</dfn> profiling.  In this mode, histogram
 samples are assigned not to functions, but to individual
 lines of source code.  This only works with programs compiled with
@@ -58,10 +54,10 @@ use a different program - <code>gcov</code> - to display line-by-line
 profiling information.
 
    <p>With the older versions of <code>gcc</code> the program usually has to be
-compiled with a &lsquo;<samp><span class="samp">-g</span></samp>&rsquo; option, in addition to &lsquo;<samp><span class="samp">-pg</span></samp>&rsquo;, in order
+compiled with a <span class="samp">-g</span> option, in addition to <span class="samp">-pg</span>, in order
 to generate debugging symbols for tracking source code lines. 
 Note, in much older versions of <code>gcc</code> the program had to be
-compiled with the &lsquo;<samp><span class="samp">-a</span></samp>&rsquo; command line option as well.
+compiled with the <span class="samp">-a</span> command line option as well.
 
    <p>The flat profile is the most useful output table
 in line-by-line mode. 

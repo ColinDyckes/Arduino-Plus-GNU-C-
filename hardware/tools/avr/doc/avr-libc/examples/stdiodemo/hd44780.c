@@ -11,7 +11,7 @@
  * The LCD controller is used in 4-bit mode with a full bi-directional
  * interface (i.e. R/~W is connected) so the busy flag can be read.
  *
- * $Id: hd44780.c 2002 2009-06-25 20:21:16Z joerg_wunsch $
+ * $Id: hd44780.c,v 1.3.2.1 2009/06/25 20:21:16 joerg_wunsch Exp $
  */
 
 #include "defines.h"

@@ -3,7 +3,7 @@
 <title>mmo section mapping - Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.13">
+<meta name="generator" content="makeinfo 4.7">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="mmo.html#mmo" title="mmo">
 <link rel="prev" href="Symbol_002dtable.html#Symbol_002dtable" title="Symbol-table">
@@ -11,10 +11,10 @@
 <!--
 This file documents the BFD library.
 
-Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007, 2008 Free Software Foundation, Inc.
+Copyright (C) 1991, 2000, 2001, 2003, 2006, 2007 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3 or
+under the terms of the GNU Free Documentation License, Version 1.1 or
 any later version published by the Free Software Foundation; with the
 Invariant Sections being ``GNU General Public License'' and ``Funding
 Free Software'', the Front-Cover texts being (a) (see below), and with
@@ -38,18 +38,16 @@ included in the section entitled ``GNU Free Documentation License''.
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  span.sc { font-variant:small-caps }
+  span.roman { font-family: serif; font-weight: normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
-<a name="mmo-section-mapping"></a>
 <p>
-Previous:&nbsp;<a rel="previous" accesskey="p" href="Symbol_002dtable.html#Symbol_002dtable">Symbol-table</a>,
+<a name="mmo-section-mapping"></a>Previous:&nbsp;<a rel="previous" accesskey="p" href="Symbol_002dtable.html#Symbol_002dtable">Symbol-table</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="mmo.html#mmo">mmo</a>
-<hr>
+<hr><br>
 </div>
 
 <h4 class="subsection">3.5.3 mmo section mapping</h4>
@@ -73,11 +71,11 @@ overlap.
 
    <p>For areas that don't have such descriptors, synthetic sections are
 formed by BFD.  Consecutive contents in the two memory areas
-&lsquo;<samp><span class="samp">0x0000...00</span></samp>&rsquo; to &lsquo;<samp><span class="samp">0x01ff...ff</span></samp>&rsquo; and
-&lsquo;<samp><span class="samp">0x2000...00</span></samp>&rsquo; to &lsquo;<samp><span class="samp">0x20ff...ff</span></samp>&rsquo; are entered in
+<span class="samp">0x0000...00</span> to <span class="samp">0x01ff...ff</span> and
+<span class="samp">0x2000...00</span> to <span class="samp">0x20ff...ff</span> are entered in
 sections named <code>.text</code> and <code>.data</code> respectively.  If an area
 is not otherwise described, but would together with a neighboring
-lower area be less than &lsquo;<samp><span class="samp">0x40000000</span></samp>&rsquo; bytes long, it is joined
+lower area be less than <span class="samp">0x40000000</span> bytes long, it is joined
 with the lower area and the gap is zero-filled.  For other cases,
 a new section is formed, named <code>.MMIX.sec.</code><var>n</var>.  Here,
 <var>n</var> is a number, a running count through the mmo file,
@@ -89,7 +87,7 @@ starting at 0.
       TETRA 1,2,3,4,-1,-2009
       BYTE 80
 </pre>
-   <p>and linked to address &lsquo;<samp><span class="samp">0x4</span></samp>&rsquo;, is represented by the sequence:
+   <p>and linked to address <span class="samp">0x4</span>, is represented by the sequence:
 
 <pre class="example">      0x98080050 - lop_spec 80
       0x00000002 - two 32-bit words for the section name
@@ -118,7 +116,7 @@ contents.  Compare this to a non-loaded section specified as:
       TETRA 200001,100002
       BYTE 38,40
 </pre>
-   <p>This, when linked to address &lsquo;<samp><span class="samp">0x200000000000001c</span></samp>&rsquo;, is
+   <p>This, when linked to address <span class="samp">0x200000000000001c</span>, is
 represented by:
 
 <pre class="example">      0x98080050 - lop_spec 80

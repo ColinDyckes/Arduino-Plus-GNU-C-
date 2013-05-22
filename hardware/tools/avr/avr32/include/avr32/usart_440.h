@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009-2010 Atmel Corporation
+ * Copyright (C) 2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3L064T
- * Revision     : $Revision: 74772 $
- * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
+ * Revision     : $Revision: 65232 $
+ * Checkin Date : $Date: 2009-12-01 11:23:42 -0700 (Tue, 01 Dec 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_USART_440_H_INCLUDED
 #define AVR32_USART_440_H_INCLUDED
-
-#define AVR32_USART_H_VERSION 440
 
 #include "avr32/abi.h"
 

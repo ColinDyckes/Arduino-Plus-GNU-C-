@@ -6,14 +6,8 @@
  * this stuff is worth it, you can buy me a beer in return.        Joerg Wunsch
  * ----------------------------------------------------------------------------
  */
-/*
- * ----------------------------------------------------------------------------
- * Updated to handle larger devices having 16-bit addresses
- *                                                 (2007-09-05) Ruwan Jayanetti
- * ----------------------------------------------------------------------------
- */
 
-/* $Id: twitest.c 2244 2011-05-12 03:33:42Z arcanum $ */
+/* $Id: twitest.c,v 1.6 2005/11/05 22:32:46 joerg_wunsch Exp $ */
 
 /*
  * Simple demo program that talks to a 24Cxx I²C EEPROM using the
@@ -66,14 +60,6 @@
  * 1 0 1 0 A10 A9 A8 R/~W	24C16
  */
 #define TWI_SLA_24CXX	0xa0	/* E2 E1 E0 = 0 0 0 */
-
-/*
- * Note [3a]
- * Device word address length for 24Cxx EEPROM
- * Larger EEPROM devices (from 24C32) have 16-bit address
- * Define or undefine according to the used device
- */
-//#define WORD_ADDRESS_16BIT
 
 /*
  * Maximal number of iterations to wait for a device to respond for a
@@ -160,11 +146,8 @@ uart_putchar(char c, FILE *unused)
  *
  * This requires two bus cycles: during the first cycle, the device
  * will be selected (master transmitter mode), and the address
- * transfered.
- * Address bits exceeding 256 are transfered in the
+ * transfered.  Address bits exceeding 256 are transfered in the
  * E2/E1/E0 bits (subaddress bits) of the device selector.
- * Address is sent in two dedicated 8 bit transfers
- * for 16 bit address devices (larger EEPROM devices)
  *
  * The second bus cycle will reselect the device (repeated start
  * condition, going into master receiver mode), and transfer the data
@@ -179,13 +162,8 @@ ee24xx_read_bytes(uint16_t eeaddr, int len, uint8_t *buf)
   uint8_t sla, twcr, n = 0;
   int rv = 0;
 
-#ifndef WORD_ADDRESS_16BIT
   /* patch high bits of EEPROM address into SLA */
   sla = TWI_SLA_24CXX | (((eeaddr >> 8) & 0x07) << 1);
-#else
-  /* 16-bit address devices need only TWI Device Address */
-  sla = TWI_SLA_24CXX;
-#endif
 
   /*
    * Note [8]
@@ -232,26 +210,6 @@ ee24xx_read_bytes(uint16_t eeaddr, int len, uint8_t *buf)
     default:
       goto error;		/* must send stop condition */
     }
-
-#ifdef WORD_ADDRESS_16BIT
-  TWDR = (eeaddr >> 8);		/* 16-bit word address device, send high 8 bits of addr */
-  TWCR = _BV(TWINT) | _BV(TWEN); /* clear interrupt to start transmission */
-  while ((TWCR & _BV(TWINT)) == 0) ; /* wait for transmission */
-  switch ((twst = TW_STATUS))
-    {
-    case TW_MT_DATA_ACK:
-      break;
-
-    case TW_MT_DATA_NACK:
-      goto quit;
-
-    case TW_MT_ARB_LOST:
-      goto begin;
-
-    default:
-      goto error;		/* must send stop condition */
-    }
-#endif
 
   TWDR = eeaddr;		/* low 8 bits of addr */
   TWCR = _BV(TWINT) | _BV(TWEN); /* clear interrupt to start transmission */
@@ -325,7 +283,6 @@ ee24xx_read_bytes(uint16_t eeaddr, int len, uint8_t *buf)
 	case TW_MR_DATA_ACK:
 	  *buf++ = TWDR;
 	  rv++;
-	  if(twst == TW_MR_DATA_NACK) goto quit;
 	  break;
 
 	default:
@@ -369,19 +326,14 @@ ee24xx_write_page(uint16_t eeaddr, int len, uint8_t *buf)
   int rv = 0;
   uint16_t endaddr;
 
-  if (eeaddr + len <= (eeaddr | (PAGE_SIZE - 1)))
+  if (eeaddr + len < (eeaddr | (PAGE_SIZE - 1)))
     endaddr = eeaddr + len;
   else
     endaddr = (eeaddr | (PAGE_SIZE - 1)) + 1;
   len = endaddr - eeaddr;
 
-#ifndef WORD_ADDRESS_16BIT
   /* patch high bits of EEPROM address into SLA */
   sla = TWI_SLA_24CXX | (((eeaddr >> 8) & 0x07) << 1);
-#else
-  /* 16-bit address devices need only TWI Device Address */
-  sla = TWI_SLA_24CXX;
-#endif
 
   restart:
   if (n++ >= MAX_ITER)
@@ -423,26 +375,6 @@ ee24xx_write_page(uint16_t eeaddr, int len, uint8_t *buf)
     default:
       goto error;		/* must send stop condition */
     }
-
-#ifdef WORD_ADDRESS_16BIT
-  TWDR = (eeaddr>>8);		/* 16 bit word address device, send high 8 bits of addr */
-  TWCR = _BV(TWINT) | _BV(TWEN); /* clear interrupt to start transmission */
-  while ((TWCR & _BV(TWINT)) == 0) ; /* wait for transmission */
-  switch ((twst = TW_STATUS))
-    {
-    case TW_MT_DATA_ACK:
-      break;
-
-    case TW_MT_DATA_NACK:
-      goto quit;
-
-    case TW_MT_ARB_LOST:
-      goto begin;
-
-    default:
-      goto error;		/* must send stop condition */
-    }
-#endif
 
   TWDR = eeaddr;		/* low 8 bits of addr */
   TWCR = _BV(TWINT) | _BV(TWEN); /* clear interrupt to start transmission */

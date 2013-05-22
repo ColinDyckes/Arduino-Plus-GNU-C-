@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008-2010 Atmel Corporation
+ * Copyright (C) 2008 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : AP7200
- * Revision     : $Revision: 74772 $
- * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
+ * Revision     : $Revision: 60652 $
+ * Checkin Date : $Date: 2009-09-14 14:15:07 +0200 (Mon, 14 Sep 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_EIC_300_H_INCLUDED
 #define AVR32_EIC_300_H_INCLUDED
-
-#define AVR32_EIC_H_VERSION 300
 
 #include "avr32/abi.h"
 

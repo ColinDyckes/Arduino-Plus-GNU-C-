@@ -1,5 +1,82 @@
 
-ARDUINO 1.0.4 - 2013.03.11
+ARDUINO 1.5.2 BETA - 2013.02.06
+
+[ide]
+* Scrollable editor tabs (Shigheru KANEMOTO)
+* Scrollable menus
+* Portable Arduino (Shigeru KANEMOTO)
+* Default sketchbook folder for linux is now "Arduino"
+* Fixed IDE startup bug "Menu has no enabled items"
+* Command line build.
+* Fixed some language strings (Shigeru KANEMOTO)
+* Fix to boards.txt: added Micro and fixed Lilypad bootloader path
+* Removed check for ".h" existence in libraries.
+* Deleting tab from IDE does not delete from temporary folder
+* Fixed NPE when unknown boards/platforms are selected in preferences
+* Extended command line build flags
+* Undo/Redo move cursor and focus to where the code has been undone/redone
+
+[arduino core]
+* sam: attachInterrupt() now works also on pins that belongs to PORTD
+* sam: portOutputRegister() is now writeable.
+* sam: fixed issue on weak-symbol for some interrupt handlers
+* sam: fixed BSoD on some Windows machine (louismdavis)
+* sam: added CANRX1/CANTX1 pins 88/89 (same physical pin for 66/53)
+* sam: fixed analogWrite when used in very thight write loops (V.Dorrich)
+* sam: fixed SerialUSB.write() while sending big buffers (Bill Dreschel)
+* sam: SerialUSB receive buffer size is now 512 (PeterVH)
+* sam: Fixed SerialUSB data handshake when host sends a lot of data (PeterVH, stimmer)
+
+[libraries]
+* sam: Added Servo library
+* sam: Added WiFi library
+* Fixed USBHost MouseController example
+
+[other]
+* Merged all improvements made in Arduino IDE 1.0.3
+* Merged all improvements made in Arduino IDE 1.0.4 (not yet released)
+
+ARDUINO 1.5.1r2 BETA - 2012.11.06
+
+* Fixed wrong release file for windows.
+
+ARDUINO 1.5.1 BETA - 2012.11.05
+
+* Merged changes coming from stable release of Arduino IDE 1.0.2.
+
+[arduino core]
+* added support for yield() function in Arduino Core. This is a
+  preliminar step for experimenting with cooperative Schedulers.
+
+[ide]
+* Simplified boards menu selection. (new boards.txt file format with
+  custom sub-menus).
+* Fixed "FAT" (multi-platform) library detection. This bug caused
+  many libraries to be detected as 'invalid'.
+
+[sam arduino core]
+* attachInterrupt() and detachInterrupt() are now working.
+* Fixed macros to query low level GPIO registers:
+  digitalPinToBitMask(), digitalPinToTimer(),
+  portOutputRegister, portInputRegister()
+* Fixed analogWrite() on DAC0/1 when writing on both DACs
+  (thanks to smay4finger)
+
+[firmwares]
+* Added firmware for atmega16u2 on Due Board.
+
+ARDUINO 1.5 BETA - 2012.10.22
+
+* First release for the unified IDE for both AVR 8-bit and ARM 32-bit
+  (SAM3 CPUs) architectures.
+* This release include the SAM Arduino Core used in the Arduino Due 
+  Board.
+* Everything is in beta, most features or libraries are still  missing 
+  or incomplete.
+* For more info refer to this press release:
+  http://arduino.cc/blog/2012/10/22/arduino-1-5-support-for-the-due-and-other-processors-easier-library-installation-simplified-board-menu-etc/
+
+ARDUINO 1.0.4 - Not yet released.
 
 [core]
 
@@ -10,7 +87,6 @@ ARDUINO 1.0.4 - 2013.03.11
 * Fixed memory leak when calling Ethernet.begin() multiple times.
 * Fixed SD example listfiles.ino
 * Fixed a lot of Esplora examples
-* Added GSM library
 
 [environment]
 
@@ -18,11 +94,6 @@ ARDUINO 1.0.4 - 2013.03.11
 * Fixed some wrong translations
 * Fixed NPE due to permissions IO error
 * Updated drivers for Windows (all-in-one, signature for Win8)
-
-[bootloaders]
-
-* Fixed a bunch of bugs on Mega2560's bootloader (Mark Sproul)
-  (https://github.com/arduino/Arduino/pull/1183)
 
 ARDUINO 1.0.3 - 2012.12.10
 
@@ -48,7 +119,7 @@ ARDUINO 1.0.3 - 2012.12.10
 
 [libraries]
 
-* Added 600 baud support in SoftwareSerial (Sébastien Jean)
+* Added 600 baud support in SoftwareSerial (S??bastien Jean)
   (http://github.com/arduino/Arduino/issues/1146)
 
 ARDUINO 1.0.2 - 2012.11.05
@@ -274,7 +345,7 @@ ARDUINO 1.0 - 2011.11.30
   You can still enable verbose output in the preferences dialog. (Icons
   were designed by Nicholas Zambetti.)
 
-* There’s a new color scheme and about image for the IDE (by ToDo.to.it).
+* There???s a new color scheme and about image for the IDE (by ToDo.to.it).
 
 * The name of the currently selected board and serial port are now shown
   at the bottom of the editor. (Code from Wiring.)
@@ -328,11 +399,11 @@ ARDUINO 1.0 - 2011.11.30
 
 * The UDP API has been changed to be more similar to other libraries.
   Outgoing packets are now constructed using calls to the standard write(),
-  print(), and println() functions – bracketed by beginPacket() and
+  print(), and println() functions ??? bracketed by beginPacket() and
   endPacket(). The parsePacket() function checks for and parses an
   incoming packet, which can then be read using available(), read(), and
   peek(). The remoteIP() and remotePort() functions provide information
-  about the packet’s origin. (Again, thanks to Adrian McEwen for the
+  about the packet???s origin. (Again, thanks to Adrian McEwen for the
   implementation.)
 
 * The Wire library has also been modified to use the standard read() and
@@ -368,7 +439,7 @@ ARDUINO 1.0 - 2011.11.30
   size_t (instead of void). This indicates the number of bytes actually
   written by the function. Any classes that inherit from Stream will need
   to change accordingly. Additionally the write(str) function has been
-  given a concrete implementation – it calls write(buf, len) - so
+  given a concrete implementation ??? it calls write(buf, len) - so
   sub-classes don't need to (and shouldn't) implement it.
 
 * There are new abstract base-classes for Client, Server, and UDP to

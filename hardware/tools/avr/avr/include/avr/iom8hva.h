@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: iom8hva.h 2102 2010-03-16 22:52:39Z joerg_wunsch $ */
+/* $Id: iom8hva.h,v 1.2.2.5 2009/02/11 18:05:31 arcanum Exp $ */
 
 /* iom8hva.h - definitions for ATmega8HVA.  */
 

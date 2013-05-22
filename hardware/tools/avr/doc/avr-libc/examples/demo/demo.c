@@ -11,7 +11,7 @@
  * controlled with the PWM.  After each period of the PWM, the PWM
  * value is either incremented or decremented, that's all.
  *
- * $Id: demo.c 1637 2008-03-17 21:49:41Z joerg_wunsch $
+ * $Id: demo.c,v 1.9 2006/01/05 21:30:10 joerg_wunsch Exp $
  */
 
 #include <inttypes.h>

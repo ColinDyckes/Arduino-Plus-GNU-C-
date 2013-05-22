@@ -19,3 +19,15 @@ build/linux/dist/*.tar.gz
 build/linux/*.tgz
 test-bin
 *.iml
+/lib_smeshlink
+/java
+/examples
+/drivers
+/reference
+/tools
+/lib
+/arduino.exe
+/cygiconv-2.dll
+/cygwin1.dll
+/libusb0.dll
+/rxtxSerial.dll

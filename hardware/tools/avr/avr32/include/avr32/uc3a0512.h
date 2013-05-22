@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2006-2010 Atmel Corporation
+ * Copyright (C) 2006-2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,15 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3A0512
- * Revision     : $Revision: 74490 $
- * Checkin Date : $Date: 2010-05-11 00:47:54 +0200 (Tue, 11 May 2010) $
+ * Revision     : $Revision: 62595 $
+ * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3A0512_H_INCLUDED
 #define AVR32_UC3A0512_H_INCLUDED
-
-#define AVR32_PASTE2(a, b)     a##b
-#define AVR32_PASTE3(a, b, c)  a##b##c
 
 
 /* Core */
@@ -70,9 +67,6 @@
 #define AVR32_EBI_CS3_ADDRESS              0xCC000000
 #define AVR32_EBI_CS3_SIZE                 0x01000000
 #define AVR32_EBI_CS3                      ((unsigned char *)AVR32_EBI_CS3_ADDRESS)
-#define AVR32_EBI_CS_ADDRESS(n)            AVR32_PASTE3(AVR32_EBI_CS, n, _ADDRESS)
-#define AVR32_EBI_CS_SIZE(n)               AVR32_PASTE3(AVR32_EBI_CS, n, _SIZE)
-#define AVR32_EBI_CS(n)                    AVR32_PASTE2(AVR32_EBI_CS, n)
 #define AVR32_FLASH_ADDRESS                0x80000000
 #define AVR32_FLASH_SIZE                   0x00080000
 #define AVR32_FLASH                        ((unsigned char *)AVR32_FLASH_ADDRESS)
@@ -727,11 +721,6 @@
 #define AVR32_PM                           (*((volatile avr32_pm_t*)AVR32_PM_ADDRESS))
 #define AVR32_PM_CLK_PBA                   67
 #define AVR32_PM_IRQ                       41
-#define AVR32_PM_GCLK_GCLK0                0
-#define AVR32_PM_GCLK_GCLK1                1
-#define AVR32_PM_GCLK_GCLK2                2
-#define AVR32_PM_GCLK_GCLK3                3
-#define AVR32_PM_GCLK_USBB                 4
 #define AVR32_PM_GCLK_ABDAC                5
 #define AVR32_PM_GCLK_MSB                  3
 #define AVR32_PM_GCLK_NUM                  6

@@ -3,7 +3,7 @@
 <title>Output Section Data - Untitled</title>
 <meta http-equiv="Content-Type" content="text/html">
 <meta name="description" content="Untitled">
-<meta name="generator" content="makeinfo 4.13">
+<meta name="generator" content="makeinfo 4.7">
 <link title="Top" rel="start" href="index.html#Top">
 <link rel="up" href="SECTIONS.html#SECTIONS" title="SECTIONS">
 <link rel="prev" href="Input-Section.html#Input-Section" title="Input Section">
@@ -12,13 +12,13 @@
 <!--
 This file documents the GNU linker LD
 (GNU Binutils)
-version 2.22.
+version 2.19.
 
-Copyright (C) 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000,
-2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
+Copyright (C) 1991, 92, 93, 94, 95, 96, 97, 98, 99, 2000,
+2001, 2002, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
 
 Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.3
+under the terms of the GNU Free Documentation License, Version 1.1
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, with no Front-Cover Texts, and with no
 Back-Cover Texts.  A copy of the license is included in the
@@ -31,24 +31,22 @@ section entitled ``GNU Free Documentation License''.-->
   pre.smallformat  { font-family:inherit; font-size:smaller }
   pre.smallexample { font-size:smaller }
   pre.smalllisp    { font-size:smaller }
-  span.sc    { font-variant:small-caps }
-  span.roman { font-family:serif; font-weight:normal; } 
-  span.sansserif { font-family:sans-serif; font-weight:normal; } 
+  span.sc { font-variant:small-caps }
+  span.roman { font-family: serif; font-weight: normal; } 
 --></style>
 </head>
 <body>
 <div class="node">
-<a name="Output-Section-Data"></a>
 <p>
-Next:&nbsp;<a rel="next" accesskey="n" href="Output-Section-Keywords.html#Output-Section-Keywords">Output Section Keywords</a>,
+<a name="Output-Section-Data"></a>Next:&nbsp;<a rel="next" accesskey="n" href="Output-Section-Keywords.html#Output-Section-Keywords">Output Section Keywords</a>,
 Previous:&nbsp;<a rel="previous" accesskey="p" href="Input-Section.html#Input-Section">Input Section</a>,
 Up:&nbsp;<a rel="up" accesskey="u" href="SECTIONS.html#SECTIONS">SECTIONS</a>
-<hr>
+<hr><br>
 </div>
 
 <h4 class="subsection">3.6.5 Output Section Data</h4>
 
-<p><a name="index-data-419"></a><a name="index-section-data-420"></a><a name="index-output-section-data-421"></a><a name="index-BYTE_0028_0040var_007bexpression_007d_0029-422"></a><a name="index-SHORT_0028_0040var_007bexpression_007d_0029-423"></a><a name="index-LONG_0028_0040var_007bexpression_007d_0029-424"></a><a name="index-QUAD_0028_0040var_007bexpression_007d_0029-425"></a><a name="index-SQUAD_0028_0040var_007bexpression_007d_0029-426"></a>You can include explicit bytes of data in an output section by using
+<p><a name="index-data-383"></a><a name="index-section-data-384"></a><a name="index-output-section-data-385"></a><a name="index-BYTE_0028_0040var_007bexpression_007d_0029-386"></a><a name="index-SHORT_0028_0040var_007bexpression_007d_0029-387"></a><a name="index-LONG_0028_0040var_007bexpression_007d_0029-388"></a><a name="index-QUAD_0028_0040var_007bexpression_007d_0029-389"></a><a name="index-SQUAD_0028_0040var_007bexpression_007d_0029-390"></a>You can include explicit bytes of data in an output section by using
 <code>BYTE</code>, <code>SHORT</code>, <code>LONG</code>, <code>QUAD</code>, or <code>SQUAD</code> as
 an output section command.  Each keyword is followed by an expression in
 parentheses providing the value to store (see <a href="Expressions.html#Expressions">Expressions</a>).  The
@@ -61,7 +59,7 @@ bytes, the location counter is incremented by the number of bytes
 stored.
 
    <p>For example, this will store the byte 1 followed by the four byte value
-of the symbol &lsquo;<samp><span class="samp">addr</span></samp>&rsquo;:
+of the symbol <span class="samp">addr</span>:
 <pre class="smallexample">     BYTE(1)
      LONG(addr)
 </pre>
@@ -82,7 +80,7 @@ between them, so the following will produce an error from the linker:
 <pre class="smallexample">     SECTIONS { .text : { *(.text) } LONG(1) .data : { *(.data) } }</pre>
    <p>whereas this will work:
 <pre class="smallexample">     SECTIONS { .text : { *(.text) ; LONG(1) } .data : { *(.data) } }</pre>
-   <p><a name="index-FILL_0028_0040var_007bexpression_007d_0029-427"></a><a name="index-holes_002c-filling-428"></a><a name="index-unspecified-memory-429"></a>You may use the <code>FILL</code> command to set the fill pattern for the
+   <p><a name="index-FILL_0028_0040var_007bexpression_007d_0029-391"></a><a name="index-holes_002c-filling-392"></a><a name="index-unspecified-memory-393"></a>You may use the <code>FILL</code> command to set the fill pattern for the
 current section.  It is followed by an expression in parentheses.  Any
 otherwise unspecified regions of memory within the section (for example,
 gaps left due to the required alignment of input sections) are filled
@@ -93,10 +91,10 @@ than one <code>FILL</code> statement, you can have different fill patterns in
 different parts of an output section.
 
    <p>This example shows how to fill unspecified regions of memory with the
-value &lsquo;<samp><span class="samp">0x90</span></samp>&rsquo;:
+value <span class="samp">0x90</span>:
 <pre class="smallexample">     FILL(0x90909090)
 </pre>
-   <p>The <code>FILL</code> command is similar to the &lsquo;<samp><span class="samp">=</span><var>fillexp</var></samp>&rsquo; output
+   <p>The <code>FILL</code> command is similar to the <span class="samp">=</span><var>fillexp</var> output
 section attribute, but it only affects the
 part of the section following the <code>FILL</code> command, rather than the
 entire section.  If both are used, the <code>FILL</code> command takes

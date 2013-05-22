@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2006-2010 Atmel Corporation
+ * Copyright (C) 2006-2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,8 +31,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * Model        : UC3A1256
- * Revision     : $Revision: 74374 $
- * Checkin Date : $Date: 2010-05-06 07:30:28 +0200 (Thu, 06 May 2010) $
+ * Revision     : $Revision: 62595 $
+ * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3A1256_H_INCLUDED
@@ -530,11 +530,6 @@
 #define AVR32_PM                           (*((volatile avr32_pm_t*)AVR32_PM_ADDRESS))
 #define AVR32_PM_CLK_PBA                   67
 #define AVR32_PM_IRQ                       41
-#define AVR32_PM_GCLK_GCLK0                0
-#define AVR32_PM_GCLK_GCLK1                1
-#define AVR32_PM_GCLK_GCLK2                2
-#define AVR32_PM_GCLK_GCLK3                3
-#define AVR32_PM_GCLK_USBB                 4
 #define AVR32_PM_GCLK_ABDAC                5
 #define AVR32_PM_GCLK_MSB                  3
 #define AVR32_PM_GCLK_NUM                  6

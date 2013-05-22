@@ -28,7 +28,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE. */
 
-/* $Id: io76c711.h 1873 2009-02-11 17:53:39Z arcanum $ */
+/* $Id: io76c711.h,v 1.5.6.1 2009/02/11 18:05:23 arcanum Exp $ */
 
 /* avr/io76c711.h - definitions for AT76C711 */
 

@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2009-2010 Atmel Corporation
+ * Copyright (C) 2009 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : UC3L064
- * Revision     : $Revision: 93738 $
- * Checkin Date : $Date: 2011-04-19 12:47:53 +0200 (Tue, 19 Apr 2011) $ 
+ * Revision     : $Revision: 62294 $
+ * Checkin Date : $Date: 2008-12-16 13:03:18 +0100 (ti., 16 des. 2008) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_FLASHCDW_102_H_INCLUDED
 #define AVR32_FLASHCDW_102_H_INCLUDED
-
-#define AVR32_FLASHCDW_H_VERSION 102
 
 #include "avr32/abi.h"
 
@@ -81,9 +79,9 @@
 #define AVR32_FLASHCDW_8                                        0x00000001
 #define AVR32_FLASHCDW_96                                       0x00000006
 #define AVR32_FLASHCDW_BOOTPROT                                         17
-#define AVR32_FLASHCDW_BOOTPROT_MASK                            0x000e0000
+#define AVR32_FLASHCDW_BOOTPROT_MASK                            0x00020000
 #define AVR32_FLASHCDW_BOOTPROT_OFFSET                                  17
-#define AVR32_FLASHCDW_BOOTPROT_SIZE                                     3
+#define AVR32_FLASHCDW_BOOTPROT_SIZE                                     1
 #define AVR32_FLASHCDW_BRBUF                                            10
 #define AVR32_FLASHCDW_BRBUF_MASK                               0x00000400
 #define AVR32_FLASHCDW_BRBUF_OFFSET                                     10
@@ -314,9 +312,9 @@
 #define AVR32_FLASHCDW_FGPFRHI_RESETVALUE                       0x00000000
 #define AVR32_FLASHCDW_FGPFRLO                                  0x00000018
 #define AVR32_FLASHCDW_FGPFRLO_BOOTPROT                                 17
-#define AVR32_FLASHCDW_FGPFRLO_BOOTPROT_MASK                    0x000e0000
+#define AVR32_FLASHCDW_FGPFRLO_BOOTPROT_MASK                    0x00020000
 #define AVR32_FLASHCDW_FGPFRLO_BOOTPROT_OFFSET                          17
-#define AVR32_FLASHCDW_FGPFRLO_BOOTPROT_SIZE                             3
+#define AVR32_FLASHCDW_FGPFRLO_BOOTPROT_SIZE                             1
 #define AVR32_FLASHCDW_FGPFRLO_EPFL                                     16
 #define AVR32_FLASHCDW_FGPFRLO_EPFL_MASK                        0x00010000
 #define AVR32_FLASHCDW_FGPFRLO_EPFL_OFFSET                              16
@@ -425,7 +423,7 @@
 #define AVR32_FLASHCDW_FGPFRLO_LOCK9_MASK                       0x00000200
 #define AVR32_FLASHCDW_FGPFRLO_LOCK9_OFFSET                              9
 #define AVR32_FLASHCDW_FGPFRLO_LOCK9_SIZE                                1
-#define AVR32_FLASHCDW_FGPFRLO_MASK                             0xffffffff
+#define AVR32_FLASHCDW_FGPFRLO_MASK                             0xfff3ffff
 #define AVR32_FLASHCDW_FGPFRLO_RESETVALUE                       0x00000000
 #define AVR32_FLASHCDW_FGPFRLO_SECURE                                   20
 #define AVR32_FLASHCDW_FGPFRLO_SECURE_MASK                      0x00300000
@@ -458,11 +456,11 @@
 #define AVR32_FLASHCDW_FPR_FSZ_MASK                             0x0000000f
 #define AVR32_FLASHCDW_FPR_FSZ_OFFSET                                    0
 #define AVR32_FLASHCDW_FPR_FSZ_SIZE                                      4
-#define AVR32_FLASHCDW_FPR_MASK                                 0x0000070f
+#define AVR32_FLASHCDW_FPR_MASK                                 0x00000f0f
 #define AVR32_FLASHCDW_FPR_PSZ                                           8
-#define AVR32_FLASHCDW_FPR_PSZ_MASK                             0x00000700
+#define AVR32_FLASHCDW_FPR_PSZ_MASK                             0x00000f00
 #define AVR32_FLASHCDW_FPR_PSZ_OFFSET                                    8
-#define AVR32_FLASHCDW_FPR_PSZ_SIZE                                      3
+#define AVR32_FLASHCDW_FPR_PSZ_SIZE                                      4
 #define AVR32_FLASHCDW_FPR_RESETVALUE                           0x00000000
 #define AVR32_FLASHCDW_FRDY                                              0
 #define AVR32_FLASHCDW_FRDY_MASK                                0x00000001
@@ -803,9 +801,9 @@
 #define AVR32_FLASHCDW_PROGE_OFFSET                                      3
 #define AVR32_FLASHCDW_PROGE_SIZE                                        1
 #define AVR32_FLASHCDW_PSZ                                               8
-#define AVR32_FLASHCDW_PSZ_MASK                                 0x00000700
+#define AVR32_FLASHCDW_PSZ_MASK                                 0x00000f00
 #define AVR32_FLASHCDW_PSZ_OFFSET                                        8
-#define AVR32_FLASHCDW_PSZ_SIZE                                          3
+#define AVR32_FLASHCDW_PSZ_SIZE                                          4
 #define AVR32_FLASHCDW_QPR                                      0x0000000c
 #define AVR32_FLASHCDW_QPRR                                              5
 #define AVR32_FLASHCDW_QPRR_MASK                                0x00000020
@@ -913,8 +911,8 @@ typedef struct avr32_flashcdw_fsr_t {
 
 
 typedef struct avr32_flashcdw_fpr_t {
-    unsigned int                 :21;
-    unsigned int psz             : 3;
+    unsigned int                 :20;
+    unsigned int psz             : 4;
     unsigned int                 : 4;
     unsigned int fsz             : 4;
 } avr32_flashcdw_fpr_t;
@@ -980,7 +978,8 @@ typedef struct avr32_flashcdw_fgpfrlo_t {
     unsigned int gpf22           : 1;
     unsigned int sse             : 1;
     unsigned int ssde            : 1;
-    unsigned int bootprot        : 3;
+    unsigned int                 : 2;
+    unsigned int bootprot        : 1;
     unsigned int epfl            : 1;
     unsigned int lock15          : 1;
     unsigned int lock14          : 1;
@@ -1016,12 +1015,12 @@ typedef struct avr32_flashcdw_t {
           avr32_flashcdw_fsr_t           FSR       ;
   };
   union {
-    const unsigned long                  fpr       ;//0x000c
-    const avr32_flashcdw_fpr_t           FPR       ;
+          unsigned long                  fpr       ;//0x000c
+          avr32_flashcdw_fpr_t           FPR       ;
   };
   union {
-    const unsigned long                  fvr       ;//0x0010
-    const avr32_flashcdw_fvr_t           FVR       ;
+          unsigned long                  fvr       ;//0x0010
+          avr32_flashcdw_fvr_t           FVR       ;
   };
   union {
     const unsigned long                  fgpfrhi   ;//0x0014

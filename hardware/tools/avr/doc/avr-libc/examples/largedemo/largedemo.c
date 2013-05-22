@@ -10,7 +10,7 @@
  * The brightness of the LED is controlled with the PWM.  A number of
  * methods are implemented to control that PWM.
  *
- * $Id: largedemo.c 1190 2007-01-19 22:17:10Z joerg_wunsch $
+ * $Id: largedemo.c,v 1.3 2007/01/19 22:17:10 joerg_wunsch Exp $
  */
 
 #include <stdint.h>

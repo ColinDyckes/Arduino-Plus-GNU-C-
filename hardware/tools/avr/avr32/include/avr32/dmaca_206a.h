@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2008-2010 Atmel Corporation
+ * Copyright (C) 2008 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : AP7000
- * Revision     : $Revision: 77887 $
- * Checkin Date : $Date: 2010-06-30 15:39:10 +0200 (Wed, 30 Jun 2010) $ 
+ * Revision     : $Revision: 62595 $
+ * Checkin Date : $Date: 2009-10-21 04:31:31 -0700 (Wed, 21 Oct 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_DMACA_206a_H_INCLUDED
 #define AVR32_DMACA_206a_H_INCLUDED
-
-#define AVR32_DMACA_H_VERSION 206a
 
 #include "avr32/abi.h"
 
@@ -245,7 +243,7 @@
 #define AVR32_DMACA_CFG1L_SR_HS_POL_MASK                     0x00080000
 #define AVR32_DMACA_CFG1L_SR_HS_POL_OFFSET                           19
 #define AVR32_DMACA_CFG1L_SR_HS_POL_SIZE                              1
-#define AVR32_DMACA_CFG2H                                    0x000000f4
+#define AVR32_DMACA_CFG2H                                    0x000000fc
 #define AVR32_DMACA_CFG2H_DEST_PER                                   11
 #define AVR32_DMACA_CFG2H_DEST_PER_MASK                      0x00007800
 #define AVR32_DMACA_CFG2H_DEST_PER_OFFSET                            11
@@ -1888,12 +1886,12 @@ typedef struct avr32_dmaca_t {
           unsigned long                  cfg2l     ;//0x00f0
           avr32_dmaca_cfg2l_t            CFG2L     ;
   };
+          unsigned int                   :32       ;//0x00f4
+          unsigned int                   :32       ;//0x00f8
   union {
-          unsigned long                  cfg2h     ;//0x00f4
+          unsigned long                  cfg2h     ;//0x00fc
           avr32_dmaca_cfg2h_t            CFG2H     ;
   };
-          unsigned int                   :32       ;//0x00f8
-          unsigned int                   :32       ;//0x00fc
           unsigned int                   :32       ;//0x0100
           unsigned int                   :32       ;//0x0104
           unsigned int                   :32       ;//0x0108

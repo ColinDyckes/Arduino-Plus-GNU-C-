@@ -1,6 +1,6 @@
 /*****************************************************************************
  *
- * Copyright (C) 2006-2010 Atmel Corporation
+ * Copyright (C) 2006 Atmel Corporation
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -30,9 +30,9 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  *
- * Model        : UC3L232
- * Revision     : $Revision: 68557 $
- * Checkin Date : $Date: 2010-01-23 04:09:52 +0100 (Sat, 23 Jan 2010) $
+ * Model        : UC3L232T
+ * Revision     : $Revision $
+ * Checkin Date : $Date $
  *
  ****************************************************************************/
 #ifndef AVR32_UC3L232T_H_INCLUDED
@@ -342,8 +342,6 @@
 #define AVR32_CAT_SYNC_0_0_FUNCTION        3
 #define AVR32_CAT_SYNC_0_1_PIN             15
 #define AVR32_CAT_SYNC_0_2_PIN             18
-#define AVR32_CAT_VDIVEN_0_PIN             43
-#define AVR32_CAT_VDIVEN_0_FUNCTION        5
 
 #include "avr32/cat_100.h"
 

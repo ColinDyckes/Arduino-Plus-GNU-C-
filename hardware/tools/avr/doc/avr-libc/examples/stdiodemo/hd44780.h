@@ -8,7 +8,7 @@
  *
  * HD44780 LCD display driver
  *
- * $Id: hd44780.h 2002 2009-06-25 20:21:16Z joerg_wunsch $
+ * $Id: hd44780.h,v 1.1.4.1 2009/06/25 20:21:16 joerg_wunsch Exp $
  */
 
 /*

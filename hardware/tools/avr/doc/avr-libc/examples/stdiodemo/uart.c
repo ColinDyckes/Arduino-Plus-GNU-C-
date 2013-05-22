@@ -8,7 +8,7 @@
  *
  * Stdio demo, UART implementation
  *
- * $Id: uart.c 1008 2005-12-28 21:38:59Z joerg_wunsch $
+ * $Id: uart.c,v 1.1 2005/12/28 21:38:59 joerg_wunsch Exp $
  */
 
 #include "defines.h"

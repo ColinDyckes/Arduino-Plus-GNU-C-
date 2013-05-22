@@ -31,14 +31,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
  * 
  * Model        : AP7200
- * Revision     : $Revision: 74772 $
- * Checkin Date : $Date: 2010-05-14 06:51:12 +0200 (Fri, 14 May 2010) $ 
+ * Revision     : $Revision: 60652 $
+ * Checkin Date : $Date: 2009-09-14 14:15:07 +0200 (Mon, 14 Sep 2009) $ 
  *
  ****************************************************************************/
 #ifndef AVR32_ECC_200_H_INCLUDED
 #define AVR32_ECC_200_H_INCLUDED
-
-#define AVR32_ECC_H_VERSION 200
 
 #include "avr32/abi.h"
 

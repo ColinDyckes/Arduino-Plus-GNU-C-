@@ -33,7 +33,7 @@
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
 
-  $Id: assert.h 1196 2007-01-23 15:34:58Z joerg_wunsch $
+  $Id: assert.h,v 1.3 2007/01/23 15:32:48 joerg_wunsch Exp $
 */
 
 /** \file */
