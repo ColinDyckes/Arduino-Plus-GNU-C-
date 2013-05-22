@@ -31,3 +31,4 @@ test-bin
 /cygwin1.dll
 /libusb0.dll
 /rxtxSerial.dll
+/ArduinoLib-SMeshlink
