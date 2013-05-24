@@ -113,15 +113,15 @@ inline void store_char(unsigned char c, ring_buffer *buffer)
   void serialEvent() {}
   #define serialEvent_implemented
 #if defined(USART_RX_vect)
-  SIGNAL(USART_RX_vect)
+  ISR(USART_RX_vect)
 #elif defined(SIG_USART0_RECV)
-  SIGNAL(SIG_USART0_RECV)
+  ISR(SIG_USART0_RECV)
 #elif defined(SIG_UART0_RECV)
-  SIGNAL(SIG_UART0_RECV)
+  ISR(SIG_UART0_RECV)
 #elif defined(USART0_RX_vect)
-  SIGNAL(USART0_RX_vect)
+  ISR(USART0_RX_vect)
 #elif defined(SIG_UART_RECV)
-  SIGNAL(SIG_UART_RECV)
+  ISR(SIG_UART_RECV)
 #endif
   {
   #if defined(UDR0)
@@ -149,7 +149,7 @@ inline void store_char(unsigned char c, ring_buffer *buffer)
   void serialEvent1() __attribute__((weak));
   void serialEvent1() {}
   #define serialEvent1_implemented
-  SIGNAL(USART1_RX_vect)
+  ISR(USART1_RX_vect)
   {
     if (bit_is_clear(UCSR1A, UPE1)) {
       unsigned char c = UDR1;
@@ -166,7 +166,7 @@ inline void store_char(unsigned char c, ring_buffer *buffer)
   void serialEvent2() __attribute__((weak));
   void serialEvent2() {}
   #define serialEvent2_implemented
-  SIGNAL(USART2_RX_vect)
+  ISR(USART2_RX_vect)
   {
     if (bit_is_clear(UCSR2A, UPE2)) {
       unsigned char c = UDR2;
@@ -183,7 +183,7 @@ inline void store_char(unsigned char c, ring_buffer *buffer)
   void serialEvent3() __attribute__((weak));
   void serialEvent3() {}
   #define serialEvent3_implemented
-  SIGNAL(USART3_RX_vect)
+  ISR(USART3_RX_vect)
   {
     if (bit_is_clear(UCSR3A, UPE3)) {
       unsigned char c = UDR3;
