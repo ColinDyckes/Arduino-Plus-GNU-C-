@@ -53,12 +53,16 @@
 // using a ring buffer (I think), in which head is the index of the location
 // to which to write the next incoming character and tail is the index of the
 // location from which to read.
-#if (RAMEND < 1000)
-  #define SERIAL_BUFFER_SIZE 16
+//#define SERIAL_BUFFER_SIZE_CONF 1500
+#ifndef SERIAL_BUFFER_SIZE_CONF
+#if (RAMEND < 4000)
+  #define SERIAL_BUFFER_SIZE 64
 #else
   #define SERIAL_BUFFER_SIZE 256
 #endif
-
+#else
+#define SERIAL_BUFFER_SIZE SERIAL_BUFFER_SIZE_CONF
+#endif
 struct ring_buffer
 {
   unsigned char buffer[SERIAL_BUFFER_SIZE];

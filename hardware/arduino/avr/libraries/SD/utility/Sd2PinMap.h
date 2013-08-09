@@ -138,7 +138,7 @@ static const pin_map_t digitalPinMap[] = {
 		{&DDRE, &PINE, &PORTE, 3},  // PE3  5
 		{&DDRE, &PINE, &PORTE, 4},  // PE4  6
 		{&DDRE, &PINE, &PORTE, 7},  // PE7  7
-		{&DDRF, &PINF, &PORTF, 6},  // PF6  8
+		{&DDRB, &PINB, &PORTB, 4},  // PB4  8
 		{&DDRB, &PINB, &PORTB, 7},  // PB7  9
 		{&DDRB, &PINB, &PORTB, 0},  // PB0 10
 		{&DDRB, &PINB, &PORTB, 2},  // PB2 11
@@ -150,22 +150,24 @@ static const pin_map_t digitalPinMap[] = {
 		{&DDRF, &PINF, &PORTF, 3},  // PF3 17
 		{&DDRF, &PINF, &PORTF, 4},  // PF4 18
 		{&DDRF, &PINF, &PORTF, 5},  // PF5 19
-		{&DDRB, &PINB, &PORTB, 4},  // PB4 20
-		{&DDRF, &PINF, &PORTF, 7},  // PF7 21
-		{&DDRB, &PINB, &PORTB, 5},  // PB5 22
-		{&DDRB, &PINB, &PORTB, 6},  // PB6 23
-		{&DDRD, &PIND, &PORTD, 0},  // PD0 24
-		{&DDRD, &PIND, &PORTD, 1},  // PD1 25
-		{&DDRD, &PIND, &PORTD, 4},  // PD4 26
-		{&DDRD, &PIND, &PORTD, 5},  // PD5 27
-		{&DDRD, &PIND, &PORTD, 6},  // PD6 28
-		{&DDRD, &PIND, &PORTD, 7},  // PD7 29
-		{&DDRE, &PINE, &PORTE, 0},  // PE0 30
-		{&DDRE, &PINE, &PORTE, 1},   //PE1 31
-		{&DDRG, &PING, &PORTG, 0},  // PG0 32
-		{&DDRG, &PING, &PORTG, 1},  // PG1 33
-		{&DDRG, &PING, &PORTG, 2},  // PG2 34
-		{&DDRG, &PING, &PORTG, 3}   // PG3 35
+		{&DDRB, &PINB, &PORTB, 5},  // PB5 20
+		{&DDRD, &PIND, &PORTD, 1},  // PD1 21
+		{&DDRD, &PIND, &PORTD, 0},  // PD0 22
+		{&DDRD, &PIND, &PORTD, 5},  // PD5 23
+		{&DDRD, &PIND, &PORTD, 6},  // PD6 24
+		{&DDRD, &PIND, &PORTD, 7},  // PD7 25
+		{&DDRB, &PINB, &PORTB, 0},  // PB0 26
+		{&DDRG, &PING, &PORTG, 5},  // PG5 27
+		{&DDRD, &PIND, &PORTD, 4},  // PD4 28
+		{&DDRG, &PING, &PORTG, 3},  // PG3 29
+		{&DDRG, &PING, &PORTG, 4},  // PG4 30
+		{&DDRG, &PING, &PORTG, 1},   //PG1 31
+		{&DDRG, &PING, &PORTG, 2},  // PG2 32
+		{&DDRF, &PINF, &PORTF, 7},  // PF7 33
+		{&DDRG, &PING, &PORTG, 0},  // PG0 34
+		{&DDRF, &PINF, &PORTF, 6},  // PF6 35
+		{&DDRE, &PINE, &PORTE, 0},  // PE0 36
+		{&DDRE, &PINE, &PORTE, 1},  // PE1 337
 };
 //------------------------------------------------------------------------------
 #elif defined(__AVR_ATmega644P__) || defined(__AVR_ATmega644__)

@@ -49,10 +49,10 @@ const static uint8_t A6 = 46;
 const static uint8_t A7 = 47;
 
 
-const static uint8_t SPI_SS   = 24;  //pb0
-const static uint8_t SPI_MOSI = 26;  //pb2
-const static uint8_t SPI_MISO = 27;  //pb3
-const static uint8_t SPI_SCK  = 25;  //pb1
+const static uint8_t SS   = 24;  //pb0
+const static uint8_t MOSI = 26;  //pb2
+const static uint8_t MISO = 27;  //pb3
+const static uint8_t SCK  = 25;  //pb1
 
 
 // A majority of the pins are NOT PCINTs, SO BE WARNED (i.e. you cannot use them as receive pins)

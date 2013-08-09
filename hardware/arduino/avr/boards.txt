@@ -1,6 +1,50 @@
 # See: http://www.smeshlink.com
 ##############################################################
 
+mx212cb.name=mx212cb(atmega1281 rf212 73728)
+mx212cb.cpu=atmega1281
+
+mx212cb.upload.tool=avrdude
+mx212cb.upload.protocol=mib510
+mx212cb.upload.maximum_size=129024
+mx212cb.upload.speed=115200
+
+mx212cb.bootloader.tool=avrdude
+mx212cb.bootloader.low_fuses=0xff
+mx212cb.bootloader.high_fuses=0xd9
+mx212cb.bootloader.extended_fuses=0xFF
+mx212cb.bootloader.file=atmega/AtmegaBOOT_atmega1281_73728.hex.hex
+mx212cb.bootloader.unlock_bits=0x3F
+mx212cb.bootloader.lock_bits=0x0F
+
+mx212cb.build.mcu=atmega1281
+mx212cb.build.f_cpu=7372800L
+mx212cb.build.core=arduino
+mx212cb.build.variant=mx212cb
+##############################################################
+
+mx231cb.name=mx231cb(atmega1281 rf231 73728)
+mx231cb.cpu=atmega1281
+
+mx231cb.upload.tool=avrdude
+mx231cb.upload.protocol=mib510
+mx231cb.upload.maximum_size=129024
+mx231cb.upload.speed=115200
+
+mx231cb.bootloader.tool=avrdude
+mx231cb.bootloader.low_fuses=0xff
+mx231cb.bootloader.high_fuses=0xd9
+mx231cb.bootloader.extended_fuses=0xFF
+mx231cb.bootloader.file=atmega/AtmegaBOOT_atmega1281_73728.hex.hex
+mx231cb.bootloader.unlock_bits=0x3F
+mx231cb.bootloader.lock_bits=0x0F
+
+mx231cb.build.mcu=atmega1281
+mx231cb.build.f_cpu=7372800L
+mx231cb.build.core=arduino
+mx231cb.build.variant=mx231cb
+##############################################################
+
 mx231cc.name=mx231cc
 mx231cc.cpu=atmega1284p
 
@@ -21,6 +65,28 @@ mx231cc.build.mcu=atmega1284p
 mx231cc.build.f_cpu=8000000L
 mx231cc.build.core=arduino
 mx231cc.build.variant=mx231cc
+##############################################################
+
+mx212cc.name=mx212cc
+mx212cc.cpu=atmega1284p
+
+mx212cc.upload.tool=avrdude
+mx212cc.upload.protocol=arduino
+mx212cc.upload.maximum_size=129024
+mx212cc.upload.speed=38400
+
+mx212cc.bootloader.tool=avrdude
+mx212cc.bootloader.low_fuses=0xE2
+mx212cc.bootloader.high_fuses=0x9a
+mx212cc.bootloader.extended_fuses=0xFF
+mx212cc.bootloader.file=atmega/ATmegaBOOT_atmega1284p_8M.hex
+mx212cc.bootloader.unlock_bits=0x3F
+mx212cc.bootloader.lock_bits=0x0F
+
+mx212cc.build.mcu=atmega1284p
+mx212cc.build.f_cpu=8000000L
+mx212cc.build.core=arduino
+mx212cc.build.variant=mx212cc
 
 ##############################################################
 
@@ -141,3 +207,47 @@ zigduino.build.variant=zigduino_r1
 ##############################################################
 
 
+miduino231.name=mini iduino rf231 with atmega8 
+miduino231.cpu=atmega8
+miduino231.upload.tool=avrdude
+miduino231.upload.protocol=arduino
+miduino231.upload.maximum_size=7168
+miduino231.upload.speed=19200
+
+miduino231.bootloader.tool=avrdude
+miduino231.bootloader.unlock_bits=0x3F
+miduino231.bootloader.lock_bits=0x0F
+
+miduino231.build.mcu=atmega8
+miduino231.build.f_cpu=16000000L
+miduino231.build.core=arduino
+miduino231.build.variant=miduino231
+
+
+miduino231.bootloader.low_fuses=0xdf
+miduino231.bootloader.high_fuses=0xca
+miduino231.bootloader.file=atmega8/ATmegaBOOT-prod-firmware-2009-11-07.hex
+
+##############################################################
+
+
+miduino212.name=mini iduino rf212 with atmega8 
+miduino212.cpu=atmega8
+miduino212.upload.tool=avrdude
+miduino212.upload.protocol=arduino
+miduino212.upload.maximum_size=7168
+miduino212.upload.speed=19200
+
+miduino212.bootloader.tool=avrdude
+miduino212.bootloader.unlock_bits=0x3F
+miduino212.bootloader.lock_bits=0x0F
+
+miduino212.build.mcu=atmega8
+miduino212.build.f_cpu=16000000L
+miduino212.build.core=arduino
+miduino212.build.variant=miduino212
+
+
+miduino212.bootloader.low_fuses=0xdf
+miduino212.bootloader.high_fuses=0xca
+miduino212.bootloader.file=atmega8/ATmegaBOOT-prod-firmware-2009-11-07.hex

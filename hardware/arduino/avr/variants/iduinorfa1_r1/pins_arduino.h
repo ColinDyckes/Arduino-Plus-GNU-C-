@@ -152,7 +152,7 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
 		PE	, // PE 3 ** 5 ** D5
 		PE	, // PE 4 ** 6 ** PWM6
 		PE	, // PE 7 ** 7 ** D7
-		PB	, // PB 4 ** 8 ** PWM8
+		PB	, // PB 4 ** 8 ** PWM8   /enc vcc old
 		PB	, // PB 7 ** 9 ** PWM9
 		PB	, // PB 0 ** 10 ** SS
 		PB	, // PB 2 ** 11 ** SPI_MOSI
@@ -165,7 +165,7 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
 		PF	, // PF 4 ** 18 ** A4
 		PF	, // PF 5 ** 19 ** A5
 
-		PB	, // PB 5 ** 20 ** LIS3DH INT(POWER CONNECTED VCC)
+		PB	, // PB 5 ** 20 ** LIS3DH INT(POWER CONNECTED VCC)  // button
 		PD	, // PD 1 ** 21 ** I2C_SDA
 		PD	, // PD 0 ** 22 ** I2C_SCL
 		PD , // PD 5 ** 23 ** RFTX  LED0
@@ -177,7 +177,7 @@ const uint8_t PROGMEM digital_pin_to_port_PGM[] = {
 		PG	, // PG 3 ** 29 ** TOSC2 32.768KRC
 		PG	, // PG 4 ** 30 ** TOSC1 32.768KRC
 		PG	, // PG 1 ** 31 ** RF212_RST
-		PG	, // PG 2 ** 32 **  SPI_CS_SD SI7005 POWER
+		PG	, // PG 2 ** 32 **  SPI_CS_SD SI7005 POWER  //old enc cs
 		PF	, // PF 6 ** 33 ** VCC_ENC_CONTROL LOW ENABLE
 		PG	, // PG 0 ** 34 ** RF212_SLP
 		PF , // PF 7 ** 35 ** SPI_CS_ENC
@@ -225,7 +225,7 @@ const uint8_t PROGMEM digital_pin_to_bit_mask_PGM[] = {
 		_BV( 2 )	, // PG 2 ** 32
 		_BV( 6 )	, // PF 6 ** 33
 		_BV( 0 )	, // PG 0 ** 34
-		_BV( 7 ) , // PF 7 ** 35
+		_BV( 7 ) , 	  // PF 7 ** 35
 		_BV( 0 )	, // PE 0 ** 36
 		_BV( 1 )	, // PE 1 ** 37
 
